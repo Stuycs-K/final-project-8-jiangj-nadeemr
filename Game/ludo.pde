@@ -21,12 +21,22 @@ public class Ludo {
   public void createBoard(int players) {
     for(int i=0;i<17;i++){
       for(int j=0;j<17;j++){
-        if(i!=0||i!=16||j!=0||j!=16){
+        if(i!=0&&i!=16&&j!=0&&j!=16){
         gameBoard[i][j]=-1;
     }
+      else{
+        gameBoard[i][j]=0;
     }
     }
-    //for(int i=0;i<gameBoard.length;i++){
+    for(int i=1;i<16;i++){
+      gameBoard[i][8]=0;
+      gameBoard[8][i]=0;
+    }
+    gameBoard[0][8]=-2; //special space for red
+    gameBoard[8][0]=-3; //special space for blue
+    gameBoard[16][8]=-4; // special space for green
+    gameBoard[8][16]=-5;// special space for yellow
+    gameBoard[8][8]=-6;
     }
   /*
   Method is ran after every player turn. 
