@@ -22,7 +22,9 @@ public class Ludo {
   Method is ran after every player turn. 
   Checks if User.numOfTokensFinished == 4
   */
-  public boolean checkWinner(User player) {return false;}
+  public boolean checkWinner(User player) {
+  return player.numOfTokensFinished == 4;
+}
   
   /*
   Returns number of players for the game.
