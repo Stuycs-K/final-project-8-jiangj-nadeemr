@@ -11,13 +11,23 @@ public class Ludo {
   // need dimensons for ludo board
   numPlayers = 4;
   userTurn = 1;
+  gameBoard=new int[17][17];
   }
   /*
   Creates the physical Ludo Board that will be
   displayed in the processing screen. Adds tokens
   for each user playing.
   */
-  public void createBoard(int players) {}
+  public void createBoard(int players) {
+    for(int i=0;i<17;i++){
+      for(int j=0;j<17;j++){
+        if(i!=0||i!=16||j!=0||j!=16){
+        gameBoard[i][j]=-1;
+    }
+    }
+    }
+    //for(int i=0;i<gameBoard.length;i++){
+    }
   /*
   Method is ran after every player turn. 
   Checks if User.numOfTokensFinished == 4
