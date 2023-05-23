@@ -20,6 +20,13 @@ public class User extends Ludo {
   }
   }
   }
+  public int getNumOfTokensInHome(){
+    return numOfTokensInHome;
+  }
+  public int getNumOfTokensFinished(){
+    return numOfTokensFinished;
+  }
+  
   
   
 }
