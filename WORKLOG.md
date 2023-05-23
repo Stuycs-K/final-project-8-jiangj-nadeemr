@@ -1,10 +1,10 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Jonathan J
 
-### date x
+### 5/22/2023
 
-info
+I finished setting up the shell for the User Class and writing annotations for each method in the class.
 
 ### date y
 
