@@ -7,9 +7,9 @@ public class Ludo {
   Initalizes numPlayers and userTurn for the game
   Sets up the 2d-array gameBoard with 0's
   */
-  public Ludo(int plrs) {
+  public Ludo() {
   // need dimensons for ludo board
-  numPlayers = plrs;
+  numPlayers = 4;
   userTurn = 1;
   }
   /*

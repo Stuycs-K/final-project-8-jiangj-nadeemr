@@ -14,7 +14,7 @@ public class User extends Ludo {
   */
   public void onMousePressed(){
     int spacesToMove=diceRoll();
-    if(getColorOfToken.equals(colorOfToken){
+    if(getColorOfToken.equals(colorOfToken)){
       for(int i=0;i<spacesToMove;i++){
         currentToken.move();
   }
