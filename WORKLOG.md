@@ -14,6 +14,9 @@ I added some code for the methods in the User class, they are still incomplete b
  
 I finished the accessor methods for the User Class and designed the gameboard and how it would look. Going to work on implementing the constructor now.
 
+### 5/23/2023 HW
+
+Finished the gameboard method.
 
 ## Raihan N
 
