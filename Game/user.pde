@@ -3,6 +3,7 @@ public class User extends Ludo {
   private int numOfTokensFinished;
   private color colorOfToken;
   private Token currentToken;
+  private ArrayList<Token> tokenList=new ArrayList<Token>(4);
   /*
   on player turn, roll the dice and return the results ( 1-6)
   */
@@ -13,6 +14,15 @@ public class User extends Ludo {
     numOfTokensInHome=3;
     numOfTokensFinished=0;
     colorOfToken=x;
+    Token first= new Token(x,150,150);
+    Token second=new Token(x,300,300);
+    Token third=new Token(x,150,300);
+    Token fourth=new Token(x,300,150);
+    tokenList.add(first);
+    tokenList.add(second);
+    tokenList.add(third);
+    tokenList.add(fourth);
+  
   }
     
   /*
@@ -32,8 +42,13 @@ public class User extends Ludo {
   public int getNumOfTokensFinished(){
     return numOfTokensFinished;
   }
-  
-  
+  public Token returnToken(){
+    return currentToken;
+  }
+   public void newCurrentToken(int x){
+    currentToken=tokenList.get(x);
+  }
+
   
 }
 
