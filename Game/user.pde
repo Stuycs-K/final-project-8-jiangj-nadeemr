@@ -9,6 +9,12 @@ public class User extends Ludo {
   public int diceRoll(){
     return 1+(int)(Math.random()*6);
   }
+  public User(color x){
+    numOfTokensInHome=3;
+    numOfTokensFinished=0;
+    colorOfToken=x;
+  }
+    
   /*
   when a valid token is clicked, move it by the number returned by diceroll;
   */

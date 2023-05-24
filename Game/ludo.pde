@@ -12,6 +12,7 @@ public static class Ludo {
   numPlayers = 4;
   userTurn = 1;
   gameBoard=new int[17][17];
+
   }
   /*
   Creates the physical Ludo Board that will be

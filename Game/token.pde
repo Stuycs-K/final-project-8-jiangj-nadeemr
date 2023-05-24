@@ -2,7 +2,7 @@ public class Token {
   private color tokenColor;
   private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock;
   private int spacesAwayFromTriangle;
-  private int xspawn,yspawn;
+  private int xspawn,yspawn,xcor,ycor;
   /* Token constructor - creates a token with color
   and position
   */
@@ -15,7 +15,7 @@ public class Token {
   from the game, increase User's numOfTokensFinished
   */
   public boolean checkIfDone(int spacesAwayFromTriangle) {
-    return false;
+    return spacesAwayFromTriangle==0;
   }
   /* Checks if you're touching an enemy/friendly token. If 
   touching an enemy token, send enemy token home.
@@ -29,7 +29,8 @@ public class Token {
   /* Spawns a token at the given position */
   public void spawn(int xspawn, int yspawn) {}
   /* Moves a token num places (called in diceRoll) */
-  public void move(int num) {}
+  public void move(int num) {
+  }
   /* Sends a token back to home yard/base. Will be called when
   a token is defeated by an enemy token. */
   public void returnToHomeYard(int xSpawn, int ySpawn) {}
