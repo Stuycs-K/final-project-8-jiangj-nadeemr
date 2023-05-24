@@ -18,6 +18,10 @@ I finished the accessor methods for the User Class and designed the gameboard an
 
 Finished the gameboard method.
 
+### 5/24/2023 CW
+
+Worked on converting the gameboard method array into a processing drawing.
+
 ## Raihan N
 
 ### 5/22/2023
