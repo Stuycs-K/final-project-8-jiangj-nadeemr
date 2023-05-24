@@ -10,6 +10,13 @@ I finished setting up the shell for the User Class and writing annotations for e
 
 I added some code for the methods in the User class, they are still incomplete because it requires for some of the methods in the token class to be set up, but the core of the methods are there.
 
+### 5/23/2023 CW
+ 
+I finished the accessor methods for the User Class and designed the gameboard and how it would look. Going to work on implementing the constructor now.
+
+### 5/23/2023 HW
+
+Finished the gameboard method.
 
 ## Raihan N
 
