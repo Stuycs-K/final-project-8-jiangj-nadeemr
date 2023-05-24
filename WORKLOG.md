@@ -25,6 +25,8 @@ Finished the gameboard method.
 CW: I finished the setting up the Ludo class with all the annotations for each method in the class.
 HW: Finished some methods for Ludo and finish the Ludo constructor. Still waiting on certain classes to be completed before doing the other methods.
 
-### date y
+### 5/23/2023
+CW: Worked on designing the gameboard and how it would work. Also added Token class with annotations
+HW: Finished some methods for Token class and finished its constructor.
 
 info
