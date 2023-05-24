@@ -1,7 +1,7 @@
 public class User extends Ludo {
   private int numOfTokensInHome;
   private int numOfTokensFinished;
-  private String colorOfToken;
+  private color colorOfToken;
   private Token currentToken;
   /*
   on player turn, roll the dice and return the results ( 1-6)
@@ -14,12 +14,12 @@ public class User extends Ludo {
   */
   public void onMousePressed(){
     int spacesToMove=diceRoll();
-    if(getColorOfToken.equals(colorOfToken)){
-      for(int i=0;i<spacesToMove;i++){
-        currentToken.move();
+    if(currentToken.getColor()==(colorOfToken)){
+        currentToken.move(spacesToMove);
   }
   }
-  }
+  
+  
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
   }

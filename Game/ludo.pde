@@ -1,4 +1,4 @@
-public class Ludo {
+public static class Ludo {
   private int userTurn;
   private int numPlayers;
   private int[][] gameBoard;
@@ -18,7 +18,7 @@ public class Ludo {
   displayed in the processing screen. Adds tokens
   for each user playing.
   */
-  public void createBoard(int players) {
+  public void createBoard() {
     for(int i=0;i<17;i++){
       for(int j=0;j<17;j++){
         if(i!=0&&i!=16&&j!=0&&j!=16){
@@ -28,9 +28,9 @@ public class Ludo {
         gameBoard[i][j]=0;
     }
     }
-    for(int i=1;i<16;i++){
-      gameBoard[i][8]=0;
-      gameBoard[8][i]=0;
+    for(int j=1;j<16;j++){
+      gameBoard[j][8]=0;
+      gameBoard[8][j]=0;
     }
     gameBoard[0][8]=-2; //special space for red
     gameBoard[8][0]=-3; //special space for blue
@@ -38,12 +38,17 @@ public class Ludo {
     gameBoard[8][16]=-5;// special space for yellow
     gameBoard[8][8]=-6;
     }
+  }
+  public int[][] getBoard(){
+    return gameBoard;
+  }
+        
   /*
   Method is ran after every player turn. 
   Checks if User.numOfTokensFinished == 4
   */
   public boolean checkWinner(User player) {
-  return player.numOfTokensFinished == 4;
+    return player.numOfTokensFinished == 4;
 }
   
   /*
