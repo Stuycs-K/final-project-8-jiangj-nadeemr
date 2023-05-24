@@ -27,12 +27,22 @@ public class Token {
     return tokenColor;
   }
   /* Spawns a token at the given position */
-  public void spawn(int xspawn, int yspawn) {}
+  public void spawn(int xspawn, int yspawn) {
+    fill(tokenColor);
+    circle(xspawn,yspawn,50);
+    fill(255,255,255);
+    }
   /* Moves a token num places (called in diceRoll) */
   public void move(int num) {
   }
   /* Sends a token back to home yard/base. Will be called when
   a token is defeated by an enemy token. */
   public void returnToHomeYard(int xSpawn, int ySpawn) {}
+  public int returnXSpawn(){
+    return xspawn;
+  }
+  public int returnYSpawn(){
+    return yspawn;
+  }
   
 }

@@ -1,4 +1,6 @@
 Ludo x= new Ludo();
+color red=color(219,48,48);
+User one= new User(red);
 void setup(){
   size(1400,935);
   x.createBoard();
@@ -46,4 +48,14 @@ void draw() {
     rect(547.5,97.5,295,295);
     rect(97.5,547.5,295,295);
     rect(547.5,547.5,295,295);
+    for(int i=0;i<4;i++){
+      one.newCurrentToken(i);
+      Token j= one.returnToken();
+      int x= j.returnXSpawn();
+      int y= j.returnYSpawn();
+      j.spawn(x,y);
+    }
+      
+      
+    
 }
