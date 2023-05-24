@@ -1,1 +1,28 @@
-void draw() {}
+Ludo x= new Ludo();
+void setup(){
+  size(1400,935);
+  x.createBoard();
+}
+void draw() {
+  int[][]board=x.getBoard();
+    for(int i=0;i<17;i++){
+      for(int j=0;j<17;j++){
+        if(board[i][j]==0){
+          rect(i*55,j*55,55,55);
+        }
+      }
+    }
+    fill(219,48,48);
+    rect(55,55,385,385);
+    fill(68,217,61);
+    rect(495,55,385,385);
+    fill(103,164,224);
+    rect(55,495,385,385);
+    fill(242,240,92);
+    rect(495,495,385,385);
+    fill(255,255,255);
+    rect(97.5,97.5,295,295);
+    rect(547.5,97.5,295,295);
+    rect(97.5,97.5,295,295);
+    rect(97.5,97.5,295,295);
+}

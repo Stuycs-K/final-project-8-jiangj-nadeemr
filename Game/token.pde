@@ -23,6 +23,9 @@ public class Token {
   public boolean checkTouching(Token other) {
     return false;
   }
+  public color getColor(){
+    return tokenColor;
+  }
   /* Spawns a token at the given position */
   public void spawn(int xspawn, int yspawn) {}
   /* Moves a token num places (called in diceRoll) */
