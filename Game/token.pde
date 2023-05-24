@@ -1,5 +1,5 @@
 public class Token {
-  private String tokenColor;
+  private color tokenColor;
   private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock;
   private int spacesAwayFromTriangle;
   private int xspawn,yspawn;
@@ -7,7 +7,9 @@ public class Token {
   and position
   */
   public Token(color clr, int xcord, int ycord) {
-
+    tokenColor = clr;
+    xspawn = xcord;
+    yspawn = ycord;
   }
   /* Checks if a token reached home base. If so, remove the token
   from the game, increase User's numOfTokensFinished
