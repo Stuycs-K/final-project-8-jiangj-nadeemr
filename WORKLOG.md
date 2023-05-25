@@ -22,6 +22,14 @@ Finished the gameboard method.
 
 Worked on converting the gameboard method array into a processing drawing.
 
+### 5/24/2023 HW
+
+Worked on incorporating the red tokens into the processing drawing, will use the code to do the other colors.
+
+### 5/25/2023 CW
+
+Finished on getting all the colored tokens into their respective homeyards and started the method to allow them to move out of their homeyard.
+
 ## Raihan N
 
 ### 5/22/2023
