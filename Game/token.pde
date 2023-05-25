@@ -8,8 +8,20 @@ public class Token {
   */
   public Token(color clr, int xcord, int ycord) {
     if(clr==red){
-      xLeave=100;
-      yLeave=150;
+      xLeave=28;
+      yLeave=(28*16)+18;
+    }
+    if(clr==color(103,164,224)) {
+      xLeave=(55*8) + 28;
+      yLeave=(28*31)+40;
+    }
+    if(clr==color(68,217,61)) {
+      xLeave=(55*8) + 28;
+      yLeave=(28);
+    }
+    if(clr==color(242,240,92)) {
+      xLeave=(28*32)+12;
+      yLeave=(28*16)+18;
     }
     tokenColor = clr;
     xspawn = xcord;
@@ -25,7 +37,10 @@ public class Token {
   touching an enemy token, send enemy token home.
   */
   public boolean checkTouching(Token other) {
-    return false;
+    if(other.returnXLeave() == xLeave && other.returnYLeave() == yLeave) {
+    return true;
+  }
+  return false;
   }
   public color getColor(){
     return tokenColor;
@@ -38,7 +53,7 @@ public class Token {
     }
   /* Moves a token num places (called in diceRoll) */
   public void move(int num) {
-    spawn(xspawn+num, yspawn+num);
+    spawn(xLeave+(num*55), yLeave);
   }
   /* Sends a token back to home yard/base. Will be called when
   a token is defeated by an enemy token. */

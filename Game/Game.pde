@@ -3,6 +3,7 @@ color red=color(219,48,48);
 color green = color(68,217,61);
 color blue= color(103,164,224);
 color yellow= color(242,240,92);
+int countdown = 0;
 User one= new User(red);
 User two = new User(green);
 User three= new User(blue);
@@ -12,6 +13,7 @@ void setup(){
   x.createBoard();
 }
 void draw() {
+      if(countdown==0) {
   int[][]board=x.getBoard();
     for(int i=0;i<17;i++){
       for(int j=0;j<17;j++){
@@ -29,12 +31,12 @@ void draw() {
           fill(255,255,255);
       }
       if(board[i][j]==-4){
-          fill(103,164,224);
+          fill(242,240,92);
           rect(i*55,j*55,55,55);
           fill(255,255,255);
       }
       if(board[i][j]==-5){
-          fill(242,240,92);
+          fill(103,164,224);
           rect(i*55,j*55,55,55);
           fill(255,255,255);
       }
@@ -77,10 +79,27 @@ void draw() {
       int y3=m.returnYSpawn();
       m.spawn(x3,y3);
     }
-   Token j= one.returnToken();
-   int x=j.returnXLeave();
-   int y=j.returnYLeave();
-   j.spawn(x,y);
+    Token j= one.returnToken();
+       int x=j.returnXLeave();
+       int y=j.returnYLeave();
+       j.spawn(x,y);
+       Token k = two.returnToken();
+       int x1 = k.returnXLeave();
+       int y1 = k.returnYLeave();
+       k.spawn(x1,y1);
+       Token l = three.returnToken();
+       int x2 = l.returnXLeave();
+       int y2 = l.returnYLeave();
+       l.spawn(x2,y2);
+       int ran = three.diceRoll();
+       l.move(ran);
+       print("Moved " + ran + " tiles!");
+       Token m=four.returnToken();
+       int x3=m.returnXLeave();
+       int y3=m.returnYLeave();
+       m.spawn(x3,y3);
+       countdown = 1;
+    }
 }
    
 
