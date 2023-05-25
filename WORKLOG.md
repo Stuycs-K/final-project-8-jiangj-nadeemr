@@ -44,4 +44,7 @@ HW: Finished some methods for Token class and finished its constructor.
 ## 5/24/2023
 CW: Worked with Jonathan in-class to create the board on processing -- got the sketch on processing sucessfully.
 HW: Worked on trying to move the tokens based on what Jonathan made; added tokens to green home base.
+
+## 5/25/2023
+CW: Worked on adding tokens to each spawn (picked up from where Jonathan left off). Worked on token movement logic, got horizontal movement working. Added checkTouching() method!
 info
