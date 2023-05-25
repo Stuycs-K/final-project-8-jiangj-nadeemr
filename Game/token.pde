@@ -8,8 +8,20 @@ public class Token {
   */
   public Token(color clr, int xcord, int ycord) {
     if(clr==red){
-      xLeave=100;
-      yLeave=150;
+      xLeave=28;
+      yLeave=(28*16)+18;
+    }
+    if(clr==color(103,164,224)) {
+      xLeave=(55*8) + 28;
+      yLeave=(28*31)+40;
+    }
+    if(clr==color(68,217,61)) {
+      xLeave=(55*8) + 28;
+      yLeave=(28);
+    }
+    if(clr==color(242,240,92)) {
+      xLeave=(28*32)+10;
+      yLeave=(28*16)+18;
     }
     tokenColor = clr;
     xspawn = xcord;

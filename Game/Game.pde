@@ -29,12 +29,12 @@ void draw() {
           fill(255,255,255);
       }
       if(board[i][j]==-4){
-          fill(103,164,224);
+          fill(242,240,92);
           rect(i*55,j*55,55,55);
           fill(255,255,255);
       }
       if(board[i][j]==-5){
-          fill(242,240,92);
+          fill(103,164,224);
           rect(i*55,j*55,55,55);
           fill(255,255,255);
       }
@@ -81,6 +81,18 @@ void draw() {
    int x=j.returnXLeave();
    int y=j.returnYLeave();
    j.spawn(x,y);
+   Token k = two.returnToken();
+   int x1 = k.returnXLeave();
+   int y1 = k.returnYLeave();
+   k.spawn(x1,y1);
+   Token l = three.returnToken();
+   int x2 = l.returnXLeave();
+   int y2 = l.returnYLeave();
+   l.spawn(x2,y2);
+   Token m=four.returnToken();
+   int x3=m.returnXLeave();
+   int y3=m.returnYLeave();
+   m.spawn(x3,y3);
 }
    
 
