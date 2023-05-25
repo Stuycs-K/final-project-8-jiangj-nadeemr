@@ -33,4 +33,7 @@ HW: Finished some methods for Ludo and finish the Ludo constructor. Still waitin
 CW: Worked on designing the gameboard and how it would work. Also added Token class with annotations
 HW: Finished some methods for Token class and finished its constructor.
 
+## 5/24/2023
+CW: Worked with Jonathan in-class to create the board on processing -- got the sketch on processing sucessfully.
+HW: Worked on trying to move the tokens based on what Jonathan made; added tokens to green home base.
 info
