@@ -13,10 +13,13 @@ public class User extends Ludo {
   public User(color x){
     color red=color(219,48,48);
     color green = color(68,217,61);
+    color blue= color(103,164,224);
+    color yellow= color(242,240,92);
     numOfTokensInHome=3;
     numOfTokensFinished=0;
     colorOfToken=x;
     if(colorOfToken == red) {
+    
     Token first= new Token(x,150,150);
     Token second=new Token(x,300,300);
     Token third=new Token(x,150,300);
@@ -35,6 +38,26 @@ public class User extends Ludo {
     tokenList.add(third);
     tokenList.add(fourth);
     }
+    else if(colorOfToken==blue){
+    Token first= new Token(x,150,600);
+    Token second=new Token(x,150,750);
+    Token third=new Token(x,300,600);
+    Token fourth=new Token(x,300,750);
+    tokenList.add(first);
+    tokenList.add(second);
+    tokenList.add(third);
+    tokenList.add(fourth);
+  }
+  else if(colorOfToken==yellow){
+    Token first= new Token(x,600,600);
+    Token second=new Token(x,600,750);
+    Token third=new Token(x,750,600);
+    Token fourth=new Token(x,750,750);
+    tokenList.add(first);
+    tokenList.add(second);
+    tokenList.add(third);
+    tokenList.add(fourth);
+  }
   }
     
   /*
