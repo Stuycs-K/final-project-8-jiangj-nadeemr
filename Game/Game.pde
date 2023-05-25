@@ -1,6 +1,8 @@
 Ludo x= new Ludo();
 color red=color(219,48,48);
+color green = color(68,217,61);
 User one= new User(red);
+User two = new User(green);
 void setup(){
   size(1400,935);
   x.createBoard();
@@ -54,7 +56,15 @@ void draw() {
       int x= j.returnXSpawn();
       int y= j.returnYSpawn();
       j.spawn(x,y);
+      //green
+      two.newCurrentToken(i);
+      Token k = two.returnToken();
+      int x1 = k.returnXSpawn();
+      int y1 = k.returnYSpawn();
+      k.spawn(x1,y1);
     }
+      g.move(two.diceRoll());
+
       
       
     
