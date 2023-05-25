@@ -20,7 +20,7 @@ public class Token {
       yLeave=(28);
     }
     if(clr==color(242,240,92)) {
-      xLeave=(28*32)+10;
+      xLeave=(28*32)+12;
       yLeave=(28*16)+18;
     }
     tokenColor = clr;
@@ -37,7 +37,10 @@ public class Token {
   touching an enemy token, send enemy token home.
   */
   public boolean checkTouching(Token other) {
-    return false;
+    if(other.returnXLeave() == xLeave && other.returnYLeave() == yLeave) {
+    return true;
+  }
+  return false;
   }
   public color getColor(){
     return tokenColor;
