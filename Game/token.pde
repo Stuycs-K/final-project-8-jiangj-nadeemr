@@ -34,6 +34,7 @@ public class Token {
     }
   /* Moves a token num places (called in diceRoll) */
   public void move(int num) {
+    spawn(xspawn+num, yspawn+num);
   }
   /* Sends a token back to home yard/base. Will be called when
   a token is defeated by an enemy token. */
