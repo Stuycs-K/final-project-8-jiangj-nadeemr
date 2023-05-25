@@ -2,11 +2,15 @@ public class Token {
   private color tokenColor;
   private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock;
   private int spacesAwayFromTriangle;
-  private int xspawn,yspawn,xcor,ycor;
+  private int xspawn,yspawn,xcor,ycor,xLeave,yLeave;
   /* Token constructor - creates a token with color
   and position
   */
   public Token(color clr, int xcord, int ycord) {
+    if(clr==red){
+      xLeave=100;
+      yLeave=150;
+    }
     tokenColor = clr;
     xspawn = xcord;
     yspawn = ycord;
@@ -45,5 +49,12 @@ public class Token {
   public int returnYSpawn(){
     return yspawn;
   }
+  public int returnXLeave(){
+    return xLeave;
+  }
+  public int returnYLeave(){
+    return yLeave;
+  }
+
   
 }
