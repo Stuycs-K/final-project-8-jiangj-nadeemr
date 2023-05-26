@@ -32,7 +32,7 @@ Finished on getting all the colored tokens into their respective homeyards and s
 
 ### 5/25/2023 HW
 
-Worke don simplifying the code in the game class so it's easier to work on and then I started working on more code for the user class. Was able to get the accessor methods done and started new ideas for the swapping of turns.
+Worked on simplifying the code in the game class so it's easier to work on and then I started working on more code for the user class. Was able to get the accessor methods done and started new ideas for the swapping of turns.
 
 ## Raihan N
 
