@@ -91,13 +91,14 @@ void draw() {
        int x2 = l.returnXLeave();
        int y2 = l.returnYLeave();
        l.spawn(x2,y2);
-       int ran = three.diceRoll();
-       l.move(ran);
-       print("Moved " + ran + " tiles!");
+       j.move(one.diceRoll());
+       l.move(three.diceRoll());
+       k.move(two.diceRoll());
        Token m=four.returnToken();
        int x3=m.returnXLeave();
        int y3=m.returnYLeave();
        m.spawn(x3,y3);
+       m.move(four.diceRoll());
        countdown = 1;
     }
 }
