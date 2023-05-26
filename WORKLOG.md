@@ -34,6 +34,10 @@ Finished on getting all the colored tokens into their respective homeyards and s
 
 Worked on simplifying the code in the game class so it's easier to work on and then I started working on more code for the user class. Was able to get the accessor methods done and started new ideas for the swapping of turns.
 
+### 5/26/2023 CW
+
+Worked on correcting the spawn method so the tokens would move out of the homeyard in the correct destinations. Then I was able to test the move method with the simplified code and it worked, but I had to do a lot of debugging since the code was so messy.
+
 ## Raihan N
 
 ### 5/22/2023
