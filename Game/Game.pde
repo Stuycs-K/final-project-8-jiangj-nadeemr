@@ -28,7 +28,7 @@ public void drawSquares(){
     rect(547.5,547.5,295,295);
 }
 void draw() {
-      if(countdown==0) {
+   if(countdown<=3) {
   int[][]board=x.getBoard();
     for(int i=0;i<17;i++){
       for(int j=0;j<17;j++){
@@ -69,12 +69,11 @@ void draw() {
     Token m=four.returnToken();*/
     x.setCurrentUser(one);
     Token j= x.getCurrentUser().returnToken();
-    j.move(one.diceRoll());
+    j.move(x.getCurrentUser().diceRoll());
     /*l.move(three.diceRoll());
     k.move(two.diceRoll());
     m.move(four.diceRoll());*/
-     countdown = 1;
-      
+    countdown++;
     }
 }
 
