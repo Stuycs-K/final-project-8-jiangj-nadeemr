@@ -30,6 +30,10 @@ Worked on incorporating the red tokens into the processing drawing, will use the
 
 Finished on getting all the colored tokens into their respective homeyards and started the method to allow them to move out of their homeyard.
 
+### 5/25/2023 HW
+
+Worke don simplifying the code in the game class so it's easier to work on and then I started working on more code for the user class. Was able to get the accessor methods done and started new ideas for the swapping of turns.
+
 ## Raihan N
 
 ### 5/22/2023
