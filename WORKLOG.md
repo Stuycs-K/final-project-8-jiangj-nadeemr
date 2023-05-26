@@ -47,4 +47,6 @@ HW: Worked on trying to move the tokens based on what Jonathan made; added token
 
 ## 5/25/2023
 CW: Worked on adding tokens to each spawn (picked up from where Jonathan left off). Worked on token movement logic, got horizontal movement working. Added checkTouching() method!
+HW: Worked on moving one token from each base outside of the homebase; discussed ways to improve codebase to prevent repetitive code. Almost complete with some phases. 
+
 info
