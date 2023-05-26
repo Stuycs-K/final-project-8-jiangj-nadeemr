@@ -57,7 +57,7 @@ void draw() {
       }
     }
     }
-    
+    rect(1100, 100, 220, 220, 28);
     drawSquares();
     one.spawnTokens();
     two.spawnTokens();
