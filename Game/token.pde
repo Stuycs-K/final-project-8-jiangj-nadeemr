@@ -59,7 +59,7 @@ public class Token {
       yspawn=yLeave;
       inHomeBase=false;
     }
-    if(xLeave < 17*50 || xLeave < 256) {
+    if(((xLeave < 17*50 || xLeave < 256 ) && (yLeave < (28*16)+18) && xLeave > 30 && xLeave < 17*55)) {
        xLeave = xLeave+(num*55);
        xspawn= xLeave;
     } else {
