@@ -2,6 +2,7 @@ public static class Ludo {
   private int userTurn;
   private int numPlayers;
   private int[][] gameBoard;
+  private User currentUser;
   /*
   Constructor for Ludo Board
   Initalizes numPlayers and userTurn for the game
@@ -65,4 +66,10 @@ public static class Ludo {
   public int getUserTurn() {
     return userTurn;
   }
+  public void setCurrentUser(User x){
+    currentUser=x;
+  }
+  public User getCurrentUser(){
+    return currentUser;
+}
 }
