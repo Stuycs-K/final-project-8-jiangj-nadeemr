@@ -53,7 +53,13 @@ public class Token {
     }
   /* Moves a token num places (called in diceRoll) */
   public void move(int num) {
-    spawn(xLeave+(num*55), yLeave);
+    if(xLeave < 17*50 || xLeave < 256) {
+       spawn(xLeave+(num*55), yLeave);
+       xLeave = xLeave+(num*55);
+    } else {
+       spawn(xLeave, yLeave+(num*55));
+       yLeave = yLeave+(num*55);
+    }
   }
   /* Sends a token back to home yard/base. Will be called when
   a token is defeated by an enemy token. */

@@ -59,6 +59,15 @@ public class User extends Ludo {
     tokenList.add(fourth);
   }
   }
+  public void spawnTokens(){
+    for(int i=0;i<4;i++){
+      this.newCurrentToken(i);
+      Token j= this.returnToken();
+      int x= j.returnXSpawn();
+      int y= j.returnYSpawn();
+      j.spawn(x,y);
+    }
+  }
     
   /*
   when a valid token is clicked, move it by the number returned by diceroll;

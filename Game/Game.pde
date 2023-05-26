@@ -12,6 +12,21 @@ void setup(){
   size(1400,935);
   x.createBoard();
 }
+public void drawSquares(){
+  fill(219,48,48);
+    rect(55,55,385,385);
+    fill(68,217,61);
+    rect(495,55,385,385);
+    fill(103,164,224);
+    rect(55,495,385,385);
+    fill(242,240,92);
+    rect(495,495,385,385);
+    fill(255,255,255);
+    rect(97.5,97.5,295,295);
+    rect(547.5,97.5,295,295);
+    rect(97.5,547.5,295,295);
+    rect(547.5,547.5,295,295);
+}
 void draw() {
       if(countdown==0) {
   int[][]board=x.getBoard();
@@ -43,64 +58,27 @@ void draw() {
     }
     }
     
-    fill(219,48,48);
-    rect(55,55,385,385);
-    fill(68,217,61);
-    rect(495,55,385,385);
-    fill(103,164,224);
-    rect(55,495,385,385);
-    fill(242,240,92);
-    rect(495,495,385,385);
-    fill(255,255,255);
-    rect(97.5,97.5,295,295);
-    rect(547.5,97.5,295,295);
-    rect(97.5,547.5,295,295);
-    rect(547.5,547.5,295,295);
-    for(int i=0;i<4;i++){
-      one.newCurrentToken(i);
-      Token j= one.returnToken();
-      int x= j.returnXSpawn();
-      int y= j.returnYSpawn();
-      j.spawn(x,y);
-      //green
-      two.newCurrentToken(i);
-      Token k = two.returnToken();
-      int x1 = k.returnXSpawn();
-      int y1 = k.returnYSpawn();
-      k.spawn(x1,y1);
-      three.newCurrentToken(i);
-      Token l= three.returnToken();
-      int x2=l.returnXSpawn();
-      int y2=l.returnYSpawn();
-      l.spawn(x2,y2);
-      four.newCurrentToken(i);
-      Token m=four.returnToken();
-      int x3=m.returnXSpawn();
-      int y3=m.returnYSpawn();
-      m.spawn(x3,y3);
-    }
-    Token j= one.returnToken();
-       int x=j.returnXLeave();
-       int y=j.returnYLeave();
-       j.spawn(x,y);
-       Token k = two.returnToken();
-       int x1 = k.returnXLeave();
-       int y1 = k.returnYLeave();
-       k.spawn(x1,y1);
-       Token l = three.returnToken();
-       int x2 = l.returnXLeave();
-       int y2 = l.returnYLeave();
-       l.spawn(x2,y2);
-       int ran = three.diceRoll();
-       l.move(ran);
-       print("Moved " + ran + " tiles!");
-       Token m=four.returnToken();
-       int x3=m.returnXLeave();
-       int y3=m.returnYLeave();
-       m.spawn(x3,y3);
-       countdown = 1;
+    drawSquares();
+    one.spawnTokens();
+    two.spawnTokens();
+    three.spawnTokens();
+    four.spawnTokens();
+    /*Token j= one.returnToken();
+    Token k = two.returnToken();
+    Token l = three.returnToken();
+    Token m=four.returnToken();*/
+    x.setCurrentUser(one);
+    Token j= x.getCurrentUser().returnToken();
+    j.move(one.diceRoll());
+    /*l.move(three.diceRoll());
+    k.move(two.diceRoll());
+    m.move(four.diceRoll());*/
+     countdown = 1;
+      
     }
 }
+
+
    
 
       
