@@ -4,6 +4,7 @@ color green = color(68,217,61);
 color blue= color(103,164,224);
 color yellow= color(242,240,92);
 int countdown = 0;
+int userTurn=0;
 User one= new User(red);
 User two = new User(green);
 User three= new User(blue);
@@ -28,7 +29,7 @@ public void drawSquares(){
     rect(547.5,547.5,295,295);
 }
 void draw() {
-   if(countdown<4) {
+   if(countdown<2) {
   int[][]board=x.getBoard();
     for(int i=0;i<17;i++){
       for(int j=0;j<17;j++){
@@ -67,18 +68,15 @@ void draw() {
     Token k = two.returnToken();
     Token l = three.returnToken();
     Token m=four.returnToken();*/
-    x.setCurrentUser(one);
-    Token j= x.getCurrentUser().returnToken();
-    j.move(x.getCurrentUser().diceRoll());
-    x.setCurrentUser(two);
-    Token l = x.getCurrentUser().returnToken();
-    l.move(x.getCurrentUser().diceRoll());
- 
-    /*l.move(three.diceRoll());
-    k.move(two.diceRoll());
-    m.move(four.diceRoll());*/
-    countdown++;
     }
+}
+void mousePressed(){
+    x.setCurrentUser(one);
+    one.changeCurrentToken();
+    Token j=one.returnToken();
+    j.move(one.diceRoll());
+    userTurn++;
+    countdown++;
 }
 
 

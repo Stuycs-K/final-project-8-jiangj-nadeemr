@@ -72,8 +72,7 @@ public class User extends Ludo {
   /*
   when a valid token is clicked, move it by the number returned by diceroll;
   */
-  public void onMousePressed(){
-    int spacesToMove=diceRoll();
+  public void onMousePressed(int spacesToMove){
     if(currentToken.getColor()==(colorOfToken)){
         currentToken.move(spacesToMove);
   }
@@ -92,7 +91,19 @@ public class User extends Ludo {
    public void newCurrentToken(int x){
     currentToken=tokenList.get(x);
   }
-
+  public void changeCurrentToken(){
+    if(mousePressed){
+      for(int i=0;i<4;i++){
+        if(tokenList.get(i).returnXSpawn()==mouseX){
+          if(tokenList.get(i).returnYSpawn()==mouseY){
+            if(tokenList.get(i).getColor()==colorOfToken){
+            this.newCurrentToken(i);
+          }
+        }
+      }
+    }
+  }
+  }
   
 }
 
