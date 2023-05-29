@@ -5,6 +5,7 @@ color blue= color(103,164,224);
 color yellow= color(242,240,92);
 int countdown = 0;
 int userTurn=0;
+ArrayList<User>players=new ArrayList<User>(4);
 User one= new User(red);
 User two = new User(green);
 User three= new User(blue);
@@ -12,6 +13,10 @@ User four=new User(yellow);
 void setup(){
   size(1400,935);
   x.createBoard();
+  players.add(one);
+  players.add(two);
+  players.add(three);
+  players.add(four);
 }
 public void drawSquares(){
   fill(219,48,48);
@@ -29,7 +34,7 @@ public void drawSquares(){
     rect(547.5,547.5,295,295);
 }
 void draw() {
-   if(countdown<2) {
+   if(countdown<10) {
   int[][]board=x.getBoard();
     for(int i=0;i<17;i++){
       for(int j=0;j<17;j++){
@@ -71,12 +76,17 @@ void draw() {
     }
 }
 void mousePressed(){
-    x.setCurrentUser(one);
-    one.changeCurrentToken();
-    Token j=one.returnToken();
-    j.move(one.diceRoll());
+    if(userTurn==4){
+      userTurn=0;
+    }
+    User currentUser=players.get(userTurn);
+    x.setCurrentUser(currentUser);
+    currentUser.changeCurrentToken();
+    Token j=currentUser.returnToken();
+    j.move(currentUser.diceRoll());
     userTurn++;
     countdown++;
+    System.out.println("worked");
 }
 
 
