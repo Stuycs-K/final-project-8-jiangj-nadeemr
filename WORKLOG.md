@@ -38,6 +38,10 @@ Worked on simplifying the code in the game class so it's easier to work on and t
 
 Worked on correcting the spawn method so the tokens would move out of the homeyard in the correct destinations. Then I was able to test the move method with the simplified code and it worked, but I had to do a lot of debugging since the code was so messy.
 
+### 5/26/2023 HW
+
+Worked on the mouseClicked method but it didn't work, going to try to figure out why even though I click on a specific token, it only moves one specific token. Also was able to start new methods for new ideas with the turn based mechanics.
+
 ## Raihan N
 
 ### 5/22/2023
