@@ -34,7 +34,7 @@ public void drawSquares(){
     rect(547.5,547.5,295,295);
 }
 void draw() {
-   if(countdown<10) {
+   if(countdown<10000000) {
   int[][]board=x.getBoard();
     for(int i=0;i<17;i++){
       for(int j=0;j<17;j++){
@@ -73,6 +73,8 @@ void draw() {
     Token k = two.returnToken();
     Token l = three.returnToken();
     Token m=four.returnToken();*/
+    } else {
+      print("game done!");
     }
 }
 void mousePressed(){
