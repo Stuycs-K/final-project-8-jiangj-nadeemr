@@ -59,12 +59,14 @@ public class Token {
       yspawn=yLeave;
       inHomeBase=false;
     }
-    if(((xLeave < 17*50 || xLeave < 256 ) && (yLeave < (28*16)+18) && xLeave > 30 && xLeave < 17*55)) {
+    if(tokenColor==red){
+      if(xspawn < 935 && (yLeave == 0) || (yLeave >= 935)) {
        xLeave = xLeave+(num*55);
        xspawn= xLeave;
-    } else {
+      } else {
        yLeave = yLeave+(num*55);
-       yspawn= yLeave;
+       yspawn = yLeave;
+      }
     }
   }
   /* Sends a token back to home yard/base. Will be called when

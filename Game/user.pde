@@ -19,7 +19,6 @@ public class User extends Ludo {
     numOfTokensFinished=0;
     colorOfToken=x;
     if(colorOfToken == red) {
-    
     Token first= new Token(x,150,150);
     Token second=new Token(x,300,300);
     Token third=new Token(x,150,300);
@@ -97,7 +96,7 @@ public class User extends Ludo {
         if(tokenList.get(i).returnXSpawn()==mouseX){
           if(tokenList.get(i).returnYSpawn()==mouseY){
             if(tokenList.get(i).getColor()==colorOfToken){
-            this.newCurrentToken(i);
+            currentToken = tokenList.get(i);
             System.out.println("worked");
           }
         }
