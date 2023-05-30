@@ -19,7 +19,6 @@ public class User extends Ludo {
     numOfTokensFinished=0;
     colorOfToken=x;
     if(colorOfToken == red) {
-    
     Token first= new Token(x,150,150);
     Token second=new Token(x,300,300);
     Token third=new Token(x,150,300);
