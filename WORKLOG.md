@@ -42,6 +42,10 @@ Worked on correcting the spawn method so the tokens would move out of the homeya
 
 Worked on the mouseClicked method but it didn't work, going to try to figure out why even though I click on a specific token, it only moves one specific token. Also was able to start new methods for new ideas with the turn based mechanics.
 
+### 5/29/2023 HW
+
+Finished the turn based mechanics and was able to swap between users once a move was made.
+
 ## Raihan N
 
 ### 5/22/2023
