@@ -60,15 +60,23 @@ public class Token {
       inHomeBase=false;
     }
     if(tokenColor==red){
-      if(xspawn < 935 && (yLeave == 0) || (yLeave >= 935)) {
-       xLeave = xLeave+(num*55);
-       xspawn= xLeave;
-      } else {
-       yLeave = yLeave+(num*55);
-       yspawn = yLeave;
+      for(int i = 1; i <= num; i++) {
+        if(xLeave+55 < 935 && ((yLeave == 0) || (yLeave + 55) >= 935)) {
+             xLeave = xLeave+55;
+             xspawn= xLeave;
+        } else if(xLeave+55 >=935 && yLeave-55 >=0) { 
+             yLeave = yLeave-55;
+             yspawn = yLeave;
+        } else if(yLeave-55 <= 0 && xLeave-55 >=0) {
+             xLeave = xLeave-55;
+             xspawn = xLeave;
+        } else {
+             yLeave = yLeave+55;
+             yspawn = yLeave;
       }
     }
   }
+ }
   /* Sends a token back to home yard/base. Will be called when
   a token is defeated by an enemy token. */
   public void returnToHomeYard(int xSpawn, int ySpawn) {}
