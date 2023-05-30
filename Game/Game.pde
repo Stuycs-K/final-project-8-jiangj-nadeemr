@@ -69,6 +69,11 @@ void draw() {
     two.spawnTokens();
     three.spawnTokens();
     four.spawnTokens();
+    User currentUser=players.get(userTurn);
+    String clr = "";
+    if(currentUser.colorOfToken == red) clr = "Red";
+    else clr = "null";
+    text("Current Player: " + clr, 1000, 200);
     /*Token j= one.returnToken();
     Token k = two.returnToken();
     Token l = three.returnToken();
