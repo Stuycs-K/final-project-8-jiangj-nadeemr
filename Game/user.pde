@@ -91,7 +91,6 @@ public class User extends Ludo {
     currentToken=tokenList.get(x);
   }
   public void changeCurrentToken(){
-    if(mousePressed){
       for(int i=0;i<4;i++){
         if(tokenList.get(i).returnXSpawn()==mouseX){
           if(tokenList.get(i).returnYSpawn()==mouseY){

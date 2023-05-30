@@ -76,6 +76,8 @@ void draw() {
     }
 }
 void mousePressed(){
+    int mouseXcor=mouseX;
+    int mouseYcor=mouseY;
     if(userTurn==4){
       userTurn=0;
     }
