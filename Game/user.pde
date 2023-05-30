@@ -96,7 +96,7 @@ public class User extends Ludo {
         if(tokenList.get(i).returnXSpawn()==mouseX){
           if(tokenList.get(i).returnYSpawn()==mouseY){
             if(tokenList.get(i).getColor()==colorOfToken){
-            this.newCurrentToken(i);
+            currentToken = tokenList.get(i);
             System.out.println("worked");
           }
         }
