@@ -83,17 +83,20 @@ void draw() {
     }
 }
 void mousePressed(){
+    int mouseXCor=mouseX;
+    int mouseYCor=mouseY;
     if(userTurn==4){
       userTurn=0;
     }
     User currentUser=players.get(userTurn);
     x.setCurrentUser(currentUser);
-    currentUser.changeCurrentToken();
+        System.out.println(userTurn);
+
+    currentUser.changeCurrentToken(mouseXCor,mouseYCor);
     Token j=currentUser.returnToken();
     j.move(currentUser.diceRoll());
     userTurn++;
     countdown++;
-    System.out.println("worked");
 }
 
 

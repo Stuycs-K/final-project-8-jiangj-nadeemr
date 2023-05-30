@@ -46,6 +46,10 @@ Worked on the mouseClicked method but it didn't work, going to try to figure out
 
 Finished the turn based mechanics and was able to swap between users once a move was made.
 
+### 5/30/2023 CW
+
+Finished the mouse Pressed method, it now works when I click a token, it moves THAT token only, which is a major mechanic of the game.
+
 ## Raihan N
 
 ### 5/22/2023
