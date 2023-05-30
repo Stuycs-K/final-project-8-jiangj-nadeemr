@@ -61,3 +61,8 @@ HW: Worked on trying to move the tokens based on what Jonathan made; added token
 CW: Worked on adding tokens to each spawn (picked up from where Jonathan left off). Worked on token movement logic, got horizontal movement working. Added checkTouching() method!
 HW: Worked on moving one token from each base outside of the homebase; discussed ways to improve codebase to prevent repetitive code. Almost complete with some phases. 
 
+## 5/26/2023
+CW: Added in the dice that will be click-able. Worked on fixing boundaries so tokens don't leave the map (still a work in progress). Also worked on movement for multiple tokens.
+
+## 5/29/2023
+HW: Worked on mechanics for boundaries; discussed how to prevent the tokens from going out of bounds. Trying to allow the user to pick which token to move. (wip)
