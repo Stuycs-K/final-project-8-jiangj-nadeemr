@@ -151,9 +151,10 @@ void mousePressed(){
     if(currentUser.colorOfToken == green) clr = "Green";
     if(currentUser.colorOfToken == blue) clr = "Blue";
     if(currentUser.colorOfToken == yellow) clr = "Yellow";
-    rect(1025,400,350,350);
+    rect(1025,400,350,400);
     fill(0);
     text("SCOREBOARD", 1115, 435);
+    // DISPLAY RED ON SCOREBOARD
     fill(red);
     textSize(18);
     text("Red Tokens", 1155, 500);
@@ -161,6 +162,31 @@ void mousePressed(){
     text("Finished\n      "+one.getNumOfTokensFinished(), 1050, 525);
     text("In Home Base\n         "+one.getNumOfTokensInHome(), 1150, 525);
     text("On Board\n         "+one.getNumOfTokensFinished(), 1275, 525);
+    // DISPLAY GREEN ON SCOREBOARD
+    fill(green);
+    textSize(18);
+    text("Green Tokens", 1155, 575);
+    fill(0);
+    text("Finished\n      "+two.getNumOfTokensFinished(), 1050, 600);
+    text("In Home Base\n         "+two.getNumOfTokensInHome(), 1150, 600);
+    text("On Board\n         "+two.getNumOfTokensFinished(), 1275, 600);
+    // DISPLAY BLUE ON SCOREBOARD
+    fill(blue);
+    textSize(18);
+    text("Blue Tokens", 1155, 650);
+    fill(0);
+    text("Finished\n      "+three.getNumOfTokensFinished(), 1050, 675);
+    text("In Home Base\n         "+three.getNumOfTokensInHome(), 1150, 675);
+    text("On Board\n         "+three.getNumOfTokensFinished(), 1275, 675);
+    // DISPLAY YELLOW ON SCOREBOARD
+    fill(yellow);
+    textSize(18);
+    text("Yellow Tokens", 1155, 725);
+    fill(0);
+    text("Finished\n      "+four.getNumOfTokensFinished(), 1050, 750);
+    text("In Home Base\n         "+four.getNumOfTokensInHome(), 1150, 750);
+    text("On Board\n         "+four.getNumOfTokensFinished(), 1275, 750);
+    // CURRENT USER DISPLAY
     fill(currentUser.colorOfToken);
     textSize(26);
     text("Current Player: " + clr, 1085, 465);
