@@ -59,7 +59,6 @@ public class Token {
       yspawn=yLeave;
       inHomeBase=false;
     }
-    if(tokenColor==red){
       for(int i = 1; i <= num; i++) {
         if(xLeave+55 < 935 && ((yLeave == 0) || (yLeave + 55) >= 935)) {
              xLeave = xLeave+55;
@@ -74,7 +73,6 @@ public class Token {
              yLeave = yLeave+55;
              yspawn = yLeave;
       }
-    }
   }
  }
   /* Sends a token back to home yard/base. Will be called when

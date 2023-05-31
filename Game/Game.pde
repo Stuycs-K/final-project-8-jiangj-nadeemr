@@ -17,6 +17,7 @@ void setup(){
   players.add(two);
   players.add(three);
   players.add(four);
+  dice(0);
 }
 public void drawSquares(){
   fill(219,48,48);
@@ -34,6 +35,36 @@ public void drawSquares(){
     rect(547.5,547.5,295,295);
     textSize(28);
     //text("Current Player: ", 1100, 400);
+}
+public void dice(int num) {
+    rect(1100, 100, 220, 220, 28);
+    fill(0);
+    if(num==6||num==0) {
+    circle(1150, 150, 25); 
+    circle(1270, 150, 25); 
+    circle(1150, 210, 25); 
+    circle(1270, 210, 25); 
+    circle(1150, 270, 25); 
+    circle(1270, 270, 25); 
+    } else if(num==1) {
+      circle(1210, 210, 25);
+    } else if(num==5) {
+    circle(1150, 150, 25); 
+    circle(1270, 150, 25); 
+    circle(1150, 270, 25); 
+    circle(1270, 270, 25); 
+    circle(1210, 210, 25);
+    } else if(num==4) {
+    circle(1150, 150, 25); 
+    circle(1270, 150, 25); 
+    circle(1150, 270, 25); 
+    circle(1270, 270, 25); 
+    } else if(num==3) {
+    circle(1150, 150, 25); 
+    circle(1210, 210, 25);
+    circle(1270, 270, 25); 
+    }
+    fill(255);
 }
 void draw() {
    if(countdown<10000000) {
@@ -65,7 +96,6 @@ void draw() {
       }
     }
     }
-    rect(1100, 100, 220, 220, 28);
     drawSquares();
     one.spawnTokens();
     two.spawnTokens();
@@ -86,12 +116,9 @@ void mousePressed(){
     if(userTurn==4){
       userTurn=0;
     }
+    if(mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320) {
     User currentUser=players.get(userTurn);
     x.setCurrentUser(currentUser);
-    System.out.println(userTurn);
-    currentUser.changeCurrentToken(mouseXCor,mouseYCor);
-    Token j=currentUser.returnToken();
-    j.move(currentUser.diceRoll());
     String clr = "";
     System.out.println(currentUser.colorOfToken);
     if(currentUser.colorOfToken == red) clr = "Red";
@@ -102,8 +129,14 @@ void mousePressed(){
     fill(currentUser.colorOfToken);
     text("Current Player: " + clr, 1120, 435);
     fill(255);
+    currentUser.changeCurrentToken(mouseXCor,mouseYCor);
+    Token j=currentUser.returnToken();
+    int roll = currentUser.diceRoll();
+    dice(roll);
+    j.move(roll);
     userTurn++;
     countdown++;
+    }
 }
 
 
