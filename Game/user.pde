@@ -7,9 +7,6 @@ public class User extends Ludo {
   /*
   on player turn, roll the dice and return the results ( 1-6)
   */
-  public int diceRoll(){
-    return 1+(int)(Math.random()*6);
-  }
   public User(color x){
     color red=color(219,48,48);
     color green = color(68,217,61);
