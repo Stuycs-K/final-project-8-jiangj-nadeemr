@@ -159,7 +159,7 @@ void mousePressed(){
     dice(roll);
     waiting=true;
     }
-    if(currentUser.checkClicking(mouseX,mouseY)){
+    if(currentUser.checkClicking(mouseX,mouseY)&&waiting==true){
     chooseToken(currentUser,roll);
     System.out.println("moved "+roll);
       userTurn++;

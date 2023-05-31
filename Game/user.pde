@@ -1,6 +1,7 @@
 public class User extends Ludo {
   private int numOfTokensInHome;
   private int numOfTokensFinished;
+  private int numOfTokensInPlay;
   private color colorOfToken;
   private Token currentToken;
   private ArrayList<Token> tokenList=new ArrayList<Token>(4);
@@ -56,7 +57,7 @@ public class User extends Ludo {
   }
   }
   public void spawnTokens(){
-    for(int i=0;i<4;i++){
+    for(int i=0;i<numOfTokensInHome+numOfTokensInPlay+1;i++){
       this.newCurrentToken(i);
       Token j= this.returnToken();
       int x= j.returnXSpawn();
@@ -65,16 +66,6 @@ public class User extends Ludo {
     }
   }
     
-  /*
-  when a valid token is clicked, move it by the number returned by diceroll;
-  */
-  public void onMousePressed(int spacesToMove){
-    if(currentToken.getColor()==(colorOfToken)){
-        currentToken.move(spacesToMove);
-  }
-  }
-  
-  
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
   }
@@ -110,7 +101,11 @@ public class User extends Ludo {
       }
     }
   }
+  public void tokenFinished(){
+    numOfTokensFinished++;
+    tokenList.remove(returnToken());
   }
+}
  
 
   
