@@ -172,6 +172,23 @@ void mousePressed(){
     chooseToken(currentUser,roll);
     System.out.println("moved "+roll);
       userTurn++;
+      if(userTurn ==4) userTurn =0;
+      String clr = "";
+      User newTurn = players.get(userTurn);
+      rect(1025,400,350,350);
+      fill(0);
+      text("SCOREBOARD\n", 1115, 435);
+      if(newTurn.colorOfToken == red) clr = "Red";
+      if(newTurn.colorOfToken == green) clr = "Green";
+      if(newTurn.colorOfToken == blue) clr = "Blue";
+      if(newTurn.colorOfToken == yellow) clr = "Yellow";
+      text("\nStatus: Waiting on user roll....", 1030, 455);
+      fill(newTurn.colorOfToken);
+      textSize(26);
+      text(clr + ", it is your turn!", 1100, 550);
+      fill(0);
+      text("\nClick on the dice to roll!",1080,550);
+      fill(255);
       countdown++;
       waiting=false;
     }
