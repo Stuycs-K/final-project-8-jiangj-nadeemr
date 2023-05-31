@@ -90,15 +90,24 @@ public class User extends Ludo {
    public void newCurrentToken(int x){
     currentToken=tokenList.get(x);
   }
+  public boolean checkClicking(int x,int y){
+    for(int i=0;i<4;i++){
+      if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
+          if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
+            if(tokenList.get(i).getColor()==colorOfToken&&currentToken!=tokenList.get(i)){
+              return true;
+            }
+          }
+      }
+    }
+    return false;
+  }
   public void changeCurrentToken(int x,int y){
       for(int i=0;i<4;i++){
-         System.out.println(x+","+y);
-         System.out.println("Token"+ i+ ":" +tokenList.get(i).returnXSpawn()+","+tokenList.get(i).returnYSpawn());
         if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
           if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
             if(tokenList.get(i).getColor()==colorOfToken&&currentToken!=tokenList.get(i)){
               newCurrentToken(i);
-              System.out.println("swapped");
           }
         }
       }

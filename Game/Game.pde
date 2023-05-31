@@ -63,6 +63,9 @@ public void dice(int num) {
     circle(1150, 150, 25); 
     circle(1210, 210, 25);
     circle(1270, 270, 25); 
+    } else if(num==2) {
+    circle(1150, 150, 25); 
+    circle(1270, 270, 25); 
     }
     fill(255);
 }
@@ -110,17 +113,26 @@ void draw() {
       print("game done!");
     }
 }
+public void chooseToken(User x,int y){
+ if(mousePressed){
+   int mouseXCor=mouseX;
+   int mouseYCor=mouseY;
+   x.changeCurrentToken(mouseXCor,mouseYCor);
+   Token j=x.returnToken();
+   j.move(y);
+ }
+}
+   
+   
 void mousePressed(){
-    int mouseXCor=mouseX;
-    int mouseYCor=mouseY;
     if(userTurn==4){
       userTurn=0;
     }
-    if(mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320) {
     User currentUser=players.get(userTurn);
+    int roll = currentUser.diceRoll();
+    if(mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320) {
     x.setCurrentUser(currentUser);
     String clr = "";
-    System.out.println(currentUser.colorOfToken);
     if(currentUser.colorOfToken == red) clr = "Red";
     if(currentUser.colorOfToken == green) clr = "Green";
     if(currentUser.colorOfToken == blue) clr = "Blue";
@@ -129,15 +141,17 @@ void mousePressed(){
     fill(currentUser.colorOfToken);
     text("Current Player: " + clr, 1120, 435);
     fill(255);
-    currentUser.changeCurrentToken(mouseXCor,mouseYCor);
-    Token j=currentUser.returnToken();
-    int roll = currentUser.diceRoll();
     dice(roll);
-    j.move(roll);
-    userTurn++;
-    countdown++;
     }
-}
+    if(currentUser.checkClicking(mouseX,mouseY)){
+    chooseToken(currentUser,roll);
+    System.out.println("moved "+roll);
+      userTurn++;
+      countdown++;
+    }
+    }
+
+
 
 
    
