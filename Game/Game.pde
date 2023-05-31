@@ -63,6 +63,9 @@ public void dice(int num) {
     circle(1150, 150, 25); 
     circle(1210, 210, 25);
     circle(1270, 270, 25); 
+    } else if(num==2) {
+    circle(1150, 150, 25); 
+    circle(1270, 270, 25); 
     }
     fill(255);
 }
