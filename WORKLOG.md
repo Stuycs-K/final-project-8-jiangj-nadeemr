@@ -54,6 +54,10 @@ Finished the mouse Pressed method, it now works when I click a token, it moves T
 
 Made the conditional and the helper methods to ensure that you can only move the tokens after you roll the dice after clicking the dice once and then the token after. The dice and the amount the token actually moves is a little messed up though.
 
+### 5/31/2023 CW
+
+Fixed the dice and token bug, made the random number you a get a public variable to debug the error. I added triangles to represent the changed spawn locations and set the token's spawn location to the correct location.
+
 ## Raihan N
 
 ### 5/22/2023

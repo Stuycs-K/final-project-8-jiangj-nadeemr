@@ -1,15 +1,13 @@
 public class User extends Ludo {
   private int numOfTokensInHome;
   private int numOfTokensFinished;
+  private int numOfTokensInPlay;
   private color colorOfToken;
   private Token currentToken;
   private ArrayList<Token> tokenList=new ArrayList<Token>(4);
   /*
   on player turn, roll the dice and return the results ( 1-6)
   */
-  public int diceRoll(){
-    return 1+(int)(Math.random()*6);
-  }
   public User(color x){
     color red=color(219,48,48);
     color green = color(68,217,61);
@@ -59,7 +57,7 @@ public class User extends Ludo {
   }
   }
   public void spawnTokens(){
-    for(int i=0;i<4;i++){
+    for(int i=0;i<numOfTokensInHome+numOfTokensInPlay+1;i++){
       this.newCurrentToken(i);
       Token j= this.returnToken();
       int x= j.returnXSpawn();
@@ -68,16 +66,6 @@ public class User extends Ludo {
     }
   }
     
-  /*
-  when a valid token is clicked, move it by the number returned by diceroll;
-  */
-  public void onMousePressed(int spacesToMove){
-    if(currentToken.getColor()==(colorOfToken)){
-        currentToken.move(spacesToMove);
-  }
-  }
-  
-  
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
   }
@@ -94,7 +82,7 @@ public class User extends Ludo {
     for(int i=0;i<4;i++){
       if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
           if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
-            if(tokenList.get(i).getColor()==colorOfToken&&currentToken!=tokenList.get(i)){
+            if(tokenList.get(i).getColor()==colorOfToken){
               return true;
             }
           }
@@ -113,7 +101,11 @@ public class User extends Ludo {
       }
     }
   }
+  public void tokenFinished(){
+    numOfTokensFinished++;
+    tokenList.remove(returnToken());
   }
+}
  
 
   
