@@ -50,6 +50,10 @@ Finished the turn based mechanics and was able to swap between users once a move
 
 Finished the mouse Pressed method, it now works when I click a token, it moves THAT token only, which is a major mechanic of the game.
 
+### 5/30/2023 HW
+
+Made the conditional and the helper methods to ensure that you can only move the tokens after you roll the dice after clicking the dice once and then the token after. The dice and the amount the token actually moves is a little messed up though.
+
 ## Raihan N
 
 ### 5/22/2023
