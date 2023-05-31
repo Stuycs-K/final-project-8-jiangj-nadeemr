@@ -9,19 +9,19 @@ public class Token {
   public Token(color clr, int xcord, int ycord) {
     if(clr==red){
       xLeave=28;
-      yLeave=(28*16)+18;
+      yLeave=578;
     }
     if(clr==color(103,164,224)) {
-      xLeave=(55*8) + 28;
-      yLeave=(28*31)+40;
+      xLeave=578;
+      yLeave=908;
     }
     if(clr==color(68,217,61)) {
-      xLeave=(55*8) + 28;
+      xLeave=358;
       yLeave=(28);
     }
     if(clr==color(242,240,92)) {
-      xLeave=(28*32)+12;
-      yLeave=(28*16)+18;
+      xLeave=908;
+      yLeave=358;
     }
     tokenColor = clr;
     xspawn = xcord;
