@@ -6,6 +6,7 @@ color yellow= color(242,240,92);
 int countdown = 0;
 int userTurn=0;
 boolean waiting=false;
+int roll;
 ArrayList<User>players=new ArrayList<User>(4);
 User one= new User(red);
 User two = new User(green);
@@ -123,6 +124,9 @@ public void chooseToken(User x,int y){
    j.move(y);
  }
 }
+public int diceRoll(){
+    return 1+(int)(Math.random()*6);
+  }
    
    
 void mousePressed(){
@@ -130,8 +134,8 @@ void mousePressed(){
       userTurn=0;
     }
     User currentUser=players.get(userTurn);
-    int roll = currentUser.diceRoll();
     if(mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320 &&waiting==false) {
+    roll = diceRoll();
     x.setCurrentUser(currentUser);
     String clr = "";
     if(currentUser.colorOfToken == red) clr = "Red";
