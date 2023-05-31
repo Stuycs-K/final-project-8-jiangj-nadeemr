@@ -5,6 +5,7 @@ color blue= color(103,164,224);
 color yellow= color(242,240,92);
 int countdown = 0;
 int userTurn=0;
+boolean waiting=false;
 ArrayList<User>players=new ArrayList<User>(4);
 User one= new User(red);
 User two = new User(green);
@@ -130,7 +131,7 @@ void mousePressed(){
     }
     User currentUser=players.get(userTurn);
     int roll = currentUser.diceRoll();
-    if(mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320) {
+    if(mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320 &&waiting==false) {
     x.setCurrentUser(currentUser);
     String clr = "";
     if(currentUser.colorOfToken == red) clr = "Red";
@@ -142,12 +143,14 @@ void mousePressed(){
     text("Current Player: " + clr, 1120, 435);
     fill(255);
     dice(roll);
+    waiting=true;
     }
     if(currentUser.checkClicking(mouseX,mouseY)){
     chooseToken(currentUser,roll);
     System.out.println("moved "+roll);
       userTurn++;
       countdown++;
+      waiting=false;
     }
     }
 

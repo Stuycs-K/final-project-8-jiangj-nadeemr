@@ -94,7 +94,7 @@ public class User extends Ludo {
     for(int i=0;i<4;i++){
       if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
           if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
-            if(tokenList.get(i).getColor()==colorOfToken&&currentToken!=tokenList.get(i)){
+            if(tokenList.get(i).getColor()==colorOfToken){
               return true;
             }
           }
