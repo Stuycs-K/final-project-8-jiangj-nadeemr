@@ -125,14 +125,13 @@ void draw() {
     }
 }
 public void chooseToken(User x,int y){
- if(mousePressed){
    int mouseXCor=mouseX;
    int mouseYCor=mouseY;
    x.changeCurrentToken(mouseXCor,mouseYCor);
    Token j=x.returnToken();
    j.move(y);
  }
-}
+
 public int diceRoll(){
     return 1+(int)(Math.random()*6);
   }
@@ -193,10 +192,13 @@ void mousePressed(){
     fill(255);
     dice(roll);
     waiting=true;
+    if(roll!=6&&currentUser.getNumOfTokensInPlay()==0){
+      waiting=false;
+      userTurn++;
     }
-    if(currentUser.checkClicking(mouseX,mouseY)&&waiting==true){
+    }
+    if(currentUser.checkClicking(mouseX,mouseY,roll)&&waiting==true){
     chooseToken(currentUser,roll);
-    System.out.println("moved "+roll);
       userTurn++;
       if(userTurn ==4) userTurn =0;
       String clr = "";

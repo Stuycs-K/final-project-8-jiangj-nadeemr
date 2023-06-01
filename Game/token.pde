@@ -2,11 +2,11 @@ public class Token {
   private color tokenColor;
   private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock,inHomeBase;
   private int spacesAwayFromTriangle;
-  private int xspawn,yspawn,xcor,ycor,xLeave,yLeave;
+  private int xspawn,yspawn,xcor,ycor,xLeave,yLeave,numToken;
   /* Token constructor - creates a token with color
   and position
   */
-  public Token(color clr, int xcord, int ycord) {
+  public Token(color clr, int xcord, int ycord,int num) {
     if(clr==red){
       xLeave=28;
       yLeave=578;
@@ -26,6 +26,7 @@ public class Token {
     tokenColor = clr;
     xspawn = xcord;
     yspawn = ycord;
+    numToken=num;
     inHomeBase=true;
   }
   /* Checks if a token reached home base. If so, remove the token
@@ -54,11 +55,12 @@ public class Token {
     }
   /* Moves a token num places (called in diceRoll) */
   public void move(int num){
-    if(inHomeBase==true){
+    if(inHomeBase==true&&num==6){
       xspawn=xLeave;
       yspawn=yLeave;
       inHomeBase=false;
     }
+    else{
       for(int i = 1; i <= num; i++) {
         if(xLeave+55 < 935 && ((yLeave == 0) || (yLeave + 55) >= 935)) {
              xLeave = xLeave+55;
@@ -72,6 +74,7 @@ public class Token {
         } else {
              yLeave = yLeave+55;
              yspawn = yLeave;
+      }
       }
   }
  }
@@ -92,6 +95,9 @@ public class Token {
   }
   public boolean checkHomeBase(){
     return inHomeBase;
+  }
+  public void leaveHome(){
+    inHomeBase=false;
   }
   
 }
