@@ -42,32 +42,32 @@ public void dice(int num) {
     rect(1100, 100, 220, 220, 28);
     fill(0);
     if(num==6||num==0) {
-    circle(1150, 150, 25); 
-    circle(1270, 150, 25); 
-    circle(1150, 210, 25); 
-    circle(1270, 210, 25); 
-    circle(1150, 270, 25); 
-    circle(1270, 270, 25); 
+    circle(1150, 150, 25);
+    circle(1270, 150, 25);
+    circle(1150, 210, 25);
+    circle(1270, 210, 25);
+    circle(1150, 270, 25);
+    circle(1270, 270, 25);
     } else if(num==1) {
       circle(1210, 210, 25);
     } else if(num==5) {
-    circle(1150, 150, 25); 
-    circle(1270, 150, 25); 
-    circle(1150, 270, 25); 
-    circle(1270, 270, 25); 
+    circle(1150, 150, 25);
+    circle(1270, 150, 25);
+    circle(1150, 270, 25);
+    circle(1270, 270, 25);
     circle(1210, 210, 25);
     } else if(num==4) {
-    circle(1150, 150, 25); 
-    circle(1270, 150, 25); 
-    circle(1150, 270, 25); 
-    circle(1270, 270, 25); 
+    circle(1150, 150, 25);
+    circle(1270, 150, 25);
+    circle(1150, 270, 25);
+    circle(1270, 270, 25);
     } else if(num==3) {
-    circle(1150, 150, 25); 
+    circle(1150, 150, 25);
     circle(1210, 210, 25);
-    circle(1270, 270, 25); 
+    circle(1270, 270, 25);
     } else if(num==2) {
-    circle(1150, 150, 25); 
-    circle(1270, 270, 25); 
+    circle(1150, 150, 25);
+    circle(1270, 270, 25);
     }
     fill(255);
 }
@@ -130,14 +130,14 @@ public void chooseToken(User x,int y){
    x.changeCurrentToken(mouseXCor,mouseYCor);
    Token j=x.returnToken();
    j.move(y);
-   System.out.println("finished");
+   j.checkTouching();
  }
 
 public int diceRoll(){
     return 1+(int)(Math.random()*6);
   }
-   
-   
+
+
 void mousePressed(){
     if(userTurn==4){
       userTurn=0;
@@ -161,7 +161,7 @@ void mousePressed(){
     fill(0);
     text("Finished\n      "+one.getNumOfTokensFinished(), 1050, 525);
     text("In Home Base\n         "+one.getNumOfTokensInHome(), 1150, 525);
-    text("On Board\n         "+one.getNumOfTokensFinished(), 1275, 525);
+    text("On Board\n         "+one.getNumOfTokensInPlay(), 1275, 525);
     // DISPLAY GREEN ON SCOREBOARD
     fill(green);
     textSize(18);
@@ -169,7 +169,7 @@ void mousePressed(){
     fill(0);
     text("Finished\n      "+two.getNumOfTokensFinished(), 1050, 600);
     text("In Home Base\n         "+two.getNumOfTokensInHome(), 1150, 600);
-    text("On Board\n         "+two.getNumOfTokensFinished(), 1275, 600);
+    text("On Board\n         "+two.getNumOfTokensInPlay(), 1275, 600);
     // DISPLAY BLUE ON SCOREBOARD
     fill(blue);
     textSize(18);
@@ -177,7 +177,7 @@ void mousePressed(){
     fill(0);
     text("Finished\n      "+three.getNumOfTokensFinished(), 1050, 675);
     text("In Home Base\n         "+three.getNumOfTokensInHome(), 1150, 675);
-    text("On Board\n         "+three.getNumOfTokensFinished(), 1275, 675);
+    text("On Board\n         "+three.getNumOfTokensInPlay(), 1275, 675);
     // DISPLAY YELLOW ON SCOREBOARD
     fill(yellow);
     textSize(18);
@@ -185,7 +185,7 @@ void mousePressed(){
     fill(0);
     text("Finished\n      "+four.getNumOfTokensFinished(), 1050, 750);
     text("In Home Base\n         "+four.getNumOfTokensInHome(), 1150, 750);
-    text("On Board\n         "+four.getNumOfTokensFinished(), 1275, 750);
+    text("On Board\n         "+four.getNumOfTokensInPlay(), 1275, 750);
     // CURRENT USER DISPLAY
     fill(currentUser.colorOfToken);
     textSize(26);
@@ -196,6 +196,22 @@ void mousePressed(){
     if(roll!=6&&currentUser.getNumOfTokensInPlay()==0){
       waiting=false;
       userTurn++;
+      if(userTurn ==4) userTurn =0;
+      User newTurn = players.get(userTurn);
+      rect(1025,400,350,350);
+      fill(0);
+      text("SCOREBOARD\n", 1115, 435);
+      if(newTurn.colorOfToken == red) clr = "Red";
+      if(newTurn.colorOfToken == green) clr = "Green";
+      if(newTurn.colorOfToken == blue) clr = "Blue";
+      if(newTurn.colorOfToken == yellow) clr = "Yellow";
+      text("\nStatus: Waiting on user roll....", 1030, 455);
+      fill(newTurn.colorOfToken);
+      textSize(26);
+      text(clr + ", it is your turn!", 1100, 550);
+      fill(0);
+      text("\nClick on the dice to roll!",1080,550);
+      fill(255);
     }
     }
     if(currentUser.checkClicking(mouseX,mouseY,roll)&&waiting==true){
@@ -223,12 +239,3 @@ void mousePressed(){
       waiting=false;
     }
     }
-
-
-
-
-   
-
-      
-      
-    
