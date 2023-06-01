@@ -85,19 +85,12 @@ public class User extends Ludo {
             if(tokenList.get(i).getColor()==colorOfToken){
               if(tokenList.get(i).checkHomeBase()==false||num==6){
                  if(tokenList.get(i).checkHomeBase()==true){
-                   ArrayList<Token> copyBoard = tokenList.get(i).onBoard;
+                   onBoard.add(tokenList.get(i));
                    numOfTokensInHome--;
                    numOfTokensInPlay++;
-                   copyBoard.add(tokenList.get(i));
-                   tokenList.get(i).onBoard = copyBoard;
+               
                 }
-                if(tokenList.get(i).checkFinished()==true){
-                  ArrayList<Token> copyBoard = tokenList.get(i).onBoard;
-                  tokenFinished();
-                  copyBoard.remove(tokenList.get(i));
-                  tokenList.get(i).onBoard = copyBoard;
-                  return false;
-                }
+                
                 return true;
 
               }
