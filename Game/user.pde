@@ -5,9 +5,6 @@ public class User extends Ludo {
   private color colorOfToken;
   private Token currentToken;
   private ArrayList<Token> tokenList=new ArrayList<Token>(4);
-  /*
-  on player turn, roll the dice and return the results ( 1-6)
-  */
   public User(color x){
     color red=color(219,48,48);
     color green = color(68,217,61);
@@ -17,39 +14,39 @@ public class User extends Ludo {
     numOfTokensFinished=0;
     colorOfToken=x;
     if(colorOfToken == red) {
-    Token first= new Token(x,150,150);
-    Token second=new Token(x,300,300);
-    Token third=new Token(x,150,300);
-    Token fourth=new Token(x,300,150);
+    Token first= new Token(x,150,150,1);
+    Token second=new Token(x,300,300,2);
+    Token third=new Token(x,150,300,3);
+    Token fourth=new Token(x,300,150,4);
     tokenList.add(first);
     tokenList.add(second);
     tokenList.add(third);
     tokenList.add(fourth);
     } else if(colorOfToken == green) {
-    Token first= new Token(x,600,150);
-    Token second=new Token(x,600,300);
-    Token third=new Token(x,750,150);
-    Token fourth=new Token(x,750,300);
+    Token first= new Token(x,600,150,1);
+    Token second=new Token(x,600,300,2);
+    Token third=new Token(x,750,150,3);
+    Token fourth=new Token(x,750,300,4);
     tokenList.add(first);
     tokenList.add(second);
     tokenList.add(third);
     tokenList.add(fourth);
     }
     else if(colorOfToken==blue){
-    Token first= new Token(x,150,600);
-    Token second=new Token(x,150,750);
-    Token third=new Token(x,300,600);
-    Token fourth=new Token(x,300,750);
+    Token first= new Token(x,150,600,1);
+    Token second=new Token(x,150,750,2);
+    Token third=new Token(x,300,600,3);
+    Token fourth=new Token(x,300,750,4);
     tokenList.add(first);
     tokenList.add(second);
     tokenList.add(third);
     tokenList.add(fourth);
   }
   else if(colorOfToken==yellow){
-    Token first= new Token(x,600,600);
-    Token second=new Token(x,600,750);
-    Token third=new Token(x,750,600);
-    Token fourth=new Token(x,750,750);
+    Token first= new Token(x,600,600,1);
+    Token second=new Token(x,600,750,2);
+    Token third=new Token(x,750,600,3);
+    Token fourth=new Token(x,750,750,4);
     tokenList.add(first);
     tokenList.add(second);
     tokenList.add(third);
@@ -69,6 +66,9 @@ public class User extends Ludo {
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
   }
+  public int getNumOfTokensInPlay(){
+    return numOfTokensInPlay;
+  }
   public int getNumOfTokensFinished(){
     return numOfTokensFinished;
   }
@@ -78,12 +78,19 @@ public class User extends Ludo {
    public void newCurrentToken(int x){
     currentToken=tokenList.get(x);
   }
-  public boolean checkClicking(int x,int y){
+  public boolean checkClicking(int x,int y,int num){
     for(int i=0;i<4;i++){
       if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
           if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
             if(tokenList.get(i).getColor()==colorOfToken){
-              return true;
+              if(tokenList.get(i).checkHomeBase()==false||num==6){
+                 if(tokenList.get(i).checkHomeBase()==true){
+                   numOfTokensInHome--;
+                   numOfTokensInPlay++;
+                }
+                return true;
+                
+              }
             }
           }
       }
