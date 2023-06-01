@@ -1,6 +1,6 @@
 public class Token {
   private color tokenColor;
-  private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock,inHomeBase;
+  private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock,inHomeBase,finalTurn;
   private int spacesAwayFromTriangle;
   private int xspawn,yspawn,xcor,ycor,xLeave,yLeave,numToken;
   /* Token constructor - creates a token with color
@@ -27,7 +27,9 @@ public class Token {
     xspawn = xcord;
     yspawn = ycord;
     numToken=num;
+    finished=false;
     inHomeBase=true;
+    finalTurn=false;
   }
   /* Checks if a token reached home base. If so, remove the token
   from the game, increase User's numOfTokensFinished
@@ -62,7 +64,56 @@ public class Token {
     }
     else{
       for(int i = 1; i <= num; i++) {
-        if(xLeave+55 < 935 && ((yLeave == 0) || (yLeave + 55) >= 935)) {
+        
+        if(getColor()==red&&xLeave==28&&yLeave==468){
+          finalTurn=true;
+        }
+        if(getColor()==green&&xLeave==468&&yLeave==28){
+          finalTurn=true;
+        }
+        if(getColor()==yellow&&xLeave==908&&yLeave==468){
+          finalTurn=true;
+        }
+        if(getColor()==blue&&xLeave==468&&yLeave==908){
+          finalTurn=true;
+        }
+        if(finalTurn==true){
+          if(getColor()==red){
+            if(xLeave+55==468){
+              finished=true;
+            }
+            xLeave=xLeave+55;
+            xspawn=xLeave;
+            }
+   
+          if(getColor()==green){
+            if(yLeave+55==468){
+              finished=true;
+            }
+            yLeave=yLeave+55;
+            yspawn=yLeave;
+            }
+          
+          if(getColor()==yellow){
+            if(xLeave-55==468){
+              finished=true;
+            }
+            xLeave=xLeave-55;
+            xspawn=xLeave;
+            }
+          
+          if(getColor()==blue){
+            if(yLeave-55==468){
+              finished=true;
+            }
+            
+            yLeave=yLeave-55;
+            yspawn=yLeave;
+            
+          }
+        }
+     
+        else if(xLeave+55 < 935 && ((yLeave==0) || (yLeave + 55) >= 935)) {
              xLeave = xLeave+55;
              xspawn= xLeave;
         } else if(xLeave+55 >=935 && yLeave-55 >=0) { 
@@ -99,5 +150,11 @@ public class Token {
   public void leaveHome(){
     inHomeBase=false;
   }
-  
+  public boolean checkFinished(){
+    return finished;
+  }
+  //red 28,468
+  //green 468,28
+  //yellow 908,468
+  //blue 468, 908
 }

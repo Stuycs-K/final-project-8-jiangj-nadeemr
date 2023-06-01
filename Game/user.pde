@@ -10,7 +10,7 @@ public class User extends Ludo {
     color green = color(68,217,61);
     color blue= color(103,164,224);
     color yellow= color(242,240,92);
-    numOfTokensInHome=3;
+    numOfTokensInHome=4;
     numOfTokensFinished=0;
     colorOfToken=x;
     if(colorOfToken == red) {
@@ -54,7 +54,7 @@ public class User extends Ludo {
   }
   }
   public void spawnTokens(){
-    for(int i=0;i<numOfTokensInHome+numOfTokensInPlay+1;i++){
+    for(int i=0;i<tokenList.size();i++){
       this.newCurrentToken(i);
       Token j= this.returnToken();
       int x= j.returnXSpawn();
@@ -79,7 +79,7 @@ public class User extends Ludo {
     currentToken=tokenList.get(x);
   }
   public boolean checkClicking(int x,int y,int num){
-    for(int i=0;i<4;i++){
+    for(int i=0;i<tokenList.size();i++){
       if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
           if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
             if(tokenList.get(i).getColor()==colorOfToken){
@@ -87,6 +87,10 @@ public class User extends Ludo {
                  if(tokenList.get(i).checkHomeBase()==true){
                    numOfTokensInHome--;
                    numOfTokensInPlay++;
+                }
+                if(tokenList.get(i).checkFinished()==true){
+                  tokenFinished();
+                  return false;
                 }
                 return true;
                 
@@ -98,7 +102,7 @@ public class User extends Ludo {
     return false;
   }
   public void changeCurrentToken(int x,int y){
-      for(int i=0;i<4;i++){
+      for(int i=0;i<tokenList.size();i++){
         if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
           if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
             if(tokenList.get(i).getColor()==colorOfToken&&currentToken!=tokenList.get(i)){
@@ -110,6 +114,7 @@ public class User extends Ludo {
   }
   public void tokenFinished(){
     numOfTokensFinished++;
+    numOfTokensInPlay--;
     tokenList.remove(returnToken());
   }
 }
