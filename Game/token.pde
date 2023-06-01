@@ -9,19 +9,19 @@ public class Token {
   public Token(color clr, int xcord, int ycord,int num) {
     if(clr==red){
       xLeave=28;
-      yLeave=578;
+      yLeave=468;
     }
     if(clr==color(103,164,224)) {
-      xLeave=578;
+      xLeave=468;
       yLeave=908;
     }
     if(clr==color(68,217,61)) {
-      xLeave=358;
+      xLeave=468;
       yLeave=(28);
     }
     if(clr==color(242,240,92)) {
       xLeave=908;
-      yLeave=358;
+      yLeave=468;
     }
     tokenColor = clr;
     xspawn = xcord;
@@ -79,36 +79,36 @@ public class Token {
         }
         if(finalTurn==true){
           if(getColor()==red){
-            if(xLeave+55==468){
-              finished=true;
-            }
             xLeave=xLeave+55;
             xspawn=xLeave;
-            }
-   
-          if(getColor()==green){
-            if(yLeave+55==468){
+            if(xspawn==468){
               finished=true;
             }
+          }
+   
+          if(getColor()==green){
             yLeave=yLeave+55;
             yspawn=yLeave;
+            if(yspawn==468){
+              finished=true;
+            }
             }
           
           if(getColor()==yellow){
-            if(xLeave-55==468){
-              finished=true;
-            }
             xLeave=xLeave-55;
             xspawn=xLeave;
+            if(xspawn==468){
+              finished=true;
+            }
             }
           
           if(getColor()==blue){
-            if(yLeave-55==468){
-              finished=true;
-            }
             
             yLeave=yLeave-55;
             yspawn=yLeave;
+            if(yspawn==468){
+              finished=true;
+            }
             
           }
         }
@@ -157,4 +157,22 @@ public class Token {
   //green 468,28
   //yellow 908,468
   //blue 468, 908
+  /*
+  if(clr==red){
+      xLeave=28;
+      yLeave=578;
+    }
+    if(clr==color(103,164,224)) {
+      xLeave=578;
+      yLeave=908;
+    }
+    if(clr==color(68,217,61)) {
+      xLeave=358;
+      yLeave=(28);
+    }
+    if(clr==color(242,240,92)) {
+      xLeave=908;
+      yLeave=358;
+    }
+    */
 }

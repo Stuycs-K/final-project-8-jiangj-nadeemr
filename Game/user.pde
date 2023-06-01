@@ -88,10 +88,6 @@ public class User extends Ludo {
                    numOfTokensInHome--;
                    numOfTokensInPlay++;
                 }
-                if(tokenList.get(i).checkFinished()==true){
-                  tokenFinished();
-                  return false;
-                }
                 return true;
                 
               }
@@ -113,11 +109,13 @@ public class User extends Ludo {
     }
   }
   public void tokenFinished(){
+    if(returnToken().checkFinished()==true){
     numOfTokensFinished++;
     numOfTokensInPlay--;
     tokenList.remove(returnToken());
+    System.out.println("worked");
   }
 }
- 
+}
 
   

@@ -130,6 +130,7 @@ public void chooseToken(User x,int y){
    x.changeCurrentToken(mouseXCor,mouseYCor);
    Token j=x.returnToken();
    j.move(y);
+   System.out.println("finished");
  }
 
 public int diceRoll(){
@@ -198,7 +199,8 @@ void mousePressed(){
     }
     }
     if(currentUser.checkClicking(mouseX,mouseY,roll)&&waiting==true){
-    chooseToken(currentUser,roll);
+      chooseToken(currentUser,roll);
+      currentUser.tokenFinished();
       userTurn++;
       if(userTurn ==4) userTurn =0;
       String clr = "";
