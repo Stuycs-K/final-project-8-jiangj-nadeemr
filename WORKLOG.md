@@ -86,3 +86,7 @@ HW: Worked on mechanics for boundaries; discussed how to prevent the tokens from
 ## 5/30/2023
 CW: Tokens can now move properly around the entire board on click -- properly works for all tokens!
 HW: Made it so you can't click anywhere for a token to move -- you must click on the dice. Upon clicking on the dice, it will reflect the number the dice returns. (to-do: add a delay to allow the user to pick what to do). Also displayed who's turn it is.
+
+## 5/31/2023
+CW: Worked on a scoreboard and planning for demo + looking into dice roll bug.
+HW: Finished scoreboard to display status of the game. Also added a status for when the game is waiting for a user to roll their dice, to explictly show who's turn it is.
