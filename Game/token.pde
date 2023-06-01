@@ -2,31 +2,33 @@ public class Token {
   private color tokenColor;
   private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock,inHomeBase,finalTurn;
   private int spacesAwayFromTriangle;
-  private int xspawn,yspawn,xcor,ycor,xLeave,yLeave,numToken;
+  private int xspawn,yspawn,xcor,ycor,xLeave,yLeave,numToken,xHome,yHome;
   public ArrayList<Token> onBoard = new ArrayList<Token>(16);
   /* Token constructor - creates a token with color
   and position
   */
   public Token(color clr, int xcord, int ycord,int num) {
-    if(clr==red){
+     if(clr==red){
       xLeave=28;
-      yLeave=468;
+      yLeave=578;
     }
     if(clr==color(103,164,224)) {
-      xLeave=468;
+      xLeave=578;
       yLeave=908;
     }
     if(clr==color(68,217,61)) {
-      xLeave=468;
+      xLeave=358;
       yLeave=(28);
     }
     if(clr==color(242,240,92)) {
       xLeave=908;
-      yLeave=468;
+      yLeave=358;
     }
     tokenColor = clr;
     xspawn = xcord;
     yspawn = ycord;
+    xHome=xcord;
+    yHome=ycord;
     numToken=num;
     finished=false;
     inHomeBase=true;
@@ -42,13 +44,18 @@ public class Token {
   touching an enemy token, send enemy token home.
   */
   public void checkTouching() {
+    onBoard.remove(this);
     for(int i = 0; i < onBoard.size(); i++) {
       if(onBoard.get(i).returnXLeave() == xLeave && onBoard.get(i).returnYLeave() == yLeave) {
-        onBoard.get(i).returnToHomeYard(0,0);
+        print("working");
+        if(onBoard.get(i).getColor()!=this.getColor()){
+        onBoard.get(i).returnToHomeYard();
         onBoard.remove(i);
         print("working");
     }
+      }
    }
+   onBoard.add(this);
   }
   public ArrayList<Token> returnOnBoard() {
     return onBoard;
@@ -138,7 +145,10 @@ public class Token {
  }
   /* Sends a token back to home yard/base. Will be called when
   a token is defeated by an enemy token. */
-  public void returnToHomeYard(int xSpawn, int ySpawn) {}
+  public void returnToHomeYard() {
+    xspawn=xHome;
+    yspawn=yHome;
+  }
   public int returnXSpawn(){
     return xspawn;
   }
@@ -165,21 +175,22 @@ public class Token {
   //yellow 908,468
   //blue 468, 908
   /*
-  if(clr==red){
+ 
+    if(clr==red){
       xLeave=28;
-      yLeave=578;
+      yLeave=468;
     }
     if(clr==color(103,164,224)) {
-      xLeave=578;
+      xLeave=468;
       yLeave=908;
     }
     if(clr==color(68,217,61)) {
-      xLeave=358;
+      xLeave=468;
       yLeave=(28);
     }
     if(clr==color(242,240,92)) {
       xLeave=908;
-      yLeave=358;
+      yLeave=468;
     }
     */
 }
