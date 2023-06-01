@@ -62,7 +62,7 @@ public class User extends Ludo {
       j.spawn(x,y);
     }
   }
-    
+
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
   }
@@ -99,7 +99,7 @@ public class User extends Ludo {
                   return false;
                 }
                 return true;
-                
+
               }
             }
           }
@@ -119,11 +119,11 @@ public class User extends Ludo {
     }
   }
   public void tokenFinished(){
+    if(returnToken().checkFinished()==true){
     numOfTokensFinished++;
     numOfTokensInPlay--;
     tokenList.remove(returnToken());
+    System.out.println("worked");
   }
 }
- 
-
-  
+}

@@ -42,32 +42,32 @@ public void dice(int num) {
     rect(1100, 100, 220, 220, 28);
     fill(0);
     if(num==6||num==0) {
-    circle(1150, 150, 25); 
-    circle(1270, 150, 25); 
-    circle(1150, 210, 25); 
-    circle(1270, 210, 25); 
-    circle(1150, 270, 25); 
-    circle(1270, 270, 25); 
+    circle(1150, 150, 25);
+    circle(1270, 150, 25);
+    circle(1150, 210, 25);
+    circle(1270, 210, 25);
+    circle(1150, 270, 25);
+    circle(1270, 270, 25);
     } else if(num==1) {
       circle(1210, 210, 25);
     } else if(num==5) {
-    circle(1150, 150, 25); 
-    circle(1270, 150, 25); 
-    circle(1150, 270, 25); 
-    circle(1270, 270, 25); 
+    circle(1150, 150, 25);
+    circle(1270, 150, 25);
+    circle(1150, 270, 25);
+    circle(1270, 270, 25);
     circle(1210, 210, 25);
     } else if(num==4) {
-    circle(1150, 150, 25); 
-    circle(1270, 150, 25); 
-    circle(1150, 270, 25); 
-    circle(1270, 270, 25); 
+    circle(1150, 150, 25);
+    circle(1270, 150, 25);
+    circle(1150, 270, 25);
+    circle(1270, 270, 25);
     } else if(num==3) {
-    circle(1150, 150, 25); 
+    circle(1150, 150, 25);
     circle(1210, 210, 25);
-    circle(1270, 270, 25); 
+    circle(1270, 270, 25);
     } else if(num==2) {
-    circle(1150, 150, 25); 
-    circle(1270, 270, 25); 
+    circle(1150, 150, 25);
+    circle(1270, 270, 25);
     }
     fill(255);
 }
@@ -136,8 +136,8 @@ public void chooseToken(User x,int y){
 public int diceRoll(){
     return 1+(int)(Math.random()*6);
   }
-   
-   
+
+
 void mousePressed(){
     if(userTurn==4){
       userTurn=0;
@@ -215,7 +215,8 @@ void mousePressed(){
     }
     }
     if(currentUser.checkClicking(mouseX,mouseY,roll)&&waiting==true){
-    chooseToken(currentUser,roll);
+      chooseToken(currentUser,roll);
+      currentUser.tokenFinished();
       userTurn++;
       if(userTurn ==4) userTurn =0;
       String clr = "";
@@ -238,12 +239,3 @@ void mousePressed(){
       waiting=false;
     }
     }
-
-
-
-
-   
-
-      
-      
-    
