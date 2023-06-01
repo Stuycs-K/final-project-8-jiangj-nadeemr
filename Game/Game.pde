@@ -8,6 +8,7 @@ int userTurn=0;
 boolean waiting=false;
 int roll;
 ArrayList<User>players=new ArrayList<User>(4);
+ArrayList<Token>onBoard=new ArrayList<Token>(16);
 User one= new User(red);
 User two = new User(green);
 User three= new User(blue);
@@ -193,19 +194,20 @@ void mousePressed(){
     fill(255);
     dice(roll);
     waiting=true;
-    if(roll!=6&&currentUser.getNumOfTokensInPlay()==0){
-      waiting=false;
-      userTurn++;
-      if(userTurn ==4) userTurn =0;
+     if(roll!=6&&currentUser.getNumOfTokensInPlay()==0){
+        waiting=false;
+        userTurn++;
+       if(userTurn ==4) userTurn =0;
+      User newTurn = players.get(userTurn);
       rect(1025,400,350,350);
       fill(0);
       text("SCOREBOARD\n", 1115, 435);
-      if(currentUser.colorOfToken == red) clr = "Red";
-      if(currentUser.colorOfToken == green) clr = "Green";
-      if(currentUser.colorOfToken == blue) clr = "Blue";
-      if(currentUser.colorOfToken == yellow) clr = "Yellow";
+      if(newTurn.colorOfToken == red) clr = "Red";
+      if(newTurn.colorOfToken == green) clr = "Green";
+      if(newTurn.colorOfToken == blue) clr = "Blue";
+      if(newTurn.colorOfToken == yellow) clr = "Yellow";
       text("\nStatus: Waiting on user roll....", 1030, 455);
-      fill(currentUser.colorOfToken);
+      fill(newTurn.colorOfToken);
       textSize(26);
       text(clr + ", it is your turn!", 1100, 550);
       fill(0);

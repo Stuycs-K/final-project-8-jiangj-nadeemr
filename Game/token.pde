@@ -3,7 +3,6 @@ public class Token {
   private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock,inHomeBase,finalTurn;
   private int spacesAwayFromTriangle;
   private int xspawn,yspawn,xcor,ycor,xLeave,yLeave,numToken,xHome,yHome;
-  public ArrayList<Token> onBoard = new ArrayList<Token>(16);
   /* Token constructor - creates a token with color
   and position
   */
@@ -44,14 +43,15 @@ public class Token {
   touching an enemy token, send enemy token home.
   */
   public void checkTouching() {
+    printOnBoard();
     onBoard.remove(this);
+    printOnBoard();
+    System.out.println();
     for(int i = 0; i < onBoard.size(); i++) {
       if(onBoard.get(i).returnXLeave() == xLeave && onBoard.get(i).returnYLeave() == yLeave) {
-        print("working");
         if(onBoard.get(i).getColor()!=this.getColor()){
         onBoard.get(i).returnToHomeYard();
         onBoard.remove(i);
-        print("working");
     }
       }
    }
@@ -170,6 +170,11 @@ public class Token {
   public boolean checkFinished(){
     return finished;
   }
+  public void printOnBoard(){
+    System.out.print(onBoard.size()+" ");
+  }
+
+
   //red 28,468
   //green 468,28
   //yellow 908,468
