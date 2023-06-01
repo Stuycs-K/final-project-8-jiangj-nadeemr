@@ -58,6 +58,9 @@ Made the conditional and the helper methods to ensure that you can only move the
 
 Fixed the dice and token bug, made the random number you a get a public variable to debug the error. I added triangles to represent the changed spawn locations and set the token's spawn location to the correct location.
 
+### 5/31/2023 HW
+
+Added the end goal of the triangle and made a specific set of conditionals to allow the tokens to move towards it once it was close enough. I also added some code for the dice, which prevents users from clicking and moving tokens in the homebase when they did not roll a 6. 
 ## Raihan N
 
 ### 5/22/2023
