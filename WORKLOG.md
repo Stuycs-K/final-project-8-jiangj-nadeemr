@@ -93,3 +93,6 @@ HW: Made it so you can't click anywhere for a token to move -- you must click on
 ## 5/31/2023
 CW: Worked on a scoreboard and planning for demo + looking into dice roll bug.
 HW: Finished scoreboard to display status of the game. Also added a status for when the game is waiting for a user to roll their dice, to explictly show who's turn it is.
+
+## 6/1/2023
+HW: Fixed scoreboard bugs, worked a bit on interactions, worked on README, and helped prepared demos for demo branch.
