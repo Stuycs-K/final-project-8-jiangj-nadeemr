@@ -1,10 +1,13 @@
 # APCS Final Project
 THIS DOCUMENT IS REQUIRED
 ## Group Info
-RaiJin’ Tokens\n
-Period 8 APCS\n
-Raihan Nadeem & Jonathan Jiang\n
-Final Project: Ludo Gameboard\n
+RaiJin’ Tokens
+
+Period 8 APCS
+
+Raihan Nadeem & Jonathan Jiang
+
+Final Project: Ludo Gameboard
 ## Overview
 Ludo is played on a square board divided into four colored quadrants, with each quadrant representing a player's home base. The goal is to move all four of your colored game tokens from your home base to the center of the board, known as “home." In order to move the token, players take turns rolling a dice and moving their pieces based on the number rolled. The game incorporates strategic decision-making as players can choose to either move their existing pieces forward or bring new pieces into play. There are also special abilities such as being able to send an enemy token back home given that you land on the same spot as one of their tokens. 
 ## Instructions
