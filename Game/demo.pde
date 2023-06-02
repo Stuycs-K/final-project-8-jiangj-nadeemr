@@ -169,7 +169,7 @@ public int diceRoll(){
 
 
 void mousePressed(){
-    if(STATE!=0&&STATE!=4){
+    if(STATE==1){
     if(userTurn==4){
       userTurn=0;
     }
@@ -421,6 +421,108 @@ void mousePressed(){
     text("Current Player: " + clr, 1085, 465);
     fill(255);
     dice(1);
+    waiting=true;
+     if(roll!=6&&currentUser.getNumOfTokensInPlay()==0){
+        waiting=false;
+        userTurn++;
+       if(userTurn ==4) userTurn =0;
+      User newTurn = players.get(userTurn);
+      rect(1025,400,350,400);
+      fill(0);
+      text("SCOREBOARD\n", 1115, 435);
+      if(newTurn.colorOfToken == red) clr = "Red";
+      if(newTurn.colorOfToken == green) clr = "Green";
+      if(newTurn.colorOfToken == blue) clr = "Blue";
+      if(newTurn.colorOfToken == yellow) clr = "Yellow";
+      text("\nStatus: Waiting on user roll....", 1030, 455);
+      fill(newTurn.colorOfToken);
+      textSize(26);
+      text(clr + ", it is your turn!", 1100, 550);
+      fill(0);
+      text("\nClick on the dice to roll!",1080,550);
+      fill(255);
+    }
+    }
+    if(currentUser.checkClicking(mouseX,mouseY,roll)&&waiting==true){
+      chooseToken(currentUser,roll);
+      currentUser.tokenFinished();
+      userTurn++;
+      if(userTurn ==4) userTurn =0;
+      String clr = "";
+      User newTurn = players.get(userTurn);
+      rect(1025,400,350,400);
+      fill(0);
+      text("SCOREBOARD\n", 1115, 435);
+      if(newTurn.colorOfToken == red) clr = "Red";
+      if(newTurn.colorOfToken == green) clr = "Green";
+      if(newTurn.colorOfToken == blue) clr = "Blue";
+      if(newTurn.colorOfToken == yellow) clr = "Yellow";
+      text("\nStatus: Waiting on user roll....", 1030, 455);
+      fill(newTurn.colorOfToken);
+      textSize(26);
+      text(clr + ", it is your turn!", 1100, 550);
+      fill(0);
+      text("\nClick on the dice to roll!",1080,550);
+      fill(255);
+      countdown++;
+      waiting=false;
+    }
+    }
+    if(STATE==3||STATE==2){
+    if(userTurn==4){
+      userTurn=0;
+    }
+    User currentUser=players.get(userTurn);
+    if(mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320 &&waiting==false) {
+    roll = 6;
+    x.setCurrentUser(currentUser);
+    currentUser.updateDefeat();
+    String clr = "";
+    if(currentUser.colorOfToken == red) clr = "Red";
+    if(currentUser.colorOfToken == green) clr = "Green";
+    if(currentUser.colorOfToken == blue) clr = "Blue";
+    if(currentUser.colorOfToken == yellow) clr = "Yellow";
+    rect(1025,400,350,400);
+    fill(0);
+    text("SCOREBOARD", 1115, 435);
+    // DISPLAY RED ON SCOREBOARD
+    fill(red);
+    textSize(18);
+    text("Red Tokens", 1155, 500);
+    fill(0);
+    text("Finished\n      "+one.getNumOfTokensFinished(), 1050, 525);
+    text("In Home Base\n         "+one.getNumOfTokensInHome(), 1150, 525);
+    text("On Board\n         "+one.getNumOfTokensInPlay(), 1275, 525);
+    // DISPLAY GREEN ON SCOREBOARD
+    fill(green);
+    textSize(18);
+    text("Green Tokens", 1155, 575);
+    fill(0);
+    text("Finished\n      "+two.getNumOfTokensFinished(), 1050, 600);
+    text("In Home Base\n         "+two.getNumOfTokensInHome(), 1150, 600);
+    text("On Board\n         "+two.getNumOfTokensInPlay(), 1275, 600);
+    // DISPLAY BLUE ON SCOREBOARD
+    fill(blue);
+    textSize(18);
+    text("Blue Tokens", 1155, 650);
+    fill(0);
+    text("Finished\n      "+three.getNumOfTokensFinished(), 1050, 675);
+    text("In Home Base\n         "+three.getNumOfTokensInHome(), 1150, 675);
+    text("On Board\n         "+three.getNumOfTokensInPlay(), 1275, 675);
+    // DISPLAY YELLOW ON SCOREBOARD
+    fill(yellow);
+    textSize(18);
+    text("Yellow Tokens", 1155, 725);
+    fill(0);
+    text("Finished\n      "+four.getNumOfTokensFinished(), 1050, 750);
+    text("In Home Base\n         "+four.getNumOfTokensInHome(), 1150, 750);
+    text("On Board\n         "+four.getNumOfTokensInPlay(), 1275, 750);
+    // CURRENT USER DISPLAY
+    fill(currentUser.colorOfToken);
+    textSize(26);
+    text("Current Player: " + clr, 1085, 465);
+    fill(255);
+    dice(6);
     waiting=true;
      if(roll!=6&&currentUser.getNumOfTokensInPlay()==0){
         waiting=false;
