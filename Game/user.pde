@@ -10,7 +10,7 @@ public class User extends Ludo {
     color green = color(68,217,61);
     color blue= color(103,164,224);
     color yellow= color(242,240,92);
-    numOfTokensInHome=4;
+    numOfTokensInHome=0;
     numOfTokensFinished=0;
     colorOfToken=x;
     if(colorOfToken == red) {
@@ -59,6 +59,7 @@ public class User extends Ludo {
       Token j= this.returnToken();
       int x= j.returnXSpawn();
       int y= j.returnYSpawn();
+      numOfTokensInHome=4;
       j.spawn(x,y);
     }
   }
