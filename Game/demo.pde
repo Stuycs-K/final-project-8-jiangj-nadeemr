@@ -129,8 +129,60 @@ void draw() {
     Token k = two.returnToken();
     Token l = three.returnToken();
     Token m=four.returnToken();*/
+    
+    // STATE 1 - MULTIPLE TOKENS MOVE AROUND THE BOARD!
     } else if(STATE == 1) {
-      // do stuff
+      players.add(one);
+      players.add(two);
+      players.add(three);
+      players.add(four);
+    int[][]board=x.getBoard();
+    for(int i=0;i<17;i++){
+      for(int j=0;j<17;j++){
+        if(board[i][j]==0){
+          rect(i*55,j*55,55,55);
+        }
+        if(board[i][j]==-2){
+          fill(219,48,48);
+          rect(i*55,j*55,55,55);
+          fill(255,255,255);
+      }
+      if(board[i][j]==-3){
+          fill(68,217,61);
+          rect(i*55,j*55,55,55);
+          fill(255,255,255);
+      }
+      if(board[i][j]==-4){
+          fill(242,240,92);
+          rect(i*55,j*55,55,55);
+          fill(255,255,255);
+      }
+      if(board[i][j]==-5){
+          fill(103,164,224);
+          rect(i*55,j*55,55,55);
+          fill(255,255,255);
+      }
+      fill(255,0,0);
+      triangle(28,605,0,550,55,550);
+      fill(0,0,255);
+      triangle(550,935,550,880,605,908);
+      fill(0,255,0);
+      triangle(385,0,385,55,330,28);
+      fill(255,255,0);
+      triangle(935,385,880,385,908,330);
+      fill(255,255,255);
+    }
+    }
+    drawSquares();
+    one.spawnTokens();
+    two.spawnTokens();
+    three.spawnTokens();
+    four.spawnTokens();
+    if(userTurn == 4) userTurn = 0;
+    /*Token j= one.returnToken();
+    Token k = two.returnToken();
+    Token l = three.returnToken();
+    Token m=four.returnToken();*/
     }
 }
 public void chooseToken(User x,int y){
