@@ -200,7 +200,7 @@ void mousePressed(){
         userTurn++;
        if(userTurn ==4) userTurn =0;
       User newTurn = players.get(userTurn);
-      rect(1025,400,350,350);
+      rect(1025,400,350,400);
       fill(0);
       text("SCOREBOARD\n", 1115, 435);
       if(newTurn.colorOfToken == red) clr = "Red";
@@ -223,7 +223,7 @@ void mousePressed(){
       if(userTurn ==4) userTurn =0;
       String clr = "";
       User newTurn = players.get(userTurn);
-      rect(1025,400,350,350);
+      rect(1025,400,350,400);
       fill(0);
       text("SCOREBOARD\n", 1115, 435);
       if(newTurn.colorOfToken == red) clr = "Red";
