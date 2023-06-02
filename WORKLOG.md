@@ -61,6 +61,11 @@ Fixed the dice and token bug, made the random number you a get a public variable
 ### 5/31/2023 HW
 
 Added the end goal of the triangle and made a specific set of conditionals to allow the tokens to move towards it once it was close enough. I also added some code for the dice, which prevents users from clicking and moving tokens in the homebase when they did not roll a 6. 
+
+### 6/1/2023 CW and HW
+
+Fixed the bug that paused the entire game when a token reached to finish line, finished the interactions between tokens including a new method that sent tokens back to the homeyard, and fixed the scoreboard to update the values correctly. Helped with the demo states.
+
 ## Raihan N
 
 ### 5/22/2023
