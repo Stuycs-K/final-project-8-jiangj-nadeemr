@@ -1,8 +1,8 @@
 public class Token {
   private color tokenColor;
-  private boolean touchingEnemyToken, touchingFriendlyToken, finished, isBlock,inHomeBase,finalTurn;
+  private boolean finished, isBlock,inHomeBase,finalTurn,defeated;
   private int spacesAwayFromTriangle;
-  private int xspawn,yspawn,xcor,ycor,xLeave,yLeave,numToken,xHome,yHome;
+  private int xspawn,yspawn,xLeave,yLeave,numToken,xHome,yHome;
   /* Token constructor - creates a token with color
   and position
   */
@@ -32,6 +32,7 @@ public class Token {
     finished=false;
     inHomeBase=true;
     finalTurn=false;
+    defeated=false;
   }
   /* Checks if a token reached home base. If so, remove the token
   from the game, increase User's numOfTokensFinished
@@ -43,15 +44,14 @@ public class Token {
   touching an enemy token, send enemy token home.
   */
   public void checkTouching() {
-    printOnBoard();
     onBoard.remove(this);
-    printOnBoard();
     System.out.println();
     for(int i = 0; i < onBoard.size(); i++) {
       if(onBoard.get(i).returnXLeave() == xLeave && onBoard.get(i).returnYLeave() == yLeave) {
         if(onBoard.get(i).getColor()!=this.getColor()){
         onBoard.get(i).returnToHomeYard();
         onBoard.remove(i);
+        
     }
       }
    }
@@ -148,6 +148,8 @@ public class Token {
   public void returnToHomeYard() {
     xspawn=xHome;
     yspawn=yHome;
+    defeated=true;
+    inHomeBase=true;
   }
   public int returnXSpawn(){
     return xspawn;
@@ -160,6 +162,12 @@ public class Token {
   }
   public int returnYLeave(){
     return yLeave;
+  }
+  public boolean checkDefeated(){
+    return defeated;
+  }
+  public void changeDefeated(boolean x){
+    defeated=x;
   }
   public boolean checkHomeBase(){
     return inHomeBase;

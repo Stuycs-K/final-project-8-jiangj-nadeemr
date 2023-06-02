@@ -147,6 +147,7 @@ void mousePressed(){
     if(mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320 &&waiting==false) {
     roll = diceRoll();
     x.setCurrentUser(currentUser);
+    currentUser.updateDefeat();
     String clr = "";
     if(currentUser.colorOfToken == red) clr = "Red";
     if(currentUser.colorOfToken == green) clr = "Green";

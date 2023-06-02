@@ -78,6 +78,15 @@ public class User extends Ludo {
    public void newCurrentToken(int x){
     currentToken=tokenList.get(x);
   }
+  public void updateDefeat(){
+     for(int i=0;i<tokenList.size();i++){
+      if(tokenList.get(i).checkDefeated()==true){
+        numOfTokensInHome++;
+        numOfTokensInPlay--;
+        tokenList.get(i).changeDefeated(false);
+      }
+     }
+  }
   public boolean checkClicking(int x,int y,int num){
     for(int i=0;i<tokenList.size();i++){
       if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
@@ -88,16 +97,14 @@ public class User extends Ludo {
                    onBoard.add(tokenList.get(i));
                    numOfTokensInHome--;
                    numOfTokensInPlay++;
-               
-                }
-                
+                 }
                 return true;
-
               }
             }
           }
       }
     }
+         
     return false;
   }
   public void changeCurrentToken(int x,int y){
@@ -119,4 +126,5 @@ public class User extends Ludo {
     System.out.println("worked");
   }
 }
+
 }
