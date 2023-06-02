@@ -181,8 +181,45 @@ public class Token {
   public void printOnBoard(){
     System.out.print(onBoard.size()+" ");
   }
-
-
+  public void changeLeave(color x){
+    if(STATE==3){
+       if(x==red){
+      xLeave=28;
+      yLeave=468;
+    }
+    if(x==color(103,164,224)) {
+      xLeave=468;
+      yLeave=908;
+    }
+    if(x==color(68,217,61)) {
+      xLeave=468;
+      yLeave=(28);
+    }
+    if(x==color(242,240,92)) {
+      xLeave=908;
+      yLeave=468;
+    }
+    }
+    if(STATE==2){
+      if(x==red){
+        xLeave=28;
+        yLeave=578;
+      }
+      if(x==blue){
+        xLeave=28;
+        yLeave=523;
+      }
+      if(x==yellow){
+        xLeave=28;
+        yLeave=633;
+      }
+      if(x==green){
+        xLeave=28;
+        yLeave=688;
+      }
+    }
+  }
+  
   //red 28,468
   //green 468,28
   //yellow 908,468
