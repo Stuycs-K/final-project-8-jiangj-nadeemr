@@ -10,7 +10,7 @@ public class User extends Ludo {
     color green = color(68,217,61);
     color blue= color(103,164,224);
     color yellow= color(242,240,92);
-    numOfTokensInHome=0;
+    numOfTokensInHome=4;
     numOfTokensFinished=0;
     colorOfToken=x;
     if(colorOfToken == red) {
@@ -59,7 +59,6 @@ public class User extends Ludo {
       Token j= this.returnToken();
       int x= j.returnXSpawn();
       int y= j.returnYSpawn();
-      numOfTokensInHome=4;
       j.spawn(x,y);
     }
   }
@@ -96,6 +95,7 @@ public class User extends Ludo {
               if(tokenList.get(i).checkHomeBase()==false||num==6){
                  if(tokenList.get(i).checkHomeBase()==true){
                    onBoard.add(tokenList.get(i));
+                   tokenList.get(i).changeLeave(tokenList.get(i).getColor());
                    numOfTokensInHome--;
                    numOfTokensInPlay++;
                  }
@@ -127,5 +127,6 @@ public class User extends Ludo {
     System.out.println("worked");
   }
 }
+
 
 }
