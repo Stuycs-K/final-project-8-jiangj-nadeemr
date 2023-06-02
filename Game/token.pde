@@ -182,7 +182,7 @@ public class Token {
     System.out.print(onBoard.size()+" ");
   }
   public void changeLeave(color x){
-    if(STATE==3){
+    if(STATE==2){
        if(x==red){
       xLeave=28;
       yLeave=468;
@@ -200,7 +200,7 @@ public class Token {
       yLeave=468;
     }
     }
-    if(STATE==2){
+    if(STATE==3){
       if(x==red){
         xLeave=28;
         yLeave=578;
