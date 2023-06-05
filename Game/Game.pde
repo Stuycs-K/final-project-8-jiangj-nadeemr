@@ -130,7 +130,16 @@ public void chooseToken(User x,int y){
    int mouseYCor=mouseY;
    x.changeCurrentToken(mouseXCor,mouseYCor);
    Token j=x.returnToken();
-   j.move(y);
+   if(y == 6) {
+     j.specialMove(y);
+   } else {
+   for(int i = 1; i <= y; i++) {
+     j.move();
+     try {
+     Thread.sleep(1500);
+     } catch(Exception e) {}
+   }
+  }
    j.checkTouching();
  }
 

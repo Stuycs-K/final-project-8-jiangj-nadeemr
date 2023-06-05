@@ -1,3 +1,5 @@
+import java.util.*;
+import java.util.concurrent.TimeUnit ;
 public class Token {
   private color tokenColor;
   private boolean finished, isBlock,inHomeBase,finalTurn,defeated;
@@ -70,78 +72,75 @@ public class Token {
     fill(255,255,255);
     }
   /* Moves a token num places (called in diceRoll) */
-  public void move(int num){
-    if(inHomeBase==true&&num==6){
+  public void specialMove(int num) {
+  if(inHomeBase==true&&num==6){
       xspawn=xLeave;
       yspawn=yLeave;
       inHomeBase=false;
     }
-    else{
-      for(int i = 1; i <= num; i++) {
-        
-        if(getColor()==red&&xLeave==28&&yLeave==468){
-          finalTurn=true;
-        }
-        if(getColor()==green&&xLeave==468&&yLeave==28){
-          finalTurn=true;
-        }
-        if(getColor()==yellow&&xLeave==908&&yLeave==468){
-          finalTurn=true;
-        }
-        if(getColor()==blue&&xLeave==468&&yLeave==908){
-          finalTurn=true;
-        }
-        if(finalTurn==true){
-          if(getColor()==red){
-            xLeave=xLeave+55;
-            xspawn=xLeave;
-            if(xspawn==468){
-              finished=true;
-            }
-          }
-   
-          if(getColor()==green){
-            yLeave=yLeave+55;
-            yspawn=yLeave;
-            if(yspawn==468){
-              finished=true;
-            }
-            }
-          
-          if(getColor()==yellow){
-            xLeave=xLeave-55;
-            xspawn=xLeave;
-            if(xspawn==468){
-              finished=true;
-            }
-            }
-          
-          if(getColor()==blue){
-            
-            yLeave=yLeave-55;
-            yspawn=yLeave;
-            if(yspawn==468){
-              finished=true;
-            }
-            
-          }
-        }
-     
-        else if(xLeave+55 < 935 && ((yLeave==0) || (yLeave + 55) >= 935)) {
-             xLeave = xLeave+55;
-             xspawn= xLeave;
-        } else if(xLeave+55 >=935 && yLeave-55 >=0) { 
-             yLeave = yLeave-55;
-             yspawn = yLeave;
-        } else if(yLeave-55 <= 0 && xLeave-55 >=0) {
-             xLeave = xLeave-55;
-             xspawn = xLeave;
-        } else {
-             yLeave = yLeave+55;
-             yspawn = yLeave;
-      }
-      }
   }
+  public void move(){
+    if(getColor()==red&&xLeave==28&&yLeave==468){
+      finalTurn=true;
+    }
+    if(getColor()==green&&xLeave==468&&yLeave==28){
+      finalTurn=true;
+    }
+    if(getColor()==yellow&&xLeave==908&&yLeave==468){
+      finalTurn=true;
+    }
+    if(getColor()==blue&&xLeave==468&&yLeave==908){
+      finalTurn=true;
+    }
+    if(finalTurn==true){
+      if(getColor()==red){
+        xLeave=xLeave+55;
+        xspawn=xLeave;
+        if(xspawn==468){
+          finished=true;
+        }
+      }
+ 
+      if(getColor()==green){
+        yLeave=yLeave+55;
+        yspawn=yLeave;
+        if(yspawn==468){
+          finished=true;
+        }
+        }
+      
+      if(getColor()==yellow){
+        xLeave=xLeave-55;
+        xspawn=xLeave;
+        if(xspawn==468){
+          finished=true;
+        }
+        }
+      
+      if(getColor()==blue){
+        
+        yLeave=yLeave-55;
+        yspawn=yLeave;
+        if(yspawn==468){
+          finished=true;
+        }
+        
+      }
+    }
+ 
+    else if(xLeave+55 < 935 && ((yLeave==0) || (yLeave + 55) >= 935)) {
+         xLeave = xLeave+55;
+         xspawn= xLeave;
+    } else if(xLeave+55 >=935 && yLeave-55 >=0) { 
+         yLeave = yLeave-55;
+         yspawn = yLeave;
+    } else if(yLeave-55 <= 0 && xLeave-55 >=0) {
+         xLeave = xLeave-55;
+         xspawn = xLeave;
+    } else {
+         yLeave = yLeave+55;
+         yspawn = yLeave;
+    }
  }
   /* Sends a token back to home yard/base. Will be called when
   a token is defeated by an enemy token. */
@@ -180,44 +179,6 @@ public class Token {
   }
   public void printOnBoard(){
     System.out.print(onBoard.size()+" ");
-  }
-  public void changeLeave(color x){
-    if(STATE==2){
-       if(x==red){
-      xLeave=28;
-      yLeave=468;
-    }
-    if(x==color(103,164,224)) {
-      xLeave=468;
-      yLeave=908;
-    }
-    if(x==color(68,217,61)) {
-      xLeave=468;
-      yLeave=(28);
-    }
-    if(x==color(242,240,92)) {
-      xLeave=908;
-      yLeave=468;
-    }
-    }
-    if(STATE==3){
-      if(x==red){
-        xLeave=28;
-        yLeave=578;
-      }
-      if(x==blue){
-        xLeave=28;
-        yLeave=523;
-      }
-      if(x==yellow){
-        xLeave=28;
-        yLeave=633;
-      }
-      if(x==green){
-        xLeave=28;
-        yLeave=688;
-      }
-    }
   }
   
   //red 28,468

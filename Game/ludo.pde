@@ -10,16 +10,9 @@ public static class Ludo {
   */
   public Ludo() {
   // need dimensons for ludo board
-  if(STATE==0){
-    numPlayers=1;
-    userTurn=1;
-  }
-  else{
   numPlayers = 4;
   userTurn = 1;
-  }
   gameBoard=new int[17][17];
-
   }
   /*
   Creates the physical Ludo Board that will be
