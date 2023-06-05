@@ -104,3 +104,6 @@ HW: Finished scoreboard to display status of the game. Also added a status for w
 
 ## 6/1/2023
 HW: Fixed scoreboard bugs, worked a bit on interactions, worked on README, and helped prepared demos for demo branch.
+
+## 6/4/2023
+HW: Worked on presentation demo, ran through how presentation will work / division of presentation.
