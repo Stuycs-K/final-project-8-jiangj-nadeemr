@@ -107,3 +107,7 @@ HW: Fixed scoreboard bugs, worked a bit on interactions, worked on README, and h
 
 ## 6/4/2023
 HW: Worked on presentation demo, ran through how presentation will work / division of presentation.
+
+## 6/5/2023
+CW: N/A (computers down)
+HW: Moving to post-demo features. Started animation of tokens and removed all demo code (will add in shorcuts once game is complete).
