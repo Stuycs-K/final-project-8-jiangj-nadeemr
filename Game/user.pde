@@ -95,7 +95,6 @@ public class User extends Ludo {
               if(tokenList.get(i).checkHomeBase()==false||num==6){
                  if(tokenList.get(i).checkHomeBase()==true){
                    onBoard.add(tokenList.get(i));
-                   tokenList.get(i).changeLeave(tokenList.get(i).getColor());
                    numOfTokensInHome--;
                    numOfTokensInPlay++;
                  }
@@ -127,6 +126,5 @@ public class User extends Ludo {
     System.out.println("worked");
   }
 }
-
 
 }
