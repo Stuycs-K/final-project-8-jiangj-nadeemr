@@ -66,6 +66,9 @@ Added the end goal of the triangle and made a specific set of conditionals to al
 
 Fixed the bug that paused the entire game when a token reached to finish line, finished the interactions between tokens including a new method that sent tokens back to the homeyard, and fixed the scoreboard to update the values correctly. Helped with the demo states.
 
+### 6/4/2023
+
+Finished preparing for presentation.
 ## Raihan N
 
 ### 5/22/2023
