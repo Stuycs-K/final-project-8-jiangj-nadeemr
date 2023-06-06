@@ -130,11 +130,16 @@ public void chooseToken(User x,int y){
    int mouseYCor=mouseY;
    x.changeCurrentToken(mouseXCor,mouseYCor);
    Token j=x.returnToken();
+   if(y<=j.returnSpaces()){
+     j.closerTriangle(y);
+   }
    if(y == 6) {
      j.specialMove(y);
    } else {
    for(int i = 1; i <= y; i++) {
+     if(y<=j.returnSpaces()){
      j.move();
+     }
      try {
      Thread.sleep(1500);
      } catch(Exception e) {}

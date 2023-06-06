@@ -119,7 +119,7 @@ public class User extends Ludo {
     }
   }
   public void tokenFinished(){
-    if(returnToken().checkFinished()==true){
+    if(returnToken().checkFinished()==true&&returnToken().checkIfDone(returnToken().returnSpaces())){
     numOfTokensFinished++;
     numOfTokensInPlay--;
     tokenList.remove(returnToken());
