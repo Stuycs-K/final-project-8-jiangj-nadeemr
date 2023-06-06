@@ -35,12 +35,19 @@ public class Token {
     inHomeBase=true;
     finalTurn=false;
     defeated=false;
+    spacesAwayFromTriangle=72;
   }
   /* Checks if a token reached home base. If so, remove the token
   from the game, increase User's numOfTokensFinished
   */
   public boolean checkIfDone(int spacesAwayFromTriangle) {
     return spacesAwayFromTriangle==0;
+  }
+  public void closerTriangle(int x){
+    spacesAwayFromTriangle=spacesAwayFromTriangle-x;
+  }
+  public int returnSpaces(){
+    return spacesAwayFromTriangle;
   }
   /* Checks if you're touching an enemy/friendly token. If 
   touching an enemy token, send enemy token home.
