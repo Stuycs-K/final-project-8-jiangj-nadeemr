@@ -5,6 +5,7 @@ public class User extends Ludo {
   private color colorOfToken;
   private Token currentToken;
   private ArrayList<Token> tokenList=new ArrayList<Token>(4);
+  private boolean userFinished;
   public User(color x){
     color red=color(219,48,48);
     color green = color(68,217,61);
@@ -12,6 +13,7 @@ public class User extends Ludo {
     color yellow= color(242,240,92);
     numOfTokensInHome=4;
     numOfTokensFinished=0;
+    userFinished=false;
     colorOfToken=x;
     if(colorOfToken == red) {
     Token first= new Token(x,150,150,1);
@@ -124,7 +126,16 @@ public class User extends Ludo {
     numOfTokensInPlay--;
     tokenList.remove(returnToken());
     System.out.println("worked");
+    userFinished();
   }
 }
+  public void userFinished(){
+    if(tokenList.size()==0){
+      userFinished=true;
+    }
+  }
+  public boolean returnUserFinished(){
+    return userFinished;
+  }
 
 }

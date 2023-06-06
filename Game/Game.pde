@@ -6,6 +6,7 @@ color yellow= color(242,240,92);
 int countdown = 0;
 int userTurn=0;
 boolean waiting=false;
+boolean gameDone=false;
 int roll;
 ArrayList<User>players=new ArrayList<User>(4);
 ArrayList<Token>onBoard=new ArrayList<Token>(16);
@@ -73,7 +74,6 @@ public void dice(int num) {
     fill(255);
 }
 void draw() {
-   if(countdown<10000000) {
   int[][]board=x.getBoard();
     for(int i=0;i<17;i++){
       for(int j=0;j<17;j++){
@@ -121,10 +121,8 @@ void draw() {
     Token k = two.returnToken();
     Token l = three.returnToken();
     Token m=four.returnToken();*/
-    } else {
-      print("game done!");
     }
-}
+
 public void chooseToken(User x,int y){
    int mouseXCor=mouseX;
    int mouseYCor=mouseY;
@@ -154,7 +152,7 @@ public int diceRoll(){
 
 
 void mousePressed(){
-    if(userTurn==4){
+    if(userTurn==players.size()){
       userTurn=0;
     }
     User currentUser=players.get(userTurn);
@@ -233,6 +231,9 @@ void mousePressed(){
     if(currentUser.checkClicking(mouseX,mouseY,roll)&&waiting==true){
       chooseToken(currentUser,roll);
       currentUser.tokenFinished();
+      if(currentUser.returnUserFinished()){
+        gameDone=true;
+      }
       userTurn++;
       if(userTurn ==4) userTurn =0;
       String clr = "";
