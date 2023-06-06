@@ -42,7 +42,7 @@ public void drawSquares(){
 public void dice(int num) {
     rect(1100, 100, 220, 220, 28);
     fill(0);
-    if(num==6||num==0) {
+    if(num==6) {
     circle(1150, 150, 25);
     circle(1270, 150, 25);
     circle(1150, 210, 25);
@@ -141,7 +141,7 @@ public void chooseToken(User x,int y){
      j.move();
      }
      try {
-     Thread.sleep(1500);
+     Thread.sleep(100);
      } catch(Exception e) {}
    }
   }
