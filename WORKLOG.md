@@ -74,6 +74,9 @@ Finished preparing for presentation.
 
 No classwork because we were doing demos but I was able to work on creating the mechanic where tokens can't reach the end point without rolling the exact number to reach the end goal. Created a new method and introduced new variables into the existing methods.
 
+### 6/6/2023 CW
+
+Worked on the end of the game, where the game would stop after a user has got all their tokens in the end.
 ## Raihan N
 
 ### 5/22/2023
