@@ -77,6 +77,10 @@ No classwork because we were doing demos but I was able to work on creating the 
 ### 6/6/2023 CW
 
 Worked on the end of the game, where the game would stop after a user has got all their tokens in the end.
+
+##$ 6/7/2023
+
+Discussed about the animation issues and started the bot class.
 ## Raihan N
 
 ### 5/22/2023
