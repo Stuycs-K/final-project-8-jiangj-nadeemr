@@ -160,6 +160,7 @@ void mousePressed(){
     roll = diceRoll();
     x.setCurrentUser(currentUser);
     currentUser.updateDefeat();
+    currentUser.checkBlock();
     String clr = "";
     if(currentUser.colorOfToken == red) clr = "Red";
     if(currentUser.colorOfToken == green) clr = "Green";
