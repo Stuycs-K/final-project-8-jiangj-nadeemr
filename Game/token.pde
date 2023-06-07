@@ -63,7 +63,7 @@ public class Token {
         onBoard.get(i).returnToHomeYard();
         onBoard.remove(i);
           }
-          if(onBoard.get(i).isBlock()==true){
+          else if(onBoard.get(i).isBlock()==true){
             this.returnToHomeYard();
             onBoard.remove(i);
           }
