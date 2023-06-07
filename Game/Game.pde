@@ -7,6 +7,7 @@ int countdown = 0;
 int userTurn=0;
 boolean waiting=false;
 boolean gameDone=false;
+boolean move = false;
 int roll;
 ArrayList<User>players=new ArrayList<User>(4);
 ArrayList<Token>onBoard=new ArrayList<Token>(16);
@@ -117,6 +118,13 @@ void draw() {
     three.spawnTokens();
     four.spawnTokens();
     if(userTurn == 4) userTurn = 0;
+    User currentUsr = players.get(userTurn);
+    if(move) {
+      Token j=currentUsr.returnToken();
+      j.move();
+      print("moved");
+      move = false;
+    }
     /*Token j= one.returnToken();
     Token k = two.returnToken();
     Token l = three.returnToken();
@@ -136,11 +144,14 @@ public void chooseToken(User x,int y){
    } else {
    for(int i = 1; i <= y; i++) {
      if(y<=j.returnSpaces()){
+     //move = true;
+     //print("updated move variable");
      j.move();
      }
      try {
-     Thread.sleep(100);
+     Thread.sleep(200);
      } catch(Exception e) {}
+     move = false;
    }
   }
    j.checkTouching();
