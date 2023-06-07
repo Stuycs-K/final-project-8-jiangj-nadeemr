@@ -137,5 +137,17 @@ public class User extends Ludo {
   public boolean returnUserFinished(){
     return userFinished;
   }
-
+  public void checkBlock(){
+    for(int i=0;i<tokenList.size();i++){
+      Token newToken=tokenList.get(i);
+      if(currentToken.returnNumToken()!=newToken.returnNumToken()){
+        if(currentToken.returnXSpawn()==newToken.returnXSpawn()){
+          if(currentToken.returnYSpawn()==newToken.returnYSpawn()){
+            currentToken.changeBlock(true);
+            newToken.changeBlock(true);
+          }
+        }
+      }
+    }
+  }
 }

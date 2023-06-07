@@ -35,6 +35,7 @@ public class Token {
     inHomeBase=true;
     finalTurn=false;
     defeated=false;
+    isBlock=false;
     spacesAwayFromTriangle=72;
   }
   /* Checks if a token reached home base. If so, remove the token
@@ -58,8 +59,14 @@ public class Token {
     for(int i = 0; i < onBoard.size(); i++) {
       if(onBoard.get(i).returnXLeave() == xLeave && onBoard.get(i).returnYLeave() == yLeave) {
         if(onBoard.get(i).getColor()!=this.getColor()){
+          if(onBoard.get(i).isBlock()==false){
         onBoard.get(i).returnToHomeYard();
         onBoard.remove(i);
+          }
+          if(onBoard.get(i).isBlock()==true){
+            this.returnToHomeYard();
+            onBoard.remove(i);
+          }
         
     }
       }
@@ -187,7 +194,15 @@ public class Token {
   public void printOnBoard(){
     System.out.print(onBoard.size()+" ");
   }
-  
+  public boolean isBlock(){
+    return isBlock;
+  }
+  public void changeBlock(boolean x){
+    isBlock=x;
+  }
+  public int returnNumToken(){
+    return numToken;
+  }
   //red 28,468
   //green 468,28
   //yellow 908,468
