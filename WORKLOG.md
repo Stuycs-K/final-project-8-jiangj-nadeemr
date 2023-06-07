@@ -119,3 +119,7 @@ HW: Worked on presentation demo, ran through how presentation will work / divisi
 ## 6/5/2023
 CW: N/A (computers down)
 HW: Moving to post-demo features. Started animation of tokens and removed all demo code (will add in shorcuts once game is complete).
+
+## 6/6/2023
+CW: Try to animate tokens in different ways (still not working) -- start with empty dice.
+HW: Continued to try and animate tokens (progress but still not done all the way). Also started revising prototype.
