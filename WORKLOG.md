@@ -127,3 +127,7 @@ HW: Moving to post-demo features. Started animation of tokens and removed all de
 ## 6/6/2023
 CW: Try to animate tokens in different ways (still not working) -- start with empty dice.
 HW: Continued to try and animate tokens (progress but still not done all the way). Also started revising prototype.
+
+## 6/7/2023
+CW: Discussed about animation issues and possible solutions.
+HW: Worked on bot class + better user experience.
