@@ -17,6 +17,7 @@ User three= new User(blue);
 User four=new User(yellow);
 void setup(){
   size(1400,935);
+  background(237, 225, 185);
   x.createBoard();
   players.add(one);
   players.add(two);
