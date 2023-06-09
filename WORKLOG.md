@@ -78,9 +78,13 @@ No classwork because we were doing demos but I was able to work on creating the 
 
 Worked on the end of the game, where the game would stop after a user has got all their tokens in the end.
 
-##$ 6/7/2023
+### 6/7/2023
 
 Discussed about the animation issues and started the bot class.
+
+### 6/7/2023 HW
+
+Forgot to push my changes on 6/8 so I pushed them today but if you check the timeline, the push was at 9:45 AM which is before classtime (1:20 PM). I worked on the animation for the movement of the tokens and the movement actually works but there's bugs in user turn display and the token getting moved, so I'm going to fix this next.
 ## Raihan N
 
 ### 5/22/2023
