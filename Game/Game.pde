@@ -16,15 +16,16 @@ boolean tokenPicked=false;
 boolean diceAnimation=false;
 boolean gameStarted=false;
 boolean intermission=false;
+boolean spawn=false;
 int roll=-1;
 int realRoll=-1;
 int time=-1;
 ArrayList<User>players=new ArrayList<User>(4);
 ArrayList<Token>onBoard=new ArrayList<Token>(16);
-User player;= new User(red);
-User two = new User(green);
-User three= new User(blue);
-User four=new User(yellow);
+User player;
+Bot one; 
+Bot two;
+Bot three;
 void setup() {
   game= createFont("game1.ttf", 38);
   file = new SoundFile(this, "dice.wav");
@@ -37,10 +38,6 @@ void setup() {
   rect(935, 435, 465, 500);
   fill(255);
   x.createBoard();
-  players.add(one);
-  players.add(two);
-  players.add(three);
-  players.add(four);
   dice(0);
 }
 public int diceRoll() {
@@ -167,10 +164,10 @@ void draw() {
     }
     currentUser.checkBlock();
   }
-  one.spawnTokens();
-  two.spawnTokens();
-  three.spawnTokens();
-  four.spawnTokens();
+  //one.spawnTokens();
+  //two.spawnTokens();
+  //three.spawnTokens();
+  //four.spawnTokens();
   textSize(10);
   textFont(game);
   fill(red);
@@ -220,7 +217,53 @@ void draw() {
   if(mousePressed&&mouseX>=985&&mouseX<=1130&&mouseY>=610&&mouseY<=685&&intermission) {
     fill(98, 145, 222);
     rect(935, 435, 465, 500);
-    gameStarted=true;
+    player=new User(red);
+    one=new Bot(green);
+    two=new Bot(blue);
+    three=new Bot(yellow);
+    intermission=false;
+    spawn=true;
+  }
+   if(mousePressed&&mouseX>=1235&&mouseX<=1380&&mouseY>=610&&mouseY<=685&&intermission) {
+    fill(98, 145, 222);
+    rect(935, 435, 465, 500);
+    player=new User(green);
+    one=new Bot(blue);
+    two=new Bot(yellow);
+    three=new Bot(red);
+    intermission=false;
+    spawn=true;
+  }
+  if(mousePressed&&mouseX>=985&&mouseX<=1130&&mouseY>=810&&mouseY<=885&&intermission) {
+    fill(98, 145, 222);
+    rect(935, 435, 465, 500);
+    player=new User(blue);
+    one=new Bot(yellow);
+    two=new Bot(red);
+    three=new Bot(green);
+    intermission=false;
+    spawn=true;
+  }
+  if(mousePressed&&mouseX>=1235&&mouseX<=1380&&mouseY>=810&&mouseY<=885&&intermission) {
+    fill(98, 145, 222);
+    rect(935, 435, 465, 500);
+    player=new User(green);
+    one=new Bot(blue);
+    two=new Bot(yellow);
+    three=new Bot(red);
+    intermission=false;
+    spawn=true;
+  }
+  if(spawn) {
+  player.spawnTokens();
+  one.spawnTokens();
+  two.spawnTokens();
+  three.spawnTokens();
+  players.add(player);
+  players.add(one);
+  players.add(two);
+  players.add(three);
+  gameStarted=true;
   }
   if (diceAnimation) {
     for (int i = 1; i <=6; i++) {
@@ -312,8 +355,6 @@ void mousePressed() {
         if (userTurn ==4) {
           userTurn =0;
         }
-
-        User newTurn = players.get(userTurn);
         //rect(1025, 400, 350, 400);
         //fill(0);
         //text("SCOREBOARD\n", 1115, 435);
@@ -357,6 +398,17 @@ void mousePressed() {
       //fill(255);
       waiting=false;
     }
+    // bot stuff
+    print(userTurn);
+    currentUser=players.get(userTurn);
+    roll = diceRoll();
+    realRoll=roll;
+    x.setCurrentUser(currentUser);
+    diceAnimation = true;
+    time=millis()+500;
+    dice(roll);
+    waiting=true;
+    //userTurn++;
   }
  }
 }
