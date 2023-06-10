@@ -1,5 +1,6 @@
 import processing.sound.*;
 SoundFile file;
+SoundFile file2;
 Ludo x= new Ludo();
 color red=color(219, 48, 48);
 color green = color(68, 217, 61);
@@ -17,6 +18,7 @@ boolean diceAnimation=false;
 boolean gameStarted=false;
 boolean intermission=false;
 boolean spawn=false;
+boolean first=true;
 int roll=-1;
 int realRoll=-1;
 int time=-1;
@@ -29,6 +31,7 @@ Bot three;
 void setup() {
   game= createFont("game1.ttf", 38);
   file = new SoundFile(this, "dice.wav");
+  file2 = new SoundFile(this, "clicked.wav");
   size(1400, 935);
   fill(red);
   textSize(50);
@@ -182,10 +185,10 @@ void draw() {
   if(gameStarted==false&&intermission==false){
   PFont f = createFont("Open Sans", 38);
   textFont(f);
-  PFont two = createFont("Georgia", 28);
+  PFont georgia = createFont("Georgia",28);
   fill(0);
   text("Gameboard", 1070, 65);
-  textFont(two);
+  textFont(georgia);
   text("Welcome, player!\n", 1075, 475);
   text("Please click Play to begin.", 1035, 525);
   fill(green);
@@ -221,8 +224,8 @@ void draw() {
     one=new Bot(green);
     two=new Bot(blue);
     three=new Bot(yellow);
-    intermission=false;
     spawn=true;
+    file2.play();
   }
    if(mousePressed&&mouseX>=1235&&mouseX<=1380&&mouseY>=610&&mouseY<=685&&intermission) {
     fill(98, 145, 222);
@@ -231,8 +234,8 @@ void draw() {
     one=new Bot(blue);
     two=new Bot(yellow);
     three=new Bot(red);
-    intermission=false;
     spawn=true;
+    file2.play();
   }
   if(mousePressed&&mouseX>=985&&mouseX<=1130&&mouseY>=810&&mouseY<=885&&intermission) {
     fill(98, 145, 222);
@@ -241,18 +244,30 @@ void draw() {
     one=new Bot(yellow);
     two=new Bot(red);
     three=new Bot(green);
-    intermission=false;
     spawn=true;
+    file2.play();
   }
   if(mousePressed&&mouseX>=1235&&mouseX<=1380&&mouseY>=810&&mouseY<=885&&intermission) {
     fill(98, 145, 222);
     rect(935, 435, 465, 500);
-    player=new User(green);
-    one=new Bot(blue);
-    two=new Bot(yellow);
-    three=new Bot(red);
-    intermission=false;
+    player=new User(yellow);
+    one=new Bot(red);
+    two=new Bot(green);
+    three=new Bot(blue);
     spawn=true;
+    file2.play();
+  }
+  if(spawn&&gameStarted==true&&first) {
+    PFont georgia = createFont("Open Sans",28);
+    fill(255);
+    text("Scoreboard", 1020, 485);
+    textFont(georgia, 25);
+    User plr = players.get(userTurn);
+    fill(plr.colorOfToken);
+    text("Current User: " + plr.getColorOfTokens(), 1065, 520);
+    text("Click on the dice\n for your turn!", 1065, 600);
+    fill(255);
+    first = false;
   }
   if(spawn) {
   player.spawnTokens();
@@ -296,15 +311,28 @@ void mousePressed() {
       userTurn=0;
     }
     User currentUser=players.get(userTurn);
-    if (mouseX>=1100 && mouseX<=1320 && mouseY>=100 && mouseY <= 320 &&waiting==false) {
+    if (mouseX>=1075 && mouseX<=1295 && mouseY>=100 && mouseY<= 320 &&waiting==false) {
       roll = diceRoll();
       realRoll=roll;
       x.setCurrentUser(currentUser);
-      String clr = "";
-      if (currentUser.colorOfToken == red) clr = "Red";
-      if (currentUser.colorOfToken == green) clr = "Green";
-      if (currentUser.colorOfToken == blue) clr = "Blue";
-      if (currentUser.colorOfToken == yellow) clr = "Yellow";
+      fill(98, 145, 222);
+      rect(935, 435, 465, 500);
+      textFont(game);
+      fill(255);
+      text("Scoreboard", 1020, 485);
+      PFont georgia = createFont("Open Sans",28);
+      textFont(georgia, 25);
+      User plr = players.get(userTurn);
+      int newTurn = userTurn+1;
+      if(newTurn == 4) newTurn = 0;
+      User bot = players.get(newTurn);
+      fill(plr.colorOfToken);
+      text("Current User: " + plr.getColorOfTokens(), 1065, 520);
+      //text("Click on the dice\n for your turn!", 1065, 600);
+      fill(bot.colorOfToken);
+      textFont(georgia, 38);
+      text("Upcoming User: " + bot.getColorOfTokens(), 980, 780);
+      fill(255);
       //rect(1025, 400, 350, 400);
       //fill(0);
       //text("SCOREBOARD", 1115, 435);
@@ -399,15 +427,15 @@ void mousePressed() {
       waiting=false;
     }
     // bot stuff
-    print(userTurn);
-    currentUser=players.get(userTurn);
-    roll = diceRoll();
-    realRoll=roll;
-    x.setCurrentUser(currentUser);
-    diceAnimation = true;
-    time=millis()+500;
-    dice(roll);
-    waiting=true;
+    //print(userTurn);
+    //currentUser=players.get(userTurn);
+    //roll = diceRoll();
+    //realRoll=roll;
+    //x.setCurrentUser(currentUser);
+    //diceAnimation = true;
+    //time=millis()+500;
+    //dice(roll);
+    //waiting=true;
     //userTurn++;
   }
  }
