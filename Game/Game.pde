@@ -1,3 +1,5 @@
+import processing.sound.*;
+SoundFile file;
 Ludo x= new Ludo();
 color red=color(219, 48, 48);
 color green = color(68, 217, 61);
@@ -22,6 +24,7 @@ User three= new User(blue);
 User four=new User(yellow);
 void setup() {
   game= createFont("game1.ttf", 38);
+  file = new SoundFile(this, "dice.wav");
   size(1400, 935);
   fill(red);
   textSize(50);
@@ -37,6 +40,7 @@ void setup() {
   dice(0);
 }
 public int diceRoll() {
+  file.play();
   return 1+(int)(Math.random()*6);
 }
 
