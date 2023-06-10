@@ -85,6 +85,10 @@ Discussed about the animation issues and started the bot class.
 ### 6/7/2023 HW
 
 Forgot to push my changes on 6/8 so I pushed them today but if you check the timeline, the push was at 9:45 AM which is before classtime (1:20 PM). I worked on the animation for the movement of the tokens and the movement actually works but there's bugs in user turn display and the token getting moved, so I'm going to fix this next.
+
+### 6/9/2023 CW/HW
+
+Was working on fixing the token animation stuff but I didn't want to mess up the code in main for my partner so I waited until I was able to get it working to push, it's working perfectly now.
 ## Raihan N
 
 ### 5/22/2023
