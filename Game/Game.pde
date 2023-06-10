@@ -21,6 +21,9 @@ User four=new User(yellow);
 void setup(){
   size(1400,935);
   background(237, 225, 185);
+  fill(98, 145, 222);
+  rect(935,435,465,500);
+  fill(255);
   x.createBoard();
   players.add(one);
   players.add(two);
@@ -50,35 +53,35 @@ public void drawSquares(){
     //text("Current Player: ", 1100, 400);
 }
 public void dice(int num) {
-    rect(1100, 100, 220, 220, 28);
+    rect(1075, 100, 220, 220, 28);
     fill(0);
     if(num==6) {
-    circle(1150, 150, 25);
-    circle(1270, 150, 25);
-    circle(1150, 210, 25);
-    circle(1270, 210, 25);
-    circle(1150, 270, 25);
-    circle(1270, 270, 25);
+    circle(1125, 150, 25);
+    circle(1245, 150, 25);
+    circle(1125, 210, 25);
+    circle(1245, 210, 25);
+    circle(1125, 270, 25);
+    circle(1245, 270, 25);
     } else if(num==1) {
-      circle(1210, 210, 25);
+      circle(1185, 210, 25);
     } else if(num==5) {
-    circle(1150, 150, 25);
-    circle(1270, 150, 25);
-    circle(1150, 270, 25);
-    circle(1270, 270, 25);
-    circle(1210, 210, 25);
+    circle(1125, 150, 25);
+    circle(1245, 150, 25);
+    circle(1125, 270, 25);
+    circle(1245, 270, 25);
+    circle(1185, 210, 25);
     } else if(num==4) {
-    circle(1150, 150, 25);
-    circle(1270, 150, 25);
-    circle(1150, 270, 25);
-    circle(1270, 270, 25);
+    circle(1125, 150, 25);
+    circle(1245, 150, 25);
+    circle(1125, 270, 25);
+    circle(1245, 270, 25);
     } else if(num==3) {
-    circle(1150, 150, 25);
-    circle(1210, 210, 25);
-    circle(1270, 270, 25);
+    circle(1125, 150, 25);
+    circle(1185, 210, 25);
+    circle(1245, 270, 25);
     } else if(num==2) {
-    circle(1150, 150, 25);
-    circle(1270, 270, 25);
+    circle(1125, 150, 25);
+    circle(1245, 270, 25);
     }
     fill(255);
 }
