@@ -6,11 +6,11 @@ public class User extends Ludo {
   private Token currentToken;
   private ArrayList<Token> tokenList=new ArrayList<Token>(4);
   private boolean userFinished;
+  color red=color(219,48,48);
+  color green = color(68,217,61);
+  color blue= color(103,164,224);
+  color yellow= color(242,240,92);
   public User(color x){
-    color red=color(219,48,48);
-    color green = color(68,217,61);
-    color blue= color(103,164,224);
-    color yellow= color(242,240,92);
     numOfTokensInHome=4;
     numOfTokensFinished=0;
     userFinished=false;
@@ -67,6 +67,22 @@ public class User extends Ludo {
 
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
+  }
+  public String getColorOfTokens() {
+    String clr = "";
+    if(colorOfToken==red) {
+    clr = "Red";
+    }
+   if(colorOfToken==blue) {
+    clr = "Blue";
+    }
+   if(colorOfToken==yellow) {
+    clr = "Yellow";
+    }
+   if(colorOfToken==green) {
+    clr = "Green";
+    }
+    return clr;
   }
   public int getNumOfTokensInPlay(){
     return numOfTokensInPlay;
