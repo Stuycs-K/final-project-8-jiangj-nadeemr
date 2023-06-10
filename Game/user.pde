@@ -68,6 +68,9 @@ public class User extends Ludo {
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
   }
+  public color getColorOfTokens() {
+    return colorOfToken;
+  }
   public int getNumOfTokensInPlay(){
     return numOfTokensInPlay;
   }
