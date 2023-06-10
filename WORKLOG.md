@@ -135,3 +135,6 @@ HW: Continued to try and animate tokens (progress but still not done all the way
 ## 6/7/2023
 CW: Discussed about animation issues and possible solutions.
 HW: Worked on bot class + better user experience.
+
+## 6/9/2023
+CW/HW: Made UIs better, starting to add more customization options, add a bigger scoreboard menu, add some color changes, add sounds/fonts to decorate the game.
