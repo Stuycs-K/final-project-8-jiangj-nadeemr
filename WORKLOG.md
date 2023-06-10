@@ -142,3 +142,6 @@ HW: Worked on bot class + better user experience.
 
 ## 6/9/2023
 CW/HW: Made UIs better, starting to add more customization options, add a bigger scoreboard menu, add some color changes, add sounds/fonts to decorate the game.
+
+## 6/10/2023
+HW: Allowed user to pick what color they want to officially start the game; added sound effects. Re-made scoreboard (still a w.i.p), and worked on bot movement.
