@@ -58,7 +58,6 @@ public class User extends Ludo {
   }
   public void spawnTokens(){
     for(int i=0;i<tokenList.size();i++){
-      
       Token j= tokenList.get(i);
       int x= j.returnXSpawn();
       int y= j.returnYSpawn();
@@ -113,7 +112,6 @@ public class User extends Ludo {
         if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
           if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
             if(tokenList.get(i).getColor()==colorOfToken&&currentToken!=tokenList.get(i)){
-              System.out.println("changed");
               currentToken=tokenList.get(i);
           }
         }
@@ -125,7 +123,6 @@ public class User extends Ludo {
     numOfTokensFinished++;
     numOfTokensInPlay--;
     tokenList.remove(returnToken());
-    System.out.println("worked");
     userFinished();
   }
 }
@@ -145,20 +142,17 @@ public class User extends Ludo {
           if(currentToken.returnYSpawn()==newToken.returnYSpawn()){
             currentToken.changeBlock(true);
             newToken.changeBlock(true);
+            System.out.println("worked");
           }
         }
       }
+      else{
+        currentToken.changeBlock(false);
+        newToken.changeBlock(false);
     }
   }
-  public void checkCurrentToken(){
-    for(int i=0;i<tokenList.size();i++){
-      if(currentToken.returnXSpawn()==tokenList.get(i).returnXSpawn()){
-        if(currentToken.returnYSpawn()==tokenList.get(i).returnYSpawn()){
-          System.out.println(i);
-        }
-      }
-    }
-  }
+  
+}
 }
           
           

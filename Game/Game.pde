@@ -97,7 +97,6 @@ public void dice(int num) {
   fill(255);
 }
 void draw() {
-  //System.out.println(userTurn);
   int[][]board=x.getBoard();
   for (int i=0; i<17; i++) {
     for (int j=0; j<17; j++) {
@@ -138,7 +137,7 @@ void draw() {
   drawSquares();
   if (tokenPicked==true) {
     User currentUser=players.get(userTurn);
-    currentUser.checkCurrentToken();
+      currentUser.updateDefeat();
     if (roll==0) {
       stillInAnimation=false;
       tokenPicked=false;
@@ -152,6 +151,10 @@ void draw() {
         tokenPicked=false;
         userTurn++;
       }
+      else{
+        j.move();
+        roll--;
+      }
     } else if (roll>0&&millis()>time) {
       time=millis()+500;
       stillInAnimation=true;
@@ -159,6 +162,7 @@ void draw() {
       j.move();
       roll--;
     }
+    currentUser.checkBlock();
   }
   one.spawnTokens();
   two.spawnTokens();
@@ -216,8 +220,6 @@ void mousePressed() {
       roll = diceRoll();
       realRoll=roll;
       x.setCurrentUser(currentUser);
-      currentUser.updateDefeat();
-      currentUser.checkBlock();
       String clr = "";
       if (currentUser.colorOfToken == red) clr = "Red";
       if (currentUser.colorOfToken == green) clr = "Green";
