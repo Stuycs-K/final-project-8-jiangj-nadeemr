@@ -16,49 +16,50 @@ public class User extends Ludo {
     userFinished=false;
     colorOfToken=x;
     if(colorOfToken == red) {
-    Token first= new Token(x,150,150,1);
-    Token second=new Token(x,300,300,2);
-    Token third=new Token(x,150,300,3);
-    Token fourth=new Token(x,300,150,4);
+    Token first= new Token(x,150,150,0);
+    Token second=new Token(x,300,300,1);
+    Token third=new Token(x,150,300,2);
+    Token fourth=new Token(x,300,150,3);
     tokenList.add(first);
     tokenList.add(second);
     tokenList.add(third);
     tokenList.add(fourth);
     } else if(colorOfToken == green) {
-    Token first= new Token(x,600,150,1);
-    Token second=new Token(x,600,300,2);
-    Token third=new Token(x,750,150,3);
-    Token fourth=new Token(x,750,300,4);
+    Token first= new Token(x,600,150,0);
+    Token second=new Token(x,600,300,1);
+    Token third=new Token(x,750,150,2);
+    Token fourth=new Token(x,750,300,3);
     tokenList.add(first);
     tokenList.add(second);
     tokenList.add(third);
     tokenList.add(fourth);
     }
     else if(colorOfToken==blue){
-    Token first= new Token(x,150,600,1);
-    Token second=new Token(x,150,750,2);
-    Token third=new Token(x,300,600,3);
-    Token fourth=new Token(x,300,750,4);
+    Token first= new Token(x,150,600,0);
+    Token second=new Token(x,150,750,1);
+    Token third=new Token(x,300,600,2);
+    Token fourth=new Token(x,300,750,3);
     tokenList.add(first);
     tokenList.add(second);
     tokenList.add(third);
     tokenList.add(fourth);
   }
   else if(colorOfToken==yellow){
-    Token first= new Token(x,600,600,1);
-    Token second=new Token(x,600,750,2);
-    Token third=new Token(x,750,600,3);
-    Token fourth=new Token(x,750,750,4);
+    Token first= new Token(x,600,600,0);
+    Token second=new Token(x,600,750,1);
+    Token third=new Token(x,750,600,2);
+    Token fourth=new Token(x,750,750,3);
     tokenList.add(first);
     tokenList.add(second);
     tokenList.add(third);
     tokenList.add(fourth);
   }
+  currentToken=tokenList.get(0);
   }
   public void spawnTokens(){
     for(int i=0;i<tokenList.size();i++){
-      this.newCurrentToken(i);
-      Token j= this.returnToken();
+      
+      Token j= tokenList.get(i);
       int x= j.returnXSpawn();
       int y= j.returnYSpawn();
       j.spawn(x,y);
@@ -77,9 +78,7 @@ public class User extends Ludo {
   public Token returnToken(){
     return currentToken;
   }
-   public void newCurrentToken(int x){
-    currentToken=tokenList.get(x);
-  }
+  
   public void updateDefeat(){
      for(int i=0;i<tokenList.size();i++){
       if(tokenList.get(i).checkDefeated()==true){
@@ -114,7 +113,8 @@ public class User extends Ludo {
         if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
           if(tokenList.get(i).returnYSpawn()>=y-25&&tokenList.get(i).returnYSpawn()<=y+25){
             if(tokenList.get(i).getColor()==colorOfToken&&currentToken!=tokenList.get(i)){
-              newCurrentToken(i);
+              System.out.println("changed");
+              currentToken=tokenList.get(i);
           }
         }
       }
@@ -150,4 +150,31 @@ public class User extends Ludo {
       }
     }
   }
+  public void checkCurrentToken(){
+    for(int i=0;i<tokenList.size();i++){
+      if(currentToken.returnXSpawn()==tokenList.get(i).returnXSpawn()){
+        if(currentToken.returnYSpawn()==tokenList.get(i).returnYSpawn()){
+          System.out.println(i);
+        }
+      }
+    }
+  }
 }
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+ 
