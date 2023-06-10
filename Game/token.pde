@@ -94,6 +94,7 @@ public class Token {
     }
   }
   public void move(){
+    if(inHomeBase==false){
     if(getColor()==red&&xLeave==28&&yLeave==468){
       finalTurn=true;
     }
@@ -154,6 +155,7 @@ public class Token {
     } else {
          yLeave = yLeave+55;
          yspawn = yLeave;
+    }
     }
  }
   /* Sends a token back to home yard/base. Will be called when
