@@ -1,7 +1,7 @@
 public class Bot extends User{
-  private int numberOfTokensInHome;
+  private int numOfTokensInHome;
   private int numberOfTokensFinished;
-  private int numberOfTokensInPlay;
+  private int numOfTokensInPlay;
   private color colorOfToken;
   private Token currentToken;
   private ArrayList<Token> tokenList=new ArrayList<Token>(4);
@@ -13,7 +13,9 @@ public class Bot extends User{
   private ArrayList<Token>tokenPlayable=new ArrayList<Token>();
   public Bot(color x){
     super(x);
-    numberOfTokensInHome=4;
+    numOfTokensInHome=4;
+    numOfTokensInPlay=0;
+   numberOfTokensFinished=0;
   }
   public Token randomToken(){
     if(tokenPlayable.size()>0){
@@ -26,19 +28,30 @@ public class Bot extends User{
     }
   }
   public int getNumOfTokensInHome(){
-    return numberOfTokensInHome;
+    return numOfTokensInHome;
   }
 public Token tokenInHome(){
   for(int i=0;i<accessorTokenList().size();i++){
     if(accessorTokenList().get(i).checkHomeBase()==true){
       currentToken=(accessorTokenList().get(i));
-      numberOfTokensInHome--;
-      numberOfTokensInPlay++;
+      numOfTokensInHome--;
+      numOfTokensInPlay++;
       onBoard.add(accessorTokenList().get(i));
       tokenPlayable.add(accessorTokenList().get(i));
       break;
     }
   }
   return currentToken;
+}
+public void updateDefeat(){
+  for(int i=0;i<accessorTokenList().size();i++){
+      if(accessorTokenList().get(i).checkDefeated()==true){
+        System.out.println(this.getColorOfTokens()+" has token defeated");
+        numOfTokensInHome++;
+        numOfTokensInPlay--;
+        accessorTokenList().get(i).changeDefeated(false);
+        tokenPlayable.remove(accessorTokenList().get(i));
+      }
+  }
 }
 }

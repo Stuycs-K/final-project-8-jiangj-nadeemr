@@ -154,6 +154,10 @@ void draw() {
     if (roll==0) {
       stillInAnimation=false;
       tokenPicked=false;
+      j.checkTouching();
+       currentUser.checkBlock();
+       currentUser.tokenFinished();
+       currentUser.updateDefeat();
       userTurn++;
     } else if (roll==6) {
       if (j.checkHomeBase()==true) {
@@ -174,7 +178,6 @@ void draw() {
       j.move();
       roll--;
     }
-    currentUser.checkBlock();
   }
   if(roll>j.returnSpaces()){
     userTurn++;
@@ -206,9 +209,12 @@ void draw() {
           tokenPicked=false;
           userTurn++;
       }
-     else if(roll!=6&&currentBot.getNumOfTokensInHome()<=3){
+     else if(roll!=6&&currentBot.getNumOfTokensInHome()<=3||roll==6&&currentBot.getNumOfTokensInHome()==0){
        if(tokenPicked==false){
          movingToken=currentBot.randomToken();
+         currentBot.updateDefeat();
+         currentBot.tokenFinished();
+        currentBot.checkBlock();
          System.out.println("userTurn: "+players.get(userTurn).getColorOfTokens());
          tokenPicked=true;
        }
@@ -218,7 +224,12 @@ void draw() {
           roll--;
           System.out.println(roll+": spaces left");
          if(roll==0){
+           System.out.println("spaces left: "+ currentBot.returnToken().returnSpaces());
          System.out.println("finished, moving on");
+         currentBot.returnToken().checkTouching();
+         currentBot.updateDefeat();
+         currentBot.tokenFinished();
+        currentBot.checkBlock();
             stillInAnimation=false;
             botRolled=false;
             tokenPicked=false;
@@ -238,7 +249,6 @@ void draw() {
      botTurn=false;
      tokenPicked=false;
    }
-  currentBot.checkBlock();
    System.out.println();
   }
           
@@ -375,9 +385,7 @@ public void chooseToken(User x) {
   int mouseXCor=mouseX;
   int mouseYCor=mouseY;
   x.changeCurrentToken(mouseXCor, mouseYCor);
-  Token j=x.returnToken();
   tokenPicked=true;
-  j.checkTouching();
 }
 
 
@@ -480,7 +488,6 @@ void mousePressed() {
     }
     if (currentUser.checkClicking(mouseX, mouseY, roll)&&waiting==true) {
       chooseToken(currentUser);
-      currentUser.tokenFinished();
       if (currentUser.returnUserFinished()) {
         gameDone=true;
       }
