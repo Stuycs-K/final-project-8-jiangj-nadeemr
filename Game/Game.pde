@@ -408,6 +408,7 @@ void mousePressed() {
       roll = diceRoll();
       realRoll=roll;
       x.setCurrentUser(currentUser);
+      // SCOREBOARD START
       fill(98, 145, 222);
       rect(935, 435, 465, 500);
       textFont(game);
@@ -571,6 +572,7 @@ void mousePressed() {
       text("Finished\n      "+three.getNumOfTokensFinished(), 970, 875);
       text("In Home Base\n         "+three.getNumOfTokensInHome(), 1120, 875);
       text("On Board\n         "+three.getNumOfTokensInPlay(), 1300, 875);
+            // SCOREBOARD END
     // bot stuff
     //print(userTurn);
     //currentUser=players.get(userTurn);
