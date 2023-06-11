@@ -1,7 +1,7 @@
 public class Bot extends User{
-  private int numOfTokensInHome;
-  private int numOfTokensFinished;
-  private int numOfTokensInPlay;
+  private int numberOfTokensInHome;
+  private int numberOfTokensFinished;
+  private int numberOfTokensInPlay;
   private color colorOfToken;
   private Token currentToken;
   private ArrayList<Token> tokenList=new ArrayList<Token>(4);
@@ -13,27 +13,32 @@ public class Bot extends User{
   private ArrayList<Token>tokenPlayable=new ArrayList<Token>();
   public Bot(color x){
     super(x);
-  }
-  public void newCurrentToken(Token x){
-    currentToken=x;
+    numberOfTokensInHome=4;
   }
   public Token randomToken(){
     if(tokenPlayable.size()>0){
-    int x=(int)Math.random()*tokenPlayable.size();
-    newCurrentToken(tokenPlayable.get(x));
+    int x=(int)(Math.random()*tokenPlayable.size());
+    System.out.println("token # is: "+x);
+    currentToken=tokenPlayable.get(x);
     return currentToken;
     }
     else{
       return null;
     }
   }
+  public int getNumOfTokensInHome(){
+    return numberOfTokensInHome;
+  }
 public Token tokenInHome(){
-  for(int i=0;i<tokenList.size();i++){
-    if(tokenList.get(i).checkHomeBase()==true){
-      newCurrentToken(tokenList.get(i));
-      numOfTokensInHome--;
-      numOfTokensInPlay++;
-      onBoard.add(tokenList.get(i));
+  for(int i=0;i<accessorTokenList().size();i++){
+    if(accessorTokenList().get(i).checkHomeBase()==true){
+      currentToken=(accessorTokenList().get(i));
+      numberOfTokensInHome--;
+      System.out.println("got token");
+      System.out.println(numberOfTokensInHome);
+      numberOfTokensInPlay++;
+      onBoard.add(accessorTokenList().get(i));
+      tokenPlayable.add(accessorTokenList().get(i));
       break;
     }
   }
