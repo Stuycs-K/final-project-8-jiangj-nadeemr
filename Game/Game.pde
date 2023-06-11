@@ -310,7 +310,7 @@ void draw() {
     fill(255);
     intermission=true;
   }
-  if(mousePressed&&mouseX>=985&&mouseX<=1130&&mouseY>=610&&mouseY<=685&&intermission) {
+  if(mousePressed&&mouseX>=985&&mouseX<=1130&&mouseY>=610&&mouseY<=685&&intermission&&!gameStarted) {
     fill(98, 145, 222);
     rect(935, 435, 465, 500);
     player=new User(red);
@@ -320,7 +320,7 @@ void draw() {
     spawn=true;
     file2.play();
   }
-   if(mousePressed&&mouseX>=1235&&mouseX<=1380&&mouseY>=610&&mouseY<=685&&intermission) {
+   if(mousePressed&&mouseX>=1235&&mouseX<=1380&&mouseY>=610&&mouseY<=685&&intermission&&!gameStarted) {
     fill(98, 145, 222);
     rect(935, 435, 465, 500);
     player=new User(green);
@@ -330,7 +330,7 @@ void draw() {
     spawn=true;
     file2.play();
   }
-  if(mousePressed&&mouseX>=985&&mouseX<=1130&&mouseY>=810&&mouseY<=885&&intermission) {
+  if(mousePressed&&mouseX>=985&&mouseX<=1130&&mouseY>=810&&mouseY<=885&&intermission&&!gameStarted) {
     fill(98, 145, 222);
     rect(935, 435, 465, 500);
     player=new User(blue);
@@ -340,7 +340,7 @@ void draw() {
     spawn=true;
     file2.play();
   }
-  if(mousePressed&&mouseX>=1235&&mouseX<=1380&&mouseY>=810&&mouseY<=885&&intermission) {
+  if(mousePressed&&mouseX>=1235&&mouseX<=1380&&mouseY>=810&&mouseY<=885&&intermission&&!gameStarted) {
     fill(98, 145, 222);
     rect(935, 435, 465, 500);
     player=new User(yellow);
@@ -422,6 +422,12 @@ void mousePressed() {
       fill(plr.colorOfToken);
       text("Current User: " + plr.getColorOfTokens(), 1065, 520);
       //text("Click on the dice\n for your turn!", 1065, 600);
+      fill(player.colorOfToken);
+      text(player.getColorOfTokens() + " Tokens", 980, 540);
+      fill(255);
+      text("Finished\n      "+player.getNumOfTokensFinished(), 1055, 625);
+      text("In Home Base\n         "+player.getNumOfTokensInHome(), 1150, 625);
+      text("On Board\n         "+player.getNumOfTokensInPlay(), 1275, 625);
       fill(bot.colorOfToken);
       textFont(georgia, 38);
       text("Upcoming User: " + bot.getColorOfTokens(), 980, 780);
