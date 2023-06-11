@@ -36,7 +36,7 @@ public class Token {
     finalTurn=false;
     defeated=false;
     isBlock=false;
-    spacesAwayFromTriangle=72;
+    spacesAwayFromTriangle=70;
   }
   /* Checks if a token reached home base. If so, remove the token
   from the game, increase User's numOfTokensFinished
@@ -53,6 +53,22 @@ public class Token {
   /* Checks if you're touching an enemy/friendly token. If 
   touching an enemy token, send enemy token home.
   */
+  public String getColorOfTokens() {
+    String clr = "";
+    if(tokenColor==red) {
+    clr = "Red";
+    }
+   if(tokenColor==blue) {
+    clr = "Blue";
+    }
+   if(tokenColor==yellow) {
+    clr = "Yellow";
+    }
+   if(tokenColor==green) {
+    clr = "Green";
+    }
+    return clr;
+  }
   public void checkTouching() {
     onBoard.remove(this);
     System.out.println();
@@ -61,6 +77,7 @@ public class Token {
         if(onBoard.get(i).getColor()!=this.getColor()){
           if(onBoard.get(i).isBlock()==false){
         onBoard.get(i).returnToHomeYard();
+        System.out.println(this.getColorOfTokens()+" sends back "+onBoard.get(i).getColorOfTokens());
         onBoard.remove(i);
           }
           else if(onBoard.get(i).isBlock()==true){
@@ -88,6 +105,20 @@ public class Token {
   /* Moves a token num places (called in diceRoll) */
   public void specialMove(int num) {
   if(inHomeBase==true&&num==6){
+    if(tokenColor==red) {
+      xLeave=28;
+      yLeave=578;    }
+   if(tokenColor==blue) {
+      xLeave=578;
+      yLeave=908;    }
+   if(tokenColor==yellow) {
+      xLeave=908;
+      yLeave=358;
+    }
+   if(tokenColor==green) {
+      xLeave=358;
+      yLeave=(28);
+    }
       xspawn=xLeave;
       yspawn=yLeave;
       inHomeBase=false;
@@ -95,6 +126,7 @@ public class Token {
   }
   public void move(){
     if(inHomeBase==false){
+      spacesAwayFromTriangle--;
     if(getColor()==red&&xLeave==28&&yLeave==468){
       finalTurn=true;
     }
