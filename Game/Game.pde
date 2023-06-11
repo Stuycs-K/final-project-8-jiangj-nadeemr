@@ -26,6 +26,7 @@ int realRoll=-1;
 int time=-1;
 ArrayList<User>players=new ArrayList<User>(4);
 ArrayList<Token>onBoard=new ArrayList<Token>(16);
+Token movingToken;
 User player;
 Bot one; 
 Bot two;
@@ -52,6 +53,7 @@ public int diceRoll() {
 public void botRoll(){
   file.play();
   roll=1+(int)(Math.random()*6);
+  System.out.println("worked");
 }
 public void drawSquares() {
   fill(219, 48, 48);
@@ -183,50 +185,57 @@ void draw() {
   if(botTurn==true){
     User current=players.get(userTurn);
     Bot currentBot=(Bot)current;
-    System.out.println("worked");
     if(botRolled==false){
       botRoll(); //bot rolls
+       System.out.println("roll is"+roll);
       botRolled=true;
     }
     if(roll!=6&&currentBot.getNumOfTokensInHome()==4){
+        System.out.println("no available tokens" );
+        botRolled=false;
+        tokenPicked=false;
         userTurn++;
       } 
-     else if(roll!=6&&currentBot.getNumOfTokensInHome()!=0){
-        Token j=currentBot.randomToken();
-     if(roll<=j.returnSpaces()){
-      if(roll==0){
-        stillInAnimation=false;
-        userTurn++;
-      }
-      else if(roll==6){
-        if(currentBot.getNumOfTokensInHome()!=0){
-          j=currentBot.tokenInHome();
+      else if(roll==6&&currentBot.getNumOfTokensInHome()!=0){
+          Token j=currentBot.tokenInHome();
           j.specialMove(roll); // bot spawns
           roll=0;
           stillInAnimation=false;
+          botRolled=false;
+          tokenPicked=false;
           userTurn++;
+      }
+     else if(roll!=6&&currentBot.getNumOfTokensInHome()<=3){
+       if(tokenPicked==false){
+         movingToken=currentBot.randomToken();
+         tokenPicked=true;
+       }
+       if(roll<=movingToken.returnSpaces()){
+        if(roll==0){
+            stillInAnimation=false;
+            botRolled=false;
+            tokenPicked=false;
+            userTurn++;
         }
         else{
+          
           time=millis()+500;
-          j.move(); //bot moves
+          movingToken.move(); //bot moves
           roll--;
       }
+       }
     }
-    else if(roll>0&&millis()>time){
-      time=millis()+500;
-      j.move(); //bot moves
-      roll--;
-  }
-    }
-  if(roll>j.returnSpaces()){
+  if(roll>currentBot.returnToken().returnSpaces()){
+    botRolled=false;
     userTurn++;
   }
-     }
    if(userTurn==4){
      userTurn=0;
      botTurn=false;
+     tokenPicked=false;
    }
   currentBot.checkBlock();
+   System.out.println();
   }
           
     
