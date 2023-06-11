@@ -64,6 +64,9 @@ public class User extends Ludo {
       j.spawn(x,y);
     }
   }
+  public ArrayList<Token> accessorTokenList(){
+    return tokenList;
+  }
 
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
@@ -169,6 +172,13 @@ public class User extends Ludo {
   }
   
 }
+public Token randomToken(){
+  return currentToken;
+}
+public Token tokenInHome(){
+  return currentToken;
+}
+
 }
           
           
