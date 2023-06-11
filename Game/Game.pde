@@ -53,7 +53,6 @@ public int diceRoll() {
 public void botRoll(){
   file.play();
   roll=1+(int)(Math.random()*6);
-  System.out.println("worked");
 }
 public void drawSquares() {
   fill(219, 48, 48);
@@ -191,14 +190,16 @@ void draw() {
       botRolled=true;
     }
     if(roll!=6&&currentBot.getNumOfTokensInHome()==4){
-        System.out.println("no available tokens" );
+        System.out.println("userTurn: "+players.get(userTurn).getColorOfTokens()+" no available tokens" );
         botRolled=false;
         tokenPicked=false;
+        roll=0;
         userTurn++;
       } 
       else if(roll==6&&currentBot.getNumOfTokensInHome()!=0){
           Token j=currentBot.tokenInHome();
           j.specialMove(roll); // bot spawns
+          System.out.println(players.get(userTurn).getColorOfTokens()+" spawns token");
           roll=0;
           stillInAnimation=false;
           botRolled=false;
@@ -208,23 +209,26 @@ void draw() {
      else if(roll!=6&&currentBot.getNumOfTokensInHome()<=3){
        if(tokenPicked==false){
          movingToken=currentBot.randomToken();
+         System.out.println("userTurn: "+players.get(userTurn).getColorOfTokens());
          tokenPicked=true;
        }
-       if(roll<=movingToken.returnSpaces()){
-        if(roll==0){
+       if(roll<=movingToken.returnSpaces()&&roll!=0){  
+          time=millis()+500;
+          movingToken.move(); //bot moves
+          roll--;
+          System.out.println(roll+": spaces left");
+         if(roll==0){
+         System.out.println("finished, moving on");
             stillInAnimation=false;
             botRolled=false;
             tokenPicked=false;
             userTurn++;
         }
-        else{
-          
-          time=millis()+500;
-          movingToken.move(); //bot moves
-          roll--;
       }
        }
-    }
+       
+        
+    
   if(roll>currentBot.returnToken().returnSpaces()){
     botRolled=false;
     userTurn++;
