@@ -18,7 +18,6 @@ public class Bot extends User{
   public Token randomToken(){
     if(tokenPlayable.size()>0){
     int x=(int)(Math.random()*tokenPlayable.size());
-    System.out.println("token # is: "+x);
     currentToken=tokenPlayable.get(x);
     return currentToken;
     }
@@ -34,8 +33,6 @@ public Token tokenInHome(){
     if(accessorTokenList().get(i).checkHomeBase()==true){
       currentToken=(accessorTokenList().get(i));
       numberOfTokensInHome--;
-      System.out.println("got token");
-      System.out.println(numberOfTokensInHome);
       numberOfTokensInPlay++;
       onBoard.add(accessorTokenList().get(i));
       tokenPlayable.add(accessorTokenList().get(i));
