@@ -19,6 +19,8 @@ boolean gameStarted=false;
 boolean intermission=false;
 boolean spawn=false;
 boolean first=true;
+boolean botTurn=false;
+boolean botRolled=false;
 int roll=-1;
 int realRoll=-1;
 int time=-1;
@@ -47,7 +49,10 @@ public int diceRoll() {
   file.play();
   return 1+(int)(Math.random()*6);
 }
-
+public void botRoll(){
+  file.play();
+  roll=1+(int)(Math.random()*6);
+}
 public void drawSquares() {
   fill(219, 48, 48);
   rect(55, 55, 385, 385);
@@ -137,15 +142,19 @@ void draw() {
     }
   }
   drawSquares();
+  if(botTurn==false&&userTurn!=0){
+    botTurn=true;
+  }
   if (tokenPicked==true) {
     User currentUser=players.get(userTurn);
+     Token j=currentUser.returnToken();
       currentUser.updateDefeat();
+    if(roll<=j.returnSpaces()){
     if (roll==0) {
       stillInAnimation=false;
       tokenPicked=false;
       userTurn++;
     } else if (roll==6) {
-      Token j=currentUser.returnToken();
       if (j.checkHomeBase()==true) {
         j.specialMove(roll);
         roll=0;
@@ -161,12 +170,68 @@ void draw() {
     } else if (roll>0&&millis()>time) {
       time=millis()+500;
       stillInAnimation=true;
-      Token j=currentUser.returnToken();
       j.move();
       roll--;
     }
     currentUser.checkBlock();
   }
+  if(roll>j.returnSpaces()){
+    userTurn++;
+    tokenPicked=false;
+  }
+  }
+  if(botTurn==true){
+    User current=players.get(userTurn);
+    Bot currentBot=(Bot)current;
+    System.out.println("worked");
+    if(botRolled==false){
+      botRoll(); //bot rolls
+      botRolled=true;
+    }
+    if(roll!=6&&currentBot.getNumOfTokensInHome()==4){
+        userTurn++;
+      } 
+     else if(roll!=6&&currentBot.getNumOfTokensInHome()!=0){
+        Token j=currentBot.randomToken();
+     if(roll<=j.returnSpaces()){
+      if(roll==0){
+        stillInAnimation=false;
+        userTurn++;
+      }
+      else if(roll==6){
+        if(currentBot.getNumOfTokensInHome()!=0){
+          j=currentBot.tokenInHome();
+          j.specialMove(roll); // bot spawns
+          roll=0;
+          stillInAnimation=false;
+          userTurn++;
+        }
+        else{
+          time=millis()+500;
+          j.move(); //bot moves
+          roll--;
+      }
+    }
+    else if(roll>0&&millis()>time){
+      time=millis()+500;
+      j.move(); //bot moves
+      roll--;
+  }
+    }
+  if(roll>j.returnSpaces()){
+    userTurn++;
+  }
+     }
+   if(userTurn==4){
+     userTurn=0;
+     botTurn=false;
+   }
+  currentBot.checkBlock();
+  }
+          
+    
+   
+    
   //one.spawnTokens();
   //two.spawnTokens();
   //three.spawnTokens();
@@ -290,6 +355,7 @@ void draw() {
     dice(realRoll);
     diceAnimation = false;
   }
+  
 }
 
 public void chooseToken(User x) {
@@ -305,7 +371,7 @@ public void chooseToken(User x) {
 
 void mousePressed() {
  // gameStarted=true;
- if(gameStarted==true) {
+ if(gameStarted==true&&botTurn==false) {
   if (stillInAnimation==false) {
     if (userTurn==players.size()) {
       userTurn=0;
