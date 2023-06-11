@@ -89,6 +89,10 @@ Forgot to push my changes on 6/8 so I pushed them today but if you check the tim
 ### 6/9/2023 CW/HW
 
 Was working on fixing the token animation stuff but I didn't want to mess up the code in main for my partner so I waited until I was able to get it working to push, it's working perfectly now.
+
+### 6/10/2023
+
+Finishing work on the bot class and incorporating its methods into the main draw method, this allows for a PVE experience.
 ## Raihan N
 
 ### 5/22/2023
