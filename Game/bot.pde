@@ -1,6 +1,6 @@
 public class Bot extends User{
   private int numOfTokensInHome;
-  private int numberOfTokensFinished;
+  private int numOfTokensFinished;
   private int numOfTokensInPlay;
   private color colorOfToken;
   private Token currentToken;
@@ -15,7 +15,7 @@ public class Bot extends User{
     super(x);
     numOfTokensInHome=4;
     numOfTokensInPlay=0;
-   numberOfTokensFinished=0;
+   numOfTokensFinished=0;
   }
   public Token randomToken(){
     if(tokenPlayable.size()>0){
@@ -29,6 +29,12 @@ public class Bot extends User{
   }
   public int getNumOfTokensInHome(){
     return numOfTokensInHome;
+  }
+  public int getNumOfTokensInPlay(){
+    return numOfTokensInPlay;
+  }
+  public int getNumOfTokensFinished(){
+    return numOfTokensFinished;
   }
 public Token tokenInHome(){
   for(int i=0;i<accessorTokenList().size();i++){

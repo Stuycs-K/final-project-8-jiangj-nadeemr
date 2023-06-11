@@ -106,6 +106,12 @@ public class User extends Ludo {
       }
      }
   }
+  public void safety(){
+    for(int i=0;i<tokenList.size();i++){
+      Token x=tokenList.get(i);
+      x.safetyCheck();
+    }
+  }
   public boolean checkClicking(int x,int y,int num){
     for(int i=0;i<tokenList.size();i++){
       if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
@@ -126,6 +132,7 @@ public class User extends Ludo {
          
     return false;
   }
+ 
   public void changeCurrentToken(int x,int y){
       for(int i=0;i<tokenList.size();i++){
         if(tokenList.get(i).returnXSpawn()>=x-25&&tokenList.get(i).returnXSpawn()<=x+25){
@@ -139,6 +146,7 @@ public class User extends Ludo {
   }
   public void tokenFinished(){
     if(returnToken().checkFinished()==true&&returnToken().checkIfDone(returnToken().returnSpaces())){
+     System.out.println("token is finished");
     numOfTokensFinished++;
     numOfTokensInPlay--;
     tokenList.remove(returnToken());

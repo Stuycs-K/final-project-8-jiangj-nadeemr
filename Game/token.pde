@@ -71,23 +71,42 @@ public class Token {
   }
   public void checkTouching() {
     onBoard.remove(this);
-    System.out.println();
     for(int i = 0; i < onBoard.size(); i++) {
-      if(onBoard.get(i).returnXLeave() == xLeave && onBoard.get(i).returnYLeave() == yLeave) {
+      if(onBoard.get(i).returnXSpawn() == xspawn && onBoard.get(i).returnYSpawn() == yspawn) {
         if(onBoard.get(i).getColor()!=this.getColor()){
+          System.out.println("YOURE ON THE SAME SQUARE!!!!");
           if(onBoard.get(i).isBlock()==false){
         onBoard.get(i).returnToHomeYard();
-        System.out.println(this.getColorOfTokens()+" sends back "+onBoard.get(i).getColorOfTokens());
+        System.out.println(this.getColorOfTokens()+this.returnNumToken()+" sends back "+onBoard.get(i).getColorOfTokens()+onBoard.get(i).returnNumToken());
         onBoard.remove(i);
           }
           else if(onBoard.get(i).isBlock()==true){
             this.returnToHomeYard();
-            onBoard.remove(i);
           }
         
     }
       }
    }
+    onBoard.add(this);
+
+  }
+  public void safetyCheck(){
+    onBoard.remove(this);
+    for(int i=0;i<onBoard.size();i++){
+      if(onBoard.get(i).returnXSpawn()==xspawn&&onBoard.get(i).returnYSpawn()==yspawn){
+        if(onBoard.get(i).getColor()!=this.getColor()){
+          if(this.isBlock()==false){
+            this.returnToHomeYard();
+            System.out.println(onBoard.get(i).getColorOfTokens()+onBoard.get(i).returnNumToken()+" sends back "+this.getColorOfTokens()+this.returnNumToken());
+            onBoard.remove(this);
+          }
+          else if(this.isBlock()==true){
+            onBoard.get(i).returnToHomeYard();
+            onBoard.remove(onBoard.get(i));
+          }
+        }
+      }
+    }
    onBoard.add(this);
   }
   public ArrayList<Token> returnOnBoard() {
@@ -127,38 +146,35 @@ public class Token {
   public void move(){
     if(inHomeBase==false){
       spacesAwayFromTriangle--;
-    if(getColor()==red&&xLeave==28&&yLeave==468){
+    if(getColor()==red&&xspawn==28&&yspawn==468){
       finalTurn=true;
     }
-    if(getColor()==green&&xLeave==468&&yLeave==28){
+    if(getColor()==green&&xspawn==468&&yspawn==28){
       finalTurn=true;
     }
-    if(getColor()==yellow&&xLeave==908&&yLeave==468){
+    if(getColor()==yellow&&xspawn==908&&yspawn==468){
       finalTurn=true;
     }
-    if(getColor()==blue&&xLeave==468&&yLeave==908){
+    if(getColor()==blue&&xspawn==468&&yspawn==908){
       finalTurn=true;
     }
     if(finalTurn==true){
       if(getColor()==red){
-        xLeave=xLeave+55;
-        xspawn=xLeave;
+        xspawn=xspawn+55;
         if(xspawn==468){
           finished=true;
         }
       }
  
       if(getColor()==green){
-        yLeave=yLeave+55;
-        yspawn=yLeave;
+        yspawn=yspawn+55;
         if(yspawn==468){
           finished=true;
         }
         }
       
       if(getColor()==yellow){
-        xLeave=xLeave-55;
-        xspawn=xLeave;
+        xspawn=xspawn-55;
         if(xspawn==468){
           finished=true;
         }
@@ -166,8 +182,7 @@ public class Token {
       
       if(getColor()==blue){
         
-        yLeave=yLeave-55;
-        yspawn=yLeave;
+        yspawn=yspawn-55;
         if(yspawn==468){
           finished=true;
         }
@@ -175,18 +190,14 @@ public class Token {
       }
     }
  
-    else if(xLeave+55 < 935 && ((yLeave==0) || (yLeave + 55) >= 935)) {
-         xLeave = xLeave+55;
-         xspawn= xLeave;
-    } else if(xLeave+55 >=935 && yLeave-55 >=0) { 
-         yLeave = yLeave-55;
-         yspawn = yLeave;
-    } else if(yLeave-55 <= 0 && xLeave-55 >=0) {
-         xLeave = xLeave-55;
-         xspawn = xLeave;
+    else if(xspawn+55 < 935 && ((yspawn==0) || (yspawn + 55) >= 935)) {
+         xspawn= xspawn+55;
+    } else if(xspawn+55 >=935 && yspawn-55 >=0) { 
+         yspawn = yspawn-55;
+    } else if(yspawn-55 <= 0 && xspawn-55 >=0) {
+         xspawn = xspawn-55;
     } else {
-         yLeave = yLeave+55;
-         yspawn = yLeave;
+         yspawn = yspawn+55;
     }
     }
  }
