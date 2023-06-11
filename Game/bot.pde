@@ -13,6 +13,7 @@ public class Bot extends User{
   private ArrayList<Token>tokenPlayable=new ArrayList<Token>();
   public Bot(color x){
     super(x);
+    colorOfToken=x;
     numOfTokensInHome=4;
     numOfTokensInPlay=0;
    numOfTokensFinished=0;
