@@ -21,6 +21,7 @@ boolean spawn=false;
 boolean first=true;
 boolean botTurn=false;
 boolean botRolled=false;
+boolean checkTokens=false;
 int roll=-1;
 int realRoll=-1;
 int time=-1;
@@ -189,7 +190,11 @@ void draw() {
     Bot currentBot=(Bot)current;
     if(botRolled==false){
       botRoll(); //bot rolls
-       System.out.println("roll is"+roll);
+      currentBot.safety();
+       System.out.println("Token in Home: "+currentBot.getNumOfTokensInHome());
+      System.out.println("Token in Play: "+currentBot.getNumOfTokensInPlay());
+      System.out.println("Token in Finished: "+currentBot.getNumOfTokensFinished());
+       System.out.println("roll is: "+roll);
       botRolled=true;
     }
     if(roll!=6&&currentBot.getNumOfTokensInHome()==4){
@@ -222,10 +227,9 @@ void draw() {
           time=millis()+500;
           movingToken.move(); //bot moves
           roll--;
-          System.out.println(roll+": spaces left");
          if(roll==0){
-           System.out.println("spaces left: "+ currentBot.returnToken().returnSpaces());
-         System.out.println("finished, moving on");
+           System.out.println("moving on");
+           System.out.println("size of onBoard"+onBoard.size());
          currentBot.returnToken().checkTouching();
          currentBot.updateDefeat();
          currentBot.tokenFinished();
@@ -358,14 +362,14 @@ void draw() {
     first = false;
   }
   if(spawn) {
-  player.spawnTokens();
-  one.spawnTokens();
-  two.spawnTokens();
-  three.spawnTokens();
   players.add(player);
   players.add(one);
   players.add(two);
   players.add(three);
+   player.spawnTokens();
+  one.spawnTokens();
+  two.spawnTokens();
+  three.spawnTokens();
   gameStarted=true;
   }
   if (diceAnimation) {
@@ -398,6 +402,7 @@ void mousePressed() {
       userTurn=0;
     }
     User currentUser=players.get(userTurn);
+     currentUser.safety();
     if (mouseX>=1075 && mouseX<=1295 && mouseY>=100 && mouseY<= 320 &&waiting==false) {
       roll = diceRoll();
       realRoll=roll;
@@ -488,6 +493,10 @@ void mousePressed() {
     }
     if (currentUser.checkClicking(mouseX, mouseY, roll)&&waiting==true) {
       chooseToken(currentUser);
+      System.out.println("Token in Home: "+currentUser.getNumOfTokensInHome());
+      System.out.println("Token in Play: "+currentUser.getNumOfTokensInPlay());
+      System.out.println("Token in Finished: "+currentUser.getNumOfTokensFinished());
+
       if (currentUser.returnUserFinished()) {
         gameDone=true;
       }
