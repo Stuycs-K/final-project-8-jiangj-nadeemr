@@ -93,6 +93,11 @@ Was working on fixing the token animation stuff but I didn't want to mess up the
 ### 6/10/2023
 
 Finishing work on the bot class and incorporating its methods into the main draw method, this allows for a PVE experience.
+
+### 6/11/2023
+
+Finished more debugging, including both tokens getting sent back home when they were on the same space, some tokens not getting sent back when they got defeated, and the issue of tokens not spawning in the correct location.
+
 ## Raihan N
 
 ### 5/22/2023
