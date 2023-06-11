@@ -307,6 +307,7 @@ void draw() {
     text("Green", 1275, 655);
     text("Blue", 1030, 855);
     text("Yellow", 1270, 855);
+    fill(255);
     intermission=true;
   }
   if(mousePressed&&mouseX>=985&&mouseX<=1130&&mouseY>=610&&mouseY<=685&&intermission) {
