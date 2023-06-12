@@ -319,14 +319,17 @@ void draw() {
       if(STATE==1||STATE==3){
         roll=6;
         realRoll=6;
+        file.play();
       }
       if(STATE==2){
         roll=1;
         realRoll=1;
+        file.play();
       }
       if(STATE==4){
         roll=2;
         realRoll=2;
+        file.play();
       }
       dice(realRoll);
       //bot rolls
@@ -578,14 +581,17 @@ void mousePressed() {
       if(STATE==1||STATE==3){
         roll=6;
         realRoll=6;
+        file.play();
       }
       if(STATE==2){
         roll=1;
         realRoll=1;
+        file.play();
       }
       if(STATE==4){
         roll=2;
         realRoll=2;
+        file.play();
         currentUser.changeTokensFinished(3);
        currentUser.changeTokensInHome(0);
        
