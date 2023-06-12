@@ -62,7 +62,8 @@ public void checkWinner(){
   if(players.get(userTurn).getNumOfTokensFinished()==4){
     User x=players.get(userTurn);
     fill(x.returnToken().getColor());
-    text(x.getColorOfTokens()+" IS THE WINNER!!!!!!!",945,440);
+    textSize(30);
+    text(x.getColorOfTokens()+" IS THE WINNER!!!",945,425);
     delay(2000);
     exit();
   }
