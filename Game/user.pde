@@ -96,6 +96,12 @@ public class User extends Ludo {
   public Token returnToken(){
     return currentToken;
   }
+  public void changeTokensFinished(int x){
+    numOfTokensFinished=x;
+  }
+  public void changeTokensInHome(int x){
+    numOfTokensInHome=x;
+  }
   
   public void updateDefeat(){
      for(int i=0;i<tokenList.size();i++){
@@ -145,8 +151,7 @@ public class User extends Ludo {
     }
   }
   public void tokenFinished(){
-    if(returnToken().checkFinished()==true&&returnToken().checkIfDone(returnToken().returnSpaces())){
-     System.out.println("token is finished");
+    if(returnToken().checkFinished()==true){
     numOfTokensFinished++;
     numOfTokensInPlay--;
     tokenList.remove(returnToken());
@@ -169,7 +174,6 @@ public class User extends Ludo {
           if(currentToken.returnYSpawn()==newToken.returnYSpawn()){
             currentToken.changeBlock(true);
             newToken.changeBlock(true);
-            System.out.println("worked");
           }
         }
       }
