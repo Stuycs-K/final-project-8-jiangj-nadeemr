@@ -25,6 +25,8 @@ public class Token {
       xLeave=908;
       yLeave=358;
     }
+    
+
     tokenColor = clr;
     xspawn = xcord;
     yspawn = ycord;
@@ -140,6 +142,7 @@ public class Token {
       xLeave=358;
       yLeave=(28);
     }
+    changeLeave(tokenColor);
       xspawn=xLeave;
       yspawn=yLeave;
       inHomeBase=false;
@@ -165,6 +168,7 @@ public class Token {
         xspawn=xspawn+55;
         if(xspawn==468){
           finished=true;
+          System.out.println("finished!!!");
         }
       }
  
@@ -249,6 +253,62 @@ public class Token {
   }
   public int returnNumToken(){
     return numToken;
+  }
+  public void changeLeave(color clr){
+    if(STATE==0){
+     if(clr==red){
+      xLeave=28;
+      yLeave=578;
+    }
+    if(clr==color(103,164,224)) {
+      xLeave=578;
+      yLeave=908;
+    }
+    if(clr==color(68,217,61)) {
+      xLeave=358;
+      yLeave=(28);
+    }
+    if(clr==color(242,240,92)) {
+      xLeave=908;
+      yLeave=358;
+    }
+    }
+    if(STATE==3){
+      if(clr==red){
+      xLeave=28;
+      yLeave=468;
+    }
+    if(clr==color(103,164,224)) {
+      xLeave=468;
+      yLeave=908;
+    }
+    if(clr==color(68,217,61)) {
+      xLeave=468;
+      yLeave=(28);
+    }
+    if(clr==color(242,240,92)) {
+      xLeave=908;
+      yLeave=468;
+    }
+    }
+    if(STATE==1){
+      if(clr==red){
+        xLeave=28;
+        yLeave=578;
+      }
+      if(clr==blue){
+        xLeave=28;
+        yLeave=523;
+      }
+      if(clr==yellow){
+        xLeave=28;
+        yLeave=633;
+      }
+      if(clr==green){
+        xLeave=28;
+        yLeave=688;
+      }
+    }
   }
   //red 28,468
   //green 468,28
