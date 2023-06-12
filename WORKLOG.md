@@ -98,6 +98,8 @@ Finishing work on the bot class and incorporating its methods into the main draw
 
 Finished more debugging, including both tokens getting sent back home when they were on the same space, some tokens not getting sent back when they got defeated, and the issue of tokens not spawning in the correct location.
 
+### 6/12/2023 
+Finished the end screen when a player has all of their tokens at the end point. I also made demo states for easier testing and grading, showcasing the mechanics of our project. Lastly, I helped my partner fix the scoreboard to properly depict who's turn it is.
 ## Raihan N
 
 ### 5/22/2023
