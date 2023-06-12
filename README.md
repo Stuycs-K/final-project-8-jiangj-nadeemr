@@ -16,7 +16,7 @@ In order to **start** a game:
 Click the play Button! You will be prompted to select a color for your user, you can pick any. (Note: you will always go first, no matter which color you pick!)
 
 The game is split into different modes in order to test different aspects of the game quickly. The mode will be displayed on top of the scoreboard and will range from 0 - 4. Below are the descriptions
-of each mode. You can move onto the next mode by clicking any key. Default is at mode 0.
+of each mode. You can move onto the next mode by clicking any key. The mode will start at -1, so when you start the program, you should press a key first to ensure you're in mode zero. If you want to ensure you're in the correct mode, you can look at the terminal of the processing project, as it will print the state you are currently in and print the updated state whenever you press a key.
 
 - Mode 0: This is **regular gameplay!** There are no special modifications, you will be able to test user turns here and being able to roll the dice to move your token (note: you need to roll a 6 in order to 
 move a token outside of the homebase. Once you roll a 6, you can click on the token to get it out of the homebase. If you roll and you already have tokens on the board, you can click on the token you want
