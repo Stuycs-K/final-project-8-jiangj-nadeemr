@@ -22,6 +22,7 @@ boolean first=true;
 boolean botTurn=false;
 boolean botRolled=false;
 boolean checkTokens=false;
+boolean please=false;
 int roll=-1;
 int realRoll=-1;
 int time=-1;
@@ -149,6 +150,58 @@ void draw() {
   if(botTurn==false&&userTurn!=0){
     botTurn=true;
   }
+  if(userTurn==0&&players.size()>0&&please==false){
+    delay(1500);
+   User current=players.get(userTurn);
+     fill(98, 145, 222);
+      rect(935, 435, 465, 500);
+      textFont(game);
+      fill(255);
+      text("Scoreboard", 1020, 485);
+      PFont georgia = createFont("Open Sans",28);
+      textFont(georgia, 25);
+      fill(current.colorOfToken);
+      text("It's " + current.getColorOfTokens()+" turn, click on the dice!", 1065, 520);
+      //text("Click on the dice\n for your turn!", 1065, 600);
+      fill(player.colorOfToken);
+      textSize(28);
+      text(player.getColorOfTokens() + " Tokens", 970, 550);
+      fill(255);
+      textSize(18);
+      text("Finished\n      "+player.getNumOfTokensFinished(), 970, 575);
+      text("In Home Base\n         "+player.getNumOfTokensInHome(), 1120, 575);
+      text("On Board\n         "+player.getNumOfTokensInPlay(), 1300, 575);
+      fill(one.colorOfToken);
+      textSize(28);
+      text(one.getColorOfTokens() + " Tokens", 970, 650);
+      fill(255);
+      textSize(18);
+      text("Finished\n      "+one.getNumOfTokensFinished(), 970, 675);
+      text("In Home Base\n         "+one.getNumOfTokensInHome(), 1120, 675);
+      text("On Board\n         "+one.getNumOfTokensInPlay(), 1300, 675);
+      // second
+      fill(two.colorOfToken);
+      textSize(28);
+      text(two.getColorOfTokens() + " Tokens", 970, 750);
+      fill(255);
+      textSize(18);
+      text("Finished\n      "+two.getNumOfTokensFinished(), 970, 775);
+      text("In Home Base\n         "+two.getNumOfTokensInHome(), 1120, 775);
+      text("On Board\n         "+two.getNumOfTokensInPlay(), 1300, 775);
+      // third bot
+      fill(three.colorOfToken);
+      textSize(28);
+      text(three.getColorOfTokens() + " Tokens", 970, 850);
+      fill(255);
+      textSize(18);
+      text("Finished\n      "+three.getNumOfTokensFinished(), 970, 875);
+      text("In Home Base\n         "+three.getNumOfTokensInHome(), 1120, 875);
+      text("On Board\n         "+three.getNumOfTokensInPlay(), 1300, 875);
+      //fill(bot.colorOfToken);
+      //textFont(georgia, 38);
+      //text("Upcoming User: " + bot.getColorOfTokens(), 980, 780);
+      fill(255);
+  }
   if (tokenPicked==true) {
     User currentUser=players.get(userTurn);
      Token j=currentUser.returnToken();
@@ -157,6 +210,7 @@ void draw() {
     if (roll==0) {
       stillInAnimation=false;
       tokenPicked=false;
+      please=false;
       j.checkTouching();
        currentUser.checkBlock();
        currentUser.tokenFinished();
@@ -168,6 +222,7 @@ void draw() {
         roll=0;
         stillInAnimation=false;
         tokenPicked=false;
+        please=false;
         userTurn++;
       }
       else{
@@ -185,6 +240,7 @@ void draw() {
   if(roll>j.returnSpaces()){
     userTurn++;
     tokenPicked=false;
+    please=false;
   }
   }
   if(botTurn==true){
@@ -338,6 +394,7 @@ void draw() {
             stillInAnimation=false;
             botRolled=false;
             tokenPicked=false;
+        
             userTurn++;
         }
       }
@@ -353,6 +410,7 @@ void draw() {
      userTurn=0;
      botTurn=false;
      tokenPicked=false;
+     please=false;
    }
    System.out.println();
   }
@@ -508,6 +566,7 @@ void mousePressed() {
     if (mouseX>=1075 && mouseX<=1295 && mouseY>=100 && mouseY<= 320 &&waiting==false) {
       roll = diceRoll();
       realRoll=roll;
+      please=true;
       x.setCurrentUser(currentUser);
       fill(98, 145, 222);
       rect(935, 435, 465, 500);
