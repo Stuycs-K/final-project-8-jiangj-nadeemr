@@ -20,7 +20,7 @@ of each mode. You can move onto the next mode by clicking any key. Default is at
 
 - Mode 0: This is **regular gameplay!** There are no special modifications, you will be able to test user turns here and being able to roll the dice to move your token (note: you need to roll a 6 in order to 
 move a token outside of the homebase. Once you roll a 6, you can click on the token to get it out of the homebase. If you roll and you already have tokens on the board, you can click on the token you want
-to move.) All the other players are bots; they move randomly (based on probability). You can see what's going on with the scoreboard as it updates when the bots move.
+to move.) All the other players are bots; they move randomly and are controlled by the game. You can see what's going on with the scoreboard as it updates when the bots move.
 
 - Mode 1: Tokens will be spawned right next to each other (rigged to do so). Click on the dice so this can happen. This mode is to setup token interaction (killing another token). 
 
