@@ -91,6 +91,7 @@ public class Token {
 
   }
   public void safetyCheck(){
+    if(this.checkHomeBase()==false){
     onBoard.remove(this);
     for(int i=0;i<onBoard.size();i++){
       if(onBoard.get(i).returnXSpawn()==xspawn&&onBoard.get(i).returnYSpawn()==yspawn){
@@ -108,6 +109,7 @@ public class Token {
       }
     }
    onBoard.add(this);
+  }
   }
   public ArrayList<Token> returnOnBoard() {
     return onBoard;
