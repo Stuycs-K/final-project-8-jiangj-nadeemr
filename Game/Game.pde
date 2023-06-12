@@ -161,7 +161,7 @@ void draw() {
       PFont georgia = createFont("Open Sans",28);
       textFont(georgia, 25);
       fill(current.colorOfToken);
-      text("It's " + current.getColorOfTokens()+" turn, click on the dice!", 1065, 520);
+      text("Click the dice to roll, " + current.getColorOfTokens(), 1010, 520);
       //text("Click on the dice\n for your turn!", 1065, 600);
       fill(player.colorOfToken);
       textSize(28);
@@ -509,18 +509,6 @@ void draw() {
     spawn=true;
     file2.play();
   }
-  if(spawn&&gameStarted==true&&first) {
-    PFont georgia = createFont("Open Sans",28);
-    fill(255);
-    text("Scoreboard", 1020, 485);
-    textFont(georgia, 25);
-    User plr = players.get(userTurn);
-    fill(plr.colorOfToken);
-    text("Current User: " + plr.getColorOfTokens(), 1065, 520);
-    text("Click on the dice\n for your turn!", 1065, 600);
-    fill(255);
-    first = false;
-  }
   if(spawn) {
   players.add(player);
   players.add(one);
@@ -568,23 +556,53 @@ void mousePressed() {
       realRoll=roll;
       please=true;
       x.setCurrentUser(currentUser);
-      fill(98, 145, 222);
+fill(98, 145, 222);
       rect(935, 435, 465, 500);
       textFont(game);
       fill(255);
       text("Scoreboard", 1020, 485);
       PFont georgia = createFont("Open Sans",28);
       textFont(georgia, 25);
-      User plr = players.get(userTurn);
-      int newTurn = userTurn+1;
-      if(newTurn == 4) newTurn = 0;
-      User bot = players.get(newTurn);
-      fill(plr.colorOfToken);
-      text("Current User: " + plr.getColorOfTokens(), 1065, 520);
+      fill(player.colorOfToken);
+      text("Current User: " + player.getColorOfTokens(), 1065, 520);
       //text("Click on the dice\n for your turn!", 1065, 600);
-      fill(bot.colorOfToken);
-      textFont(georgia, 38);
-      text("Upcoming User: " + bot.getColorOfTokens(), 980, 780);
+      fill(player.colorOfToken);
+      textSize(28);
+      text(player.getColorOfTokens() + " Tokens", 970, 550);
+      fill(255);
+      textSize(18);
+      text("Finished\n      "+player.getNumOfTokensFinished(), 970, 575);
+      text("In Home Base\n         "+player.getNumOfTokensInHome(), 1120, 575);
+      text("On Board\n         "+player.getNumOfTokensInPlay(), 1300, 575);
+      fill(one.colorOfToken);
+      textSize(28);
+      text(one.getColorOfTokens() + " Tokens", 970, 650);
+      fill(255);
+      textSize(18);
+      text("Finished\n      "+one.getNumOfTokensFinished(), 970, 675);
+      text("In Home Base\n         "+one.getNumOfTokensInHome(), 1120, 675);
+      text("On Board\n         "+one.getNumOfTokensInPlay(), 1300, 675);
+      // second
+      fill(two.colorOfToken);
+      textSize(28);
+      text(two.getColorOfTokens() + " Tokens", 970, 750);
+      fill(255);
+      textSize(18);
+      text("Finished\n      "+two.getNumOfTokensFinished(), 970, 775);
+      text("In Home Base\n         "+two.getNumOfTokensInHome(), 1120, 775);
+      text("On Board\n         "+two.getNumOfTokensInPlay(), 1300, 775);
+      // third bot
+      fill(three.colorOfToken);
+      textSize(28);
+      text(three.getColorOfTokens() + " Tokens", 970, 850);
+      fill(255);
+      textSize(18);
+      text("Finished\n      "+three.getNumOfTokensFinished(), 970, 875);
+      text("In Home Base\n         "+three.getNumOfTokensInHome(), 1120, 875);
+      text("On Board\n         "+three.getNumOfTokensInPlay(), 1300, 875);
+      //fill(bot.colorOfToken);
+      //textFont(georgia, 38);
+      //text("Upcoming User: " + bot.getColorOfTokens(), 980, 780);
       fill(255);
       //rect(1025, 400, 350, 400);
       //fill(0);
