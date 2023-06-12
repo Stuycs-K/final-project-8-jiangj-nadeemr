@@ -172,14 +172,14 @@ public class User extends Ludo {
       if(currentToken.returnNumToken()!=newToken.returnNumToken()){
         if(currentToken.returnXSpawn()==newToken.returnXSpawn()){
           if(currentToken.returnYSpawn()==newToken.returnYSpawn()){
-            currentToken.changeBlock(true);
-            newToken.changeBlock(true);
+          //  currentToken.changeBlock(true);
+          //  newToken.changeBlock(true);
           }
         }
       }
       else{
-        currentToken.changeBlock(false);
-        newToken.changeBlock(false);
+     //   currentToken.changeBlock(false);
+      //  newToken.changeBlock(false);
     }
   }
   
